@@ -1,0 +1,155 @@
+/* Footer Component */
+
+.site-footer {
+  position: relative;
+  padding: var(--space-8) var(--space-4) var(--space-6);
+  color: var(--muted);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  overflow: visible;
+}
+
+.footer-grid {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+.footer-col {
+  min-width: 0;
+}
+
+.footer-title {
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 12px;
+  opacity: 0.75;
+  margin: 0 0 var(--space-4);
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.linklike {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--text);
+  opacity: 0.9;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition: opacity 0.2s ease;
+}
+
+.linklike:hover {
+  opacity: 1;
+}
+
+.arrow-link {
+  position: relative;
+  padding-right: 22px;
+}
+
+.arrow-link::after {
+  content: "→";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.9;
+}
+
+.socials {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.social {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 9999px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--text);
+  opacity: 0.9;
+  transition: transform 0.15s ease, background 0.25s ease;
+}
+
+.social:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.08);
+}
+
+.footer-bottom {
+  max-width: var(--maxw);
+  margin: var(--space-7) auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.footer-legal {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.footer-legal a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.footer-legal a:hover {
+  color: var(--text);
+  opacity: 1;
+}
+
+.footer-watermark {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  font-weight: 800;
+  font-size: clamp(100px, 14vw, 200px);
+  letter-spacing: -0.03em;
+  color: rgba(255,255,255,0.06);
+  -webkit-text-stroke: 1px rgba(255,255,255,0.08);
+  pointer-events: none;
+  user-select: none;
+  text-align: center;
+  opacity: 1;
+  white-space: nowrap;
+  z-index: 0;
+}
+
+.footer-grid,
+.footer-bottom {
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}

@@ -71,12 +71,57 @@
         init();
     }
 
+    function fixNavbarLinks() {
+        const navbar = document.querySelector('.site-header');
+        if (!navbar) return;
+        
+        // Determine the correct path prefix based on current location
+        const isInProjectsDir = window.location.pathname.includes('/pages/projects/');
+        const isInLegalDir = window.location.pathname.includes('/pages/legal/');
+        const isInPagesDir = window.location.pathname.includes('/pages/');
+        
+        let pathPrefix = '';
+        if (isInProjectsDir || isInLegalDir) {
+            pathPrefix = '../../';
+        } else if (isInPagesDir) {
+            pathPrefix = '../';
+        }
+        
+        // Update all navbar links
+        const links = navbar.querySelectorAll('a');
+        links.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && !href.startsWith('http') && !href.startsWith('#')) {
+                link.setAttribute('href', pathPrefix + href);
+            }
+        });
+    }
+
     async function init() {
+        // Determine the correct path to components based on current page location
+        const isInPagesDir = window.location.pathname.includes('/pages/');
+        const isInProjectsDir = window.location.pathname.includes('/pages/projects/');
+        const isInLegalDir = window.location.pathname.includes('/pages/legal/');
+        
+        let componentPath = 'components/';
+        if (isInProjectsDir) {
+            componentPath = '../../components/';
+        } else if (isInLegalDir) {
+            componentPath = '../../components/';
+        } else if (isInPagesDir) {
+            componentPath = '../components/';
+        }
+        
         // Load navbar
-        const navLoaded = await loadComponent('navbar-placeholder', 'components/navbar.html');
+        const navLoaded = await loadComponent('navbar-placeholder', componentPath + 'navbar.html');
+        
+        // Fix navbar links based on current location
+        if (navLoaded) {
+            fixNavbarLinks();
+        }
         
         // Load footer
-        const footerLoaded = await loadComponent('footer-placeholder', 'components/footer.html');
+        const footerLoaded = await loadComponent('footer-placeholder', componentPath + 'footer.html');
         
         // Fallback: If footer didn't load, embed it directly
         if (!footerLoaded) {

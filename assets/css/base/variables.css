@@ -1,0 +1,76 @@
+/* CSS Custom Properties (Variables) */
+:root {
+  /* Colors */
+  --bg: #050507;
+  --text: #ffffff;
+  --muted: rgba(255,255,255,0.7);
+  --accent: #8a5cff;
+  --accent-secondary: #22d3ee;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  --gradient-secondary: linear-gradient(135deg, rgba(138,92,255,0.1), rgba(34,211,238,0.1));
+  
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 2rem;
+  --space-8: 2.5rem;
+  --space-9: 3rem;
+  --space-10: 4rem;
+  
+  /* Layout */
+  --maxw: 1200px;
+  --border-radius: 8px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-md: 0 10px 15px rgba(0,0,0,0.1);
+  --shadow-lg: 0 20px 25px rgba(0,0,0,0.1);
+  --shadow-hard: 0 8px 32px rgba(0,0,0,0.4);
+  
+  /* Transitions */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Typography */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  
+  /* Tag Colors */
+  --tag-prototyping-bg: rgba(138,92,255,0.15);
+  --tag-prototyping-fg: #8a5cff;
+  --tag-research-bg: rgba(34,211,238,0.15);
+  --tag-research-fg: #22d3ee;
+  --tag-3d-bg: rgba(255,165,0,0.15);
+  --tag-3d-fg: #ffa500;
+  --tag-systems-bg: rgba(34,197,94,0.15);
+  --tag-systems-fg: #22c55e;
+  --tag-uiux-bg: rgba(168,85,247,0.15);
+  --tag-uiux-fg: #a855f7;
+  --tag-creative-bg: rgba(239,68,68,0.15);
+  --tag-creative-fg: #ef4444;
+  --tag-graphic-bg: rgba(245,158,11,0.15);
+  --tag-graphic-fg: #f59e0b;
+  --tag-mentoring-bg: rgba(14,165,233,0.15);
+  --tag-mentoring-fg: #0ea5e9;
+  --tag-dev-bg: rgba(34,211,238,0.15);
+  --tag-dev-fg: #22d3ee;
+  --tag-aicoding-bg: rgba(138,92,255,0.15);
+  --tag-aicoding-fg: #8a5cff;
+}

@@ -1,0 +1,145 @@
+/* Services Component */
+
+/* Services Section */
+.services .services-grid {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+.service-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: var(--space-5);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  height: 100%;
+}
+
+.service-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.service-actions {
+  margin-top: auto;
+}
+
+.service-art {
+  width: 100%;
+  height: 140px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: transparent;
+}
+
+.service-art lottie-player {
+  width: 120px !important;
+  height: 120px !important;
+  max-width: 120px;
+  max-height: 120px;
+}
+
+/* Larger Lottie animations for specific services */
+.service-card:nth-child(5) .service-art lottie-player /* E-commerce & Shop Design */ {
+  width: 140px !important;
+  height: 140px !important;
+  max-width: 140px;
+  max-height: 140px;
+}
+
+.service-card:nth-child(6) .service-art lottie-player /* Social Media & Marketing */ {
+  width: 200px !important;
+  height: 200px !important;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+/* Large Lottie animation for Websites & Landing Pages */
+.service-card:nth-child(1) .service-art lottie-player /* Websites & Landing Pages */ {
+  width: 200px !important;
+  height: 200px !important;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+/* Extra large Lottie animations for Mobile & Web App Design */
+.service-card:nth-child(2) .service-art lottie-player /* Mobile & Web App Design */ {
+  width: 200px !important;
+  height: 200px !important;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+/* Extra large Lottie animation for Animation & Motion */
+.service-card:nth-child(4) .service-art lottie-player /* Animation & Motion */ {
+  width: 280px !important;
+  height: 280px !important;
+  max-width: 280px;
+  max-height: 280px;
+}
+
+/* Even larger Lottie animation for UI & UX Design */
+.service-card:nth-child(3) .service-art lottie-player /* UI & UX Design */ {
+  width: 180px !important;
+  height: 180px !important;
+  max-width: 180px;
+  max-height: 180px;
+}
+
+.service-card h3 {
+  margin: 0;
+  font-size: clamp(20px, 2.4vw, 28px);
+}
+
+.service-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.service-card ul {
+  margin: 16px 0 0 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.service-card li {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.service-card li:before {
+  content: "•";
+  color: var(--accent);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1000px) {
+  .services .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .services .services-grid {
+    grid-template-columns: 1fr;
+  }
+}

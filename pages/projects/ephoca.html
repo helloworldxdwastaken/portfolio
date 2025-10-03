@@ -456,5 +456,128 @@
     }
   })();
   </script>
+  
+  <script>
+    // EPHOCA page animations
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Hero section entrance animation
+    gsap.fromTo('section:first-of-type h1', 
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
+    );
+    
+    gsap.fromTo('section:first-of-type p', 
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, delay: 0.2, ease: "power2.out" }
+    );
+    
+    gsap.fromTo('section:first-of-type ul', 
+      { y: 15, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, delay: 0.4, ease: "power2.out" }
+    );
+    
+    // Project overview animation
+    gsap.fromTo('.project-overview', 
+      { y: 40, opacity: 0 },
+      { 
+        y: 0, 
+        opacity: 1, 
+        duration: 0.7, 
+        scrollTrigger: {
+          trigger: '.project-overview',
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+    
+    // H2 headings animation
+    gsap.fromTo('h2', 
+      { y: 30, opacity: 0 },
+      { 
+        y: 0, 
+        opacity: 1, 
+        duration: 0.6, 
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: 'h2',
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+    
+    // Section animations (targeting sections by style)
+    gsap.fromTo('section[style*="padding"]', 
+      { y: 30, opacity: 0 },
+      { 
+        y: 0, 
+        opacity: 1, 
+        duration: 0.6, 
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: 'section[style*="padding"]',
+          start: "top 75%",
+          end: "bottom 25%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+    
+    // Image and video animations
+    gsap.fromTo('section img, section video', 
+      { scale: 0.95, opacity: 0 },
+      { 
+        scale: 1, 
+        opacity: 1, 
+        duration: 0.6, 
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: 'section img, section video',
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+    
+    // Tools section animation
+    gsap.fromTo('.tools-grid .tool', 
+      { y: 20, opacity: 0, scale: 0.9 },
+      { 
+        y: 0, 
+        opacity: 1, 
+        scale: 1,
+        duration: 0.5, 
+        stagger: 0.05,
+        scrollTrigger: {
+          trigger: '.tools-grid',
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+    
+    // UI Gallery tracks animation
+    gsap.fromTo('.ui-gallery-track', 
+      { y: 20, opacity: 0 },
+      { 
+        y: 0, 
+        opacity: 1, 
+        duration: 0.6, 
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: '.ui-gallery-track',
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+  </script>
 </body>
 </html>

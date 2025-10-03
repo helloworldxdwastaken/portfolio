@@ -110,7 +110,7 @@
 							<li class="tag tag-uiux">UI & UX</li>
 							<li class="tag tag-creative">Creative</li>
 						</ul>
-						<a class="btn btn-secondary btn-pill project-check" href="projects/ephoca.html">See project</a>
+						<a class="btn btn-secondary btn-pill project-check" href="404.html">See project</a>
 					</div>
 				</div>
 
@@ -295,5 +295,88 @@
 	<script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 	<script src="../assets/js/components.js"></script>
 	<script src="../assets/js/main.js?v=10"></script>
+	
+	<script>
+		// Work page animations
+		gsap.registerPlugin(ScrollTrigger);
+		
+		// Hero section entrance animation
+		gsap.fromTo('.work-hero-inner h1', 
+			{ y: 30, opacity: 0 },
+			{ y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
+		);
+		
+		gsap.fromTo('.work-hero-inner .work-lead', 
+			{ y: 20, opacity: 0 },
+			{ y: 0, opacity: 1, duration: 0.8, delay: 0.2, ease: "power2.out" }
+		);
+		
+		// Filter section animation
+		gsap.fromTo('.work-filters-inner h3', 
+			{ y: 20, opacity: 0 },
+			{ 
+				y: 0, 
+				opacity: 1, 
+				duration: 0.6, 
+				scrollTrigger: {
+					trigger: '.work-filters',
+					start: "top 80%",
+					end: "bottom 20%",
+					toggleActions: "play none none reverse"
+				}
+			}
+		);
+		
+		gsap.fromTo('.filter-buttons .filter-btn', 
+			{ y: 15, opacity: 0 },
+			{ 
+				y: 0, 
+				opacity: 1, 
+				duration: 0.5, 
+				stagger: 0.1,
+				scrollTrigger: {
+					trigger: '.filter-buttons',
+					start: "top 80%",
+					end: "bottom 20%",
+					toggleActions: "play none none reverse"
+				}
+			}
+		);
+		
+		// Project cards staggered animation
+		gsap.fromTo('.work-page .project-card', 
+			{ y: 40, opacity: 0, scale: 0.95 },
+			{ 
+				y: 0, 
+				opacity: 1, 
+				scale: 1,
+				duration: 0.7, 
+				stagger: 0.15,
+				ease: "power2.out",
+				scrollTrigger: {
+					trigger: '.projects-grid',
+					start: "top 75%",
+					end: "bottom 25%",
+					toggleActions: "play none none reverse"
+				}
+			}
+		);
+		
+		// CTA button animation
+		gsap.fromTo('.work-cta', 
+			{ y: 20, opacity: 0 },
+			{ 
+				y: 0, 
+				opacity: 1, 
+				duration: 0.6, 
+				scrollTrigger: {
+					trigger: '.work-cta',
+					start: "top 80%",
+					end: "bottom 20%",
+					toggleActions: "play none none reverse"
+				}
+			}
+		);
+	</script>
 </body>
 </html>

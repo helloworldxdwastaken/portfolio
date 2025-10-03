@@ -217,5 +217,130 @@
     <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="../assets/js/components.js"></script>
     <script src="../assets/js/main.js?v=10"></script>
+    
+    <script>
+        // About page animations
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Hero section entrance animation
+        gsap.fromTo('.about-hero h1', 
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
+        );
+        
+        gsap.fromTo('.about-hero .about-lead', 
+            { y: 20, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, delay: 0.2, ease: "power2.out" }
+        );
+        
+        gsap.fromTo('.about-hero .about-cta', 
+            { y: 20, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, delay: 0.3, ease: "power2.out" }
+        );
+        
+        gsap.fromTo('.about-hero-photo img', 
+            { scale: 0.9, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 0.8, delay: 0.4, ease: "power2.out" }
+        );
+        
+        // Story section animation
+        gsap.fromTo('.about-story h2', 
+            { y: 20, opacity: 0 },
+            { 
+                y: 0, 
+                opacity: 1, 
+                duration: 0.6, 
+                scrollTrigger: {
+                    trigger: '.about-story',
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+        
+        gsap.fromTo('.story-text p', 
+            { y: 20, opacity: 0 },
+            { 
+                y: 0, 
+                opacity: 1, 
+                duration: 0.6, 
+                stagger: 0.1,
+                scrollTrigger: {
+                    trigger: '.story-text',
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+        
+        // Stats animation
+        gsap.fromTo('.story-stats .stat', 
+            { y: 30, opacity: 0 },
+            { 
+                y: 0, 
+                opacity: 1, 
+                duration: 0.6, 
+                stagger: 0.1,
+                scrollTrigger: {
+                    trigger: '.story-stats',
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+        
+        // Skills section animation
+        gsap.fromTo('.about-skills h2', 
+            { y: 20, opacity: 0 },
+            { 
+                y: 0, 
+                opacity: 1, 
+                duration: 0.6, 
+                scrollTrigger: {
+                    trigger: '.about-skills',
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+        
+        gsap.fromTo('.skill-category', 
+            { y: 30, opacity: 0 },
+            { 
+                y: 0, 
+                opacity: 1, 
+                duration: 0.6, 
+                stagger: 0.1,
+                scrollTrigger: {
+                    trigger: '.skills-grid',
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+        
+        // Tools animation
+        gsap.fromTo('.tool-item', 
+            { y: 20, opacity: 0, scale: 0.9 },
+            { 
+                y: 0, 
+                opacity: 1, 
+                scale: 1,
+                duration: 0.5, 
+                stagger: 0.05,
+                scrollTrigger: {
+                    trigger: '.tools-grid',
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+    </script>
 </body>
 </html>

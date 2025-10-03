@@ -111,6 +111,48 @@
         });
     }
 
+    function fixFooterLinks() {
+        const footer = document.querySelector('.site-footer');
+        if (!footer) {
+            console.log('Footer not found');
+            return;
+        }
+        
+        // Determine the correct path prefix based on current location
+        const isInProjectsDir = window.location.pathname.includes('/pages/projects/');
+        const isInLegalDir = window.location.pathname.includes('/pages/legal/');
+        const isInPagesDir = window.location.pathname.includes('/pages/');
+        
+        let pathPrefix = '';
+        if (isInProjectsDir || isInLegalDir) {
+            pathPrefix = '../../';
+        } else if (isInPagesDir) {
+            pathPrefix = '../';
+        }
+        
+        console.log('Fixing footer links with prefix:', pathPrefix);
+        
+        // Update all footer links
+        const links = footer.querySelectorAll('a');
+        console.log('Found', links.length, 'footer links');
+        links.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && !href.startsWith('http') && !href.startsWith('#')) {
+                // Fix legal links
+                if (href === 'terms-of-service.html') {
+                    const newHref = pathPrefix + 'pages/legal/terms-of-service.html';
+                    console.log('Updating legal link:', href, '->', newHref);
+                    link.setAttribute('href', newHref);
+                } else if (href === 'legal-notice.html') {
+                    const newHref = pathPrefix + 'pages/legal/legal-notice.html';
+                    console.log('Updating legal link:', href, '->', newHref);
+                    link.setAttribute('href', newHref);
+                }
+                // Other links are already relative and should work
+            }
+        });
+    }
+
     async function init() {
         // Determine the correct path to components based on current page location
         const isInPagesDir = window.location.pathname.includes('/pages/');
@@ -139,6 +181,13 @@
         
         // Load footer
         const footerLoaded = await loadComponent('footer-placeholder', componentPath + 'footer.html');
+        
+        // Fix footer links after loading
+        if (footerLoaded) {
+            setTimeout(() => {
+                fixFooterLinks();
+            }, 100);
+        }
         
         // Fallback: If footer didn't load, embed it directly
         if (!footerLoaded) {
@@ -182,8 +231,8 @@
     <div class="footer-bottom">
         <p>© <span id="year-footer"></span> Enmanuel Yasell. Made with ❤️ and a lot of Wolt takeaways</p>
         <div class="footer-legal">
-            <a href="terms-of-service.html">Terms of Service</a>
-            <a href="legal-notice.html">Legal Notice</a>
+            <a href="${pathPrefix}pages/legal/terms-of-service.html">Terms of Service</a>
+            <a href="${pathPrefix}pages/legal/legal-notice.html">Legal Notice</a>
         </div>
     </div>
     <div class="footer-watermark" aria-hidden="true">Enmanuel Yasell</div>
@@ -239,8 +288,8 @@
     <div class="footer-bottom">
         <p>© <span id="year-footer"></span> Enmanuel Yasell. Made with ❤️ and a lot of Wolt takeaways</p>
         <div class="footer-legal">
-            <a href="terms-of-service.html">Terms of Service</a>
-            <a href="legal-notice.html">Legal Notice</a>
+            <a href="${pathPrefix}pages/legal/terms-of-service.html">Terms of Service</a>
+            <a href="${pathPrefix}pages/legal/legal-notice.html">Legal Notice</a>
         </div>
     </div>
     <div class="footer-watermark" aria-hidden="true">Enmanuel Yasell</div>

@@ -73,7 +73,10 @@
 
     function fixNavbarLinks() {
         const navbar = document.querySelector('.site-header');
-        if (!navbar) return;
+        if (!navbar) {
+            console.log('Navbar not found');
+            return;
+        }
         
         // Determine the correct path prefix based on current location
         const isInProjectsDir = window.location.pathname.includes('/pages/projects/');
@@ -87,12 +90,23 @@
             pathPrefix = '../';
         }
         
+        console.log('Current path:', window.location.pathname);
+        console.log('Path prefix:', pathPrefix);
+        
         // Update all navbar links
         const links = navbar.querySelectorAll('a');
+        console.log('Found', links.length, 'navbar links');
         links.forEach(link => {
             const href = link.getAttribute('href');
             if (href && !href.startsWith('http') && !href.startsWith('#')) {
-                link.setAttribute('href', pathPrefix + href);
+                // If the link already starts with 'pages/', don't add prefix
+                if (href.startsWith('pages/')) {
+                    const newHref = pathPrefix + href;
+                    console.log('Updating pages link:', href, '->', newHref);
+                    link.setAttribute('href', newHref);
+                } else {
+                    console.log('Link already has correct path:', href);
+                }
             }
         });
     }
@@ -117,7 +131,10 @@
         
         // Fix navbar links based on current location
         if (navLoaded) {
-            fixNavbarLinks();
+            // Add a small delay to ensure navbar is fully rendered
+            setTimeout(() => {
+                fixNavbarLinks();
+            }, 100);
         }
         
         // Load footer

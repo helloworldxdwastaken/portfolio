@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>BetterHomePage – Browser Homepage Case Study</title>
+	<meta name="description" content="A beautiful, modular homepage for Brave Browser that solves the problem of ugly default homepages. Features customizable bookmarks, weather widget, inspirational quotes, and glassmorphic design." />
+	<meta name="theme-color" content="#050507" />
+	<meta name="author" content="ENMA" />
+	<link rel="canonical" href="https://example.com/betterhomepage" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="BetterHomePage – Browser Homepage Case Study" />
+	<meta property="og:description" content="A beautiful, modular homepage for Brave Browser that solves the problem of ugly default homepages. Features customizable bookmarks, weather widget, inspirational quotes, and glassmorphic design." />
+	<meta property="og:url" content="https://example.com/betterhomepage" />
+	<meta property="og:image" content="https://helloworldxdwastaken.github.io/BetterHomePage/preview.png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="BetterHomePage – Browser Homepage Case Study" />
+	<meta name="twitter:description" content="A beautiful, modular homepage for Brave Browser that solves the problem of ugly default homepages. Features customizable bookmarks, weather widget, inspirational quotes, and glassmorphic design." />
+	<meta name="twitter:image" content="https://helloworldxdwastaken.github.io/BetterHomePage/preview.png" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link rel="stylesheet" href="assets/css/main.css?v=9" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+	<style>
+	  /* BetterHomePage Custom Styles */
+	  .betterhomepage-hero {
+	    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+	    background-size: 400% 400%;
+	    animation: gradientShift 15s ease infinite;
+	  }
+	  
+	  @keyframes gradientShift {
+	    0% { background-position: 0% 50%; }
+	    50% { background-position: 100% 50%; }
+	    100% { background-position: 0% 50%; }
+	  }
+	  
+	  .betterhomepage-preview {
+	    border-radius: var(--radius-xl);
+	    box-shadow: var(--shadow-hard);
+	    overflow: hidden;
+	    transition: transform 0.3s ease;
+	  }
+	  
+	  .betterhomepage-preview:hover {
+	    transform: scale(1.02);
+	  }
+	  
+	  .tools-grid {
+	    display: grid;
+	    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+	    gap: var(--space-3);
+	    margin-top: var(--space-4);
+	  }
+	  
+	  .tool-item {
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    gap: var(--space-2);
+	    padding: var(--space-4);
+	    border-radius: var(--radius-md);
+	    background: rgba(255,255,255,0.06);
+	    border: 1px solid rgba(255,255,255,0.12);
+	    transition: transform 0.2s ease, background 0.2s ease;
+	  }
+	  
+	  .tool-item:hover {
+	    transform: translateY(-2px);
+	    background: rgba(255,255,255,0.1);
+	  }
+	  
+	  .tool-item img {
+	    width: 24px;
+	    height: 24px;
+	  }
+	  
+	  .tool-item span {
+	    font-size: 12px;
+	    font-weight: 500;
+	    color: var(--text);
+	  }
+	  
+	  .feature-grid {
+	    display: grid;
+	    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	    gap: var(--space-6);
+	  }
+	  
+	  .feature-card {
+	    background: rgba(255,255,255,0.04);
+	    border: 1px solid rgba(255,255,255,0.08);
+	    border-radius: var(--radius-lg);
+	    padding: var(--space-6);
+	    transition: transform 0.3s ease, box-shadow 0.3s ease;
+	  }
+	  
+	  .feature-card:hover {
+	    transform: translateY(-4px);
+	    box-shadow: var(--shadow-soft);
+	  }
+	  
+	  .feature-icon {
+	    font-size: 32px;
+	    margin-bottom: var(--space-3);
+	    display: block;
+	  }
+	  
+	  .development-process {
+	    background: rgba(255,255,255,0.04);
+	    border: 1px solid rgba(255,255,255,0.08);
+	    border-radius: var(--radius-lg);
+	    padding: var(--space-7);
+	  }
+	  
+	  .process-grid {
+	    display: grid;
+	    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	    gap: var(--space-5);
+	    margin-top: var(--space-6);
+	  }
+	  
+	  .process-card {
+	    background: rgba(255,255,255,0.04);
+	    border: 1px solid rgba(255,255,255,0.08);
+	    border-radius: var(--radius-md);
+	    padding: var(--space-5);
+	    transition: transform 0.3s ease;
+	  }
+	  
+	  .process-card:hover {
+	    transform: translateY(-2px);
+	  }
+	  
+	  .process-icon {
+	    font-size: 28px;
+	    margin-bottom: var(--space-3);
+	    display: block;
+	  }
+	  
+	  /* Mobile responsiveness */
+	  @media (max-width: 768px) {
+	    .tools-grid {
+	      grid-template-columns: repeat(2, 1fr) !important;
+	      gap: 8px !important;
+	    }
+	    
+	    .tool {
+	      padding: 8px !important;
+	    }
+	    
+	    .tool img {
+	      width: 20px !important;
+	      height: 20px !important;
+	    }
+	    
+	    .tool span {
+	      font-size: 11px !important;
+	    }
+	    
+	    /* Project overview grid */
+	    .project-overview .grid-2 {
+	      grid-template-columns: 1fr !important;
+	      gap: var(--space-4) !important;
+	    }
+	    
+	    .feature-grid {
+	      grid-template-columns: 1fr;
+	    }
+	    
+	    .process-grid {
+	      grid-template-columns: 1fr;
+	    }
+	    
+	    .development-process {
+	      padding: var(--space-5);
+	    }
+	  }
+	  
+	  @media (max-width: 480px) {
+	    .tools-grid {
+	      grid-template-columns: 1fr !important;
+	    }
+	    
+	    .tool {
+	      padding: 6px !important;
+	    }
+	    
+	    .tool img {
+	      width: 18px !important;
+	      height: 18px !important;
+	    }
+	    
+	    .tool span {
+	      font-size: 10px !important;
+	    }
+	  }
+	</style>
+</head>
+<body>
+	<div id="navbar-placeholder"></div>
+	<main class="site-main">
+		<!-- Hero with Image Background -->
+		<section style="min-height: 100vh; position: relative; display: flex; align-items: center; overflow: hidden;">
+			<div style="position: absolute; inset: 0; z-index: 0;">
+				<img src="assets/images/projects/homepage_betterhomepage.png" alt="BetterHomePage" style="width: 100%; height: 100%; object-fit: cover;" />
+			</div>
+			<!-- Subtle overlay for minimal text enhancement -->
+			<div style="position: absolute; inset: 0; z-index: 1; background: rgba(0,0,0,0.1);"></div>
+			<div style="max-width: var(--maxw); margin: 0 auto; position: relative; z-index: 2; text-align: center; padding: calc(80px + var(--space-6)) var(--space-4) var(--space-6); width: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; min-height: 100vh;">
+				<ul style="display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 18px; margin: 0; padding: 0; list-style: none;">
+					<li class="tag tag-uiux">UI & UX</li>
+					<li class="tag tag-creative">Creative</li>
+					<li class="tag tag-prototyping">Prototyping</li>
+					<li class="tag tag-systems">Design Systems</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- Overview -->
+		<section class="project-overview" style="padding: var(--space-7) var(--space-4); background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.06);">
+			<div style="max-width: var(--maxw); margin: 0 auto;">
+				<h2 style="font-size: clamp(32px, 4vw, 48px); margin: 0 0 var(--space-5);">Project Overview</h2>
+				<div class="grid-2" style="display: grid; grid-template-columns: 0.35fr 0.65fr; gap: var(--space-7); align-items: start; margin-bottom: var(--space-7);">
+					<div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 24px; padding: var(--space-6); box-shadow: var(--shadow-soft);">
+						<div style="margin-bottom: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid rgba(255,255,255,0.08);">
+							<div style="font-size: 12px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; letter-spacing: 0.1em;">Timeline</div>
+							<div style="font-size: 16px; font-weight: 600;">3+ Weeks</div>
+						</div>
+						<div style="margin-bottom: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid rgba(255,255,255,0.08);">
+							<div style="font-size: 12px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; letter-spacing: 0.1em;">Role</div>
+							<div style="font-size: 16px; font-weight: 600;">Full-Stack Developer & UI/UX Designer</div>
+						</div>
+						<div style="margin-bottom: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid rgba(255,255,255,0.08);">
+							<div style="font-size: 12px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; letter-spacing: 0.1em;">Platform</div>
+							<div style="font-size: 16px; font-weight: 600;">Web Browser (Brave)</div>
+						</div>
+						<div style="margin-bottom: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid rgba(255,255,255,0.08);">
+							<div style="font-size: 12px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; letter-spacing: 0.1em;">Deliverables</div>
+							<div style="font-size: 16px; font-weight: 600;">Modular Homepage, Weather Widget, Customizable Dashboard, PWA Implementation</div>
+						</div>
+						<div style="margin-top: var(--space-4);">
+							<div style="font-size: 12px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; letter-spacing: 0.1em;">Tools</div>
+							<div class="tools-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
+								<div class="tool html5" title="HTML5" style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); transition: transform 0.2s ease;">
+									<img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/html5.svg" alt="HTML5" style="width: 24px; height: 24px;" />
+									<span style="font-size: 12px; font-weight: 500;">HTML5</span>
+								</div>
+								<div class="tool css3" title="CSS3" style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); transition: transform 0.2s ease;">
+									<img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/css3.svg" alt="CSS3" style="width: 24px; height: 24px;" />
+									<span style="font-size: 12px; font-weight: 500;">CSS3</span>
+								</div>
+								<div class="tool js" title="JavaScript" style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); transition: transform 0.2s ease;">
+									<img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/javascript.svg" alt="JavaScript" style="width: 24px; height: 24px;" />
+									<span style="font-size: 12px; font-weight: 500;">JavaScript</span>
+								</div>
+								<div class="tool figma" title="Figma" style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); transition: transform 0.2s ease;">
+									<img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" alt="Figma" style="width: 24px; height: 24px;" />
+									<span style="font-size: 12px; font-weight: 500;">Figma</span>
+								</div>
+								<div class="tool ps" title="Adobe Photoshop" style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); transition: transform 0.2s ease;">
+									<img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobephotoshop.svg" alt="Photoshop" style="width: 24px; height: 24px;" />
+									<span style="font-size: 12px; font-weight: 500;">Photoshop</span>
+								</div>
+								<div class="tool cursor" title="Cursor" style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); transition: transform 0.2s ease;">
+									<img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/visualstudiocode.svg" alt="Cursor" style="width: 24px; height: 24px;" />
+									<span style="font-size: 12px; font-weight: 500;">Cursor</span>
+								</div>
+								<div class="tool pwa" title="PWA" style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); transition: transform 0.2s ease;">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+										<path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+										<path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+									</svg>
+									<span style="font-size: 12px; font-weight: 500;">PWA</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="position: relative;">
+						<div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-hard); margin-bottom: var(--space-5);">
+							<img src="https://github.com/helloworldxdwastaken/BetterHomePage/raw/main/preview.gif" alt="BetterHomePage in action" style="width: 100%; height: auto; display: block;" />
+						</div>
+						<div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-lg); padding: var(--space-5);">
+							<h3 style="font-size: 18px; font-weight: 600; margin: 0 0 var(--space-3); color: var(--text);">Project Showcase</h3>
+							<p style="color: var(--muted); margin: 0; line-height: 1.6;">This animated preview demonstrates BetterHomePage's core functionality, showcasing the glassmorphic design, interactive widgets, and seamless user experience. The modular architecture allows for easy customization while maintaining performance and visual appeal across all devices.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Feature Showcase -->
+		<section style="max-width: var(--maxw); margin: 0 auto var(--space-8); padding: 0 var(--space-4);">
+			<h2 style="font-size: clamp(32px, 4vw, 48px); text-align: center; margin: 0 0 var(--space-7); color: var(--text);">Key Features</h2>
+			<div class="feature-grid">
+				<div class="feature-card">
+					<span class="feature-icon">🎨</span>
+					<h3 style="margin: 0 0 var(--space-3); color: var(--text);">Glassmorphic Design</h3>
+					<p style="color: var(--muted); margin: 0; line-height: 1.6;">Beautiful frosted glass aesthetic with subtle transparency effects and smooth animations that create a modern, premium feel.</p>
+				</div>
+				<div class="feature-card">
+					<span class="feature-icon">⚡</span>
+					<h3 style="margin: 0 0 var(--space-3); color: var(--text);">Modular Widgets</h3>
+					<p style="color: var(--muted); margin: 0; line-height: 1.6;">Customizable dashboard with draggable widgets including bookmarks, weather, quotes, and productivity tools.</p>
+				</div>
+				<div class="feature-card">
+					<span class="feature-icon">🌤️</span>
+					<h3 style="margin: 0 0 var(--space-3); color: var(--text);">Weather Integration</h3>
+					<p style="color: var(--muted); margin: 0; line-height: 1.6;">Real-time weather information with beautiful icons and location-based updates for your daily planning.</p>
+				</div>
+				<div class="feature-card">
+					<span class="feature-icon">📱</span>
+					<h3 style="margin: 0 0 var(--space-3); color: var(--text);">Responsive Design</h3>
+					<p style="color: var(--muted); margin: 0; line-height: 1.6;">Seamless experience across all devices with touch-friendly interfaces and adaptive layouts.</p>
+				</div>
+				<div class="feature-card">
+					<span class="feature-icon">🔧</span>
+					<h3 style="margin: 0 0 var(--space-3); color: var(--text);">Customizable Settings</h3>
+					<p style="color: var(--muted); margin: 0; line-height: 1.6;">Personalize your experience with custom themes, widget arrangements, and browser integration preferences.</p>
+				</div>
+				<div class="feature-card">
+					<span class="feature-icon">🚀</span>
+					<h3 style="margin: 0 0 var(--space-3); color: var(--text);">PWA Support</h3>
+					<p style="color: var(--muted); margin: 0; line-height: 1.6;">Progressive Web App capabilities with offline functionality and app-like installation experience.</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Development Process -->
+		<section style="max-width: var(--maxw); margin: 0 auto var(--space-8); padding: 0 var(--space-4);">
+			<h2 style="font-size: clamp(32px, 4vw, 48px); text-align: center; margin: 0 0 var(--space-7); color: var(--text);">Development Process</h2>
+			<div class="development-process">
+				<div class="process-grid">
+					<div class="process-card">
+						<span class="process-icon">🎨</span>
+						<h3 style="margin: 0 0 var(--space-3); color: var(--text);">Design & Prototyping</h3>
+						<p style="color: var(--muted); margin: 0; line-height: 1.6;">Started with comprehensive wireframes and high-fidelity prototypes in Figma, defining the glassmorphic aesthetic, component hierarchy, and user interaction patterns before writing a single line of code.</p>
+					</div>
+					<div class="process-card">
+						<span class="process-icon">🤖</span>
+						<h3 style="margin: 0 0 var(--space-3); color: var(--text);">AI-Assisted Development</h3>
+						<p style="color: var(--muted); margin: 0; line-height: 1.6;">Leveraged Cursor IDE's advanced AI capabilities combined with ChatGPT and Claude for code generation, optimization, and architectural decision-making, accelerating development while maintaining code quality.</p>
+					</div>
+					<div class="process-card">
+						<span class="process-icon">⚡</span>
+						<h3 style="margin: 0 0 var(--space-3); color: var(--text);">Modular Architecture</h3>
+						<p style="color: var(--muted); margin: 0; line-height: 1.6;">Implemented a sophisticated modular system where each widget operates independently, enabling easy maintenance, testing, and future feature additions with minimal code coupling.</p>
+					</div>
+					<div class="process-card">
+						<span class="process-icon">🔧</span>
+						<h3 style="margin: 0 0 var(--space-3); color: var(--text);">Performance Optimization</h3>
+						<p style="color: var(--muted); margin: 0; line-height: 1.6;">Optimized for speed and efficiency with lazy loading, efficient DOM manipulation, and intelligent caching strategies to ensure smooth performance across all devices and browsers.</p>
+					</div>
+					<div class="process-card">
+						<span class="process-icon">🌐</span>
+						<h3 style="margin: 0 0 var(--space-3); color: var(--text);">PWA Implementation</h3>
+						<p style="color: var(--muted); margin: 0; line-height: 1.6;">Transformed the project into a Progressive Web App with offline capabilities, push notifications, and app-like installation experience for seamless browser integration.</p>
+					</div>
+					<div class="process-card">
+						<span class="process-icon">🚀</span>
+						<h3 style="margin: 0 0 var(--space-3); color: var(--text);">Cross-Browser Testing</h3>
+						<p style="color: var(--muted); margin: 0; line-height: 1.6;">Comprehensive testing across Chrome, Firefox, Safari, and Brave browsers to ensure consistent functionality and visual fidelity on all platforms and devices.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Technical Implementation -->
+		<section style="max-width: var(--maxw); margin: 0 auto var(--space-8); padding: 0 var(--space-4);">
+			<h2 style="font-size: clamp(32px, 4vw, 48px); margin: 0 0 var(--space-6); color: var(--text);">Technical Implementation</h2>
+			<div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: start;">
+				<div>
+					<h3 style="font-size: 20px; font-weight: 600; margin: 0 0 var(--space-4); color: var(--text);">Core Technologies</h3>
+					<ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-3);">
+						<li style="display: flex; align-items: center; gap: var(--space-3);">
+							<span style="color: var(--accent-1); font-weight: 600;">•</span>
+							<span style="color: var(--text);">Vanilla HTML5, CSS3, and JavaScript for optimal performance</span>
+						</li>
+						<li style="display: flex; align-items: center; gap: var(--space-3);">
+							<span style="color: var(--accent-1); font-weight: 600;">•</span>
+							<span style="color: var(--text);">CSS Grid and Flexbox for responsive layouts</span>
+						</li>
+						<li style="display: flex; align-items: center; gap: var(--space-3);">
+							<span style="color: var(--accent-1); font-weight: 600;">•</span>
+							<span style="color: var(--text);">Local Storage for persistent user preferences</span>
+						</li>
+						<li style="display: flex; align-items: center; gap: var(--space-3);">
+							<span style="color: var(--accent-1); font-weight: 600;">•</span>
+							<span style="color: var(--text);">Web APIs for weather data and geolocation</span>
+						</li>
+						<li style="display: flex; align-items: center; gap: var(--space-3);">
+							<span style="color: var(--accent-1); font-weight: 600;">•</span>
+							<span style="color: var(--text);">Service Worker for offline functionality</span>
+						</li>
+					</ul>
+				</div>
+				<div>
+					<h3 style="font-size: 20px; font-weight: 600; margin: 0 0 var(--space-4); color: var(--text);">Development Tools</h3>
+					<ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-3);">
+						<li style="display: flex; align-items: center; gap: var(--space-3);">
+							<span style="color: var(--accent-2); font-weight: 600;">•</span>
+							<span style="color: var(--text);">Cursor IDE with AI-assisted coding</span>
+						</li>
+						<li style="display: flex; align-items: center; gap: var(--space-3);">
+							<span style="color: var(--accent-2); font-weight: 600;">•</span>
+							<span style="color: var(--text);">Figma for design and prototyping</span>
+						</li>
+						<li style="display: flex; align-items: center; gap: var(--space-3);">
+							<span style="color: var(--accent-2); font-weight: 600;">•</span>
+							<span style="color: var(--text);">ChatGPT and Claude for code optimization</span>
+						</li>
+						<li style="display: flex; align-items: center; gap: var(--space-3);">
+							<span style="color: var(--accent-2); font-weight: 600;">•</span>
+							<span style="color: var(--text);">Git for version control and collaboration</span>
+						</li>
+						<li style="display: flex; align-items: center; gap: var(--space-3);">
+							<span style="color: var(--accent-2); font-weight: 600;">•</span>
+							<span style="color: var(--text);">GitHub Pages for deployment</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<!-- Call to Action -->
+		<section style="max-width: var(--maxw); margin: 0 auto var(--space-8); padding: 0 var(--space-4); text-align: center;">
+			<h2 style="font-size: clamp(32px, 4vw, 48px); margin: 0 0 var(--space-5); color: var(--text);">Ready to Transform Your Browser?</h2>
+			<p style="font-size: 18px; color: var(--muted); max-width: 600px; margin: 0 auto var(--space-6); line-height: 1.6;">
+				Experience the future of browser homepages with BetterHomePage. Install it today and enjoy a beautiful, customizable browsing experience.
+			</p>
+			<div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+				<a href="https://helloworldxdwastaken.github.io/BetterHomePage/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+					Try It Now
+				</a>
+				<a href="https://github.com/helloworldxdwastaken/BetterHomePage" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+					View on GitHub
+				</a>
+			</div>
+		</section>
+	</main>
+
+	<div id="footer-placeholder"></div>
+
+	<script src="assets/js/navbar.js"></script>
+	<script src="assets/js/footer.js"></script>
+	<script src="assets/js/analytics.js"></script>
+	<script src="assets/js/simple-logger.js"></script>
+</body>
+</html>

@@ -58,6 +58,31 @@
 	  /* Height control for the 3D & 2D animated strip */
 	  :root{ --assets-strip-h: clamp(260px, 30vw, 340px); }
 	  .assets-strip{ display:block; height: var(--assets-strip-h) !important; min-height: 220px; width:auto; max-height:none !important; max-width:none !important; flex: 0 0 auto; }
+	  
+	  /* Mobile responsiveness */
+	  @media (max-width: 768px) {
+	    .tools-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+	    .tool { padding: 8px !important; }
+	    .tool img { width: 20px !important; height: 20px !important; }
+	    .tool span { font-size: 11px !important; }
+	    
+	    /* Project overview grid */
+	    .project-overview .grid-2 { grid-template-columns: 1fr !important; gap: var(--space-4) !important; }
+	    
+	    /* Components section */
+	    .components-wrap { margin-right: 0 !important; }
+	    .components-hero { transform: scale(0.8) !important; transform-origin: center center !important; }
+	    
+	    /* Full bleed sections */
+	    .fullbleed-row { position: static !important; left: auto !important; width: 100% !important; margin-left: 0 !important; }
+	  }
+	  
+	  @media (max-width: 480px) {
+	    .tools-grid { grid-template-columns: 1fr !important; }
+	    .tool { padding: 6px !important; }
+	    .tool img { width: 18px !important; height: 18px !important; }
+	    .tool span { font-size: 10px !important; }
+	  }
 	</style>
 </head>
 <body>
@@ -88,7 +113,7 @@
 		<section class="project-overview" style="padding: var(--space-7) var(--space-4); background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.06);">
 			<div style="max-width: var(--maxw); margin: 0 auto;">
 				<h2 style="font-size: clamp(32px, 4vw, 48px); margin: 0 0 var(--space-5);">Project Overview</h2>
-				<div style="display: grid; grid-template-columns: 0.35fr 0.65fr; gap: var(--space-7); align-items: start; margin-bottom: var(--space-7);">
+				<div class="grid-2" style="display: grid; grid-template-columns: 0.35fr 0.65fr; gap: var(--space-7); align-items: start; margin-bottom: var(--space-7);">
 					<div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 24px; padding: var(--space-6); box-shadow: var(--shadow-soft);">
 						<div style="margin-bottom: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid rgba(255,255,255,0.08);">
 							<div style="font-size: 12px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; letter-spacing: 0.1em;">Timeline</div>
@@ -107,8 +132,33 @@
 							<div style="font-size: 16px; font-weight: 600;">Design System (600+ comps, ~3k variants), Marketing Pages, 2D/3D Assets, Motion</div>
 						</div>
 						<div style="margin-top: var(--space-4);">
-							<div style="font-size: 12px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; letter-spacing: 0.1em;">Tools</div>
-							<div style="font-size: 16px; font-weight: 600;">Figma, After Effects, Blender</div>
+							<div style="font-size: 12px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; letter-spacing: 0.1em;">Tools</div>
+							<div class="tools-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+								<div class="tool figma" title="Figma" style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); transition: transform 0.2s ease;">
+									<img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" alt="Figma" style="width: 24px; height: 24px;" />
+									<span style="font-size: 12px; font-weight: 500;">Figma</span>
+								</div>
+								<div class="tool ai" title="Adobe Illustrator" style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); transition: transform 0.2s ease;">
+									<img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobeillustrator.svg" alt="Illustrator" style="width: 24px; height: 24px;" />
+									<span style="font-size: 12px; font-weight: 500;">Illustrator</span>
+								</div>
+								<div class="tool ps" title="Adobe Photoshop" style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); transition: transform 0.2s ease;">
+									<img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobephotoshop.svg" alt="Photoshop" style="width: 24px; height: 24px;" />
+									<span style="font-size: 12px; font-weight: 500;">Photoshop</span>
+								</div>
+								<div class="tool ae" title="Adobe After Effects" style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); transition: transform 0.2s ease;">
+									<img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobeaftereffects.svg" alt="After Effects" style="width: 24px; height: 24px;" />
+									<span style="font-size: 12px; font-weight: 500;">After Effects</span>
+								</div>
+								<div class="tool pr" title="Adobe Premiere Pro" style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); transition: transform 0.2s ease;">
+									<img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobepremierepro.svg" alt="Premiere Pro" style="width: 24px; height: 24px;" />
+									<span style="font-size: 12px; font-weight: 500;">Premiere Pro</span>
+								</div>
+								<div class="tool blender" title="Blender" style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); transition: transform 0.2s ease;">
+									<img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/blender.svg" alt="Blender" style="width: 24px; height: 24px;" />
+									<span style="font-size: 12px; font-weight: 500;">Blender</span>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div>

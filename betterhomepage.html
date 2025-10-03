@@ -195,6 +195,7 @@
 	      font-size: 10px !important;
 	    }
 	  }
+
 	</style>
 </head>
 <body>
@@ -442,9 +443,35 @@
 
 	<div id="footer-placeholder"></div>
 
+	<script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+	<script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+	<script src="assets/js/components.js"></script>
+	<script src="assets/js/main.js?v=11"></script>
 	<script src="assets/js/navbar.js"></script>
 	<script src="assets/js/footer.js"></script>
 	<script src="assets/js/analytics.js"></script>
 	<script src="assets/js/simple-logger.js"></script>
+	<script>
+	  // Simple fallback tracking that always works
+	  (function() {
+	    // Track page view
+	    const pageViews = parseInt(localStorage.getItem('fallbackPageViews') || '0') + 1;
+	    localStorage.setItem('fallbackPageViews', pageViews.toString());
+	    
+	    // Track unique visitors
+	    const visitorId = localStorage.getItem('fallbackVisitorId');
+	    if (!visitorId) {
+	      const newId = 'visitor_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+	      localStorage.setItem('fallbackVisitorId', newId);
+	    }
+	    
+	    // Track clicks
+	    document.addEventListener('click', function(e) {
+	      const clicks = parseInt(localStorage.getItem('fallbackClicks') || '0') + 1;
+	      localStorage.setItem('fallbackClicks', clicks.toString());
+	    });
+	  })();
+	</script>
 </body>
 </html>

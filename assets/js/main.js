@@ -50,6 +50,54 @@ const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 					header.classList.remove("scrolled");
 				}
 			}, { passive: true });
+			
+			// Navbar expand on hover when scrolled
+			header.addEventListener("mouseenter", () => {
+				if (header.classList.contains("scrolled")) {
+					header.classList.add("hovered");
+				}
+			});
+			
+	header.addEventListener("mouseleave", () => {
+		header.classList.remove("hovered");
+	});
+
+	// Work page filtering functionality
+	const filterButtons = document.querySelectorAll('.filter-btn');
+	const projectCards = document.querySelectorAll('.project-card');
+
+	if (filterButtons.length > 0 && projectCards.length > 0) {
+		filterButtons.forEach(button => {
+			button.addEventListener('click', () => {
+				// Remove active class from all buttons
+				filterButtons.forEach(btn => btn.classList.remove('active'));
+				// Add active class to clicked button
+				button.classList.add('active');
+
+				const filterValue = button.getAttribute('data-filter');
+
+				// Filter projects
+				projectCards.forEach(card => {
+					const categories = card.getAttribute('data-categories');
+					
+					if (filterValue === 'all' || categories.includes(filterValue)) {
+						card.classList.remove('hidden');
+					} else {
+						card.classList.add('hidden');
+					}
+				});
+
+				// Smooth scroll to projects section after filtering
+				const workGrid = document.querySelector('.work-grid');
+				if (workGrid) {
+					workGrid.scrollIntoView({ 
+						behavior: 'smooth',
+						block: 'start'
+					});
+				}
+			});
+		});
+	}
 		}
 	};
 	
@@ -362,62 +410,7 @@ let lenis;
 	});
 })();
 
-// Optimized canvas grain/noise overlay - REDUCED INTENSITY
-(() => {
-	const canvas = $("#noiseCanvas");
-	if (!canvas) return;
-	const ctx = canvas.getContext("2d", { alpha: true, willReadFrequently: false });
-	let w, h, raf, frameCount = 0;
-	
-	const resize = () => {
-		const scale = window.devicePixelRatio > 1 ? 1.2 : 1;
-		w = canvas.width = canvas.offsetWidth * scale;
-		h = canvas.height = canvas.offsetHeight * scale;
-	};
-	
-	const draw = () => {
-		frameCount++;
-		// Skip more frames for better performance
-		if (frameCount % 4 !== 0) {
-			raf = requestAnimationFrame(draw);
-			return;
-		}
-		
-		const imageData = ctx.createImageData(w, h);
-		const data = imageData.data;
-		
-		for (let i = 0; i < data.length; i += 4) {
-			const noise = Math.random();
-			const grunge = noise > 0.6 ? 255 : noise > 0.3 ? noise * 200 : noise * 100;
-			const variation = noise * 0.3;
-			data[i] = grunge * (1 + variation); 
-			data[i + 1] = grunge * (1 - variation * 0.5); 
-			data[i + 2] = grunge * (1 + variation * 0.2); 
-			data[i + 3] = noise * 20 + 5; // Reduced opacity
-		}
-		
-		ctx.putImageData(imageData, 0, 0);
-		raf = requestAnimationFrame(draw);
-	};
-	
-	const onVis = () => {
-		if (document.hidden) { 
-			cancelAnimationFrame(raf); 
-		} else { 
-			frameCount = 0;
-			raf = requestAnimationFrame(draw); 
-		}
-	};
-	
-	let resizeTimeout;
-	window.addEventListener("resize", () => {
-		clearTimeout(resizeTimeout);
-		resizeTimeout = setTimeout(resize, 150);
-	});
-	document.addEventListener("visibilitychange", onVis);
-	resize();
-	draw();
-})();
+// Noise effect removed for better performance
 
 // Contact actions: copy email and dynamic mailto
 (() => {

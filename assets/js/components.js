@@ -151,8 +151,6 @@
         let componentPath = 'components/';
         if (isInProjectsDir) {
             componentPath = '../../components/';
-        } else if (isInLegalDir) {
-            componentPath = '../../components/';
         } else if (isInPagesDir) {
             componentPath = '../components/';
         }

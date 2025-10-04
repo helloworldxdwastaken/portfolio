@@ -311,6 +311,16 @@
 				scale: 1,
 				visibility: 'visible'
 			});
+			
+			// Add mobile card click functionality
+			document.querySelectorAll('.work-page .project-card').forEach(card => {
+				card.addEventListener('click', function() {
+					const link = this.querySelector('a');
+					if (link) {
+						window.location.href = link.href;
+					}
+				});
+			});
 		} else {
 			// Run animations only on desktop
 		

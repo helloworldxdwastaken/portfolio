@@ -127,29 +127,18 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        /* Only add sweep effect to non-pill buttons */
-        .error-actions .btn:not(.btn-pill) {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .error-actions .btn:not(.btn-pill)::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.5s;
-        }
-        
-        .error-actions .btn:not(.btn-pill):hover::before {
-            left: 100%;
-        }
-        
         .error-actions .btn:hover {
             transform: translateY(-2px);
+        }
+        
+        /* Disable sweep effect on pill buttons to prevent overflow */
+        .error-actions .btn-pill.btn-primary::before {
+            display: none !important;
+        }
+        
+        /* Ensure pill buttons maintain overflow: visible for arrow */
+        .error-actions .btn-pill {
+            overflow: visible !important;
         }
         
         

@@ -505,7 +505,18 @@ let lenis;
 			const message = $("#message")?.value?.trim() || "";
 			const subject = encodeURIComponent(`Project Inquiry${name ? ` from ${name}` : ""}`);
 			const body = encodeURIComponent(`Hi,\n\n${message}\n\n— ${name}${from ? ` (${from})` : ""}`);
-			window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+			
+			// Try to open mailto, fallback to showing email if it fails
+			try {
+				window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+			} catch (error) {
+				// If mailto fails, copy email to clipboard as fallback
+				navigator.clipboard.writeText(email).then(() => {
+					alert(`Email client not available. Email copied to clipboard: ${email}`);
+				}).catch(() => {
+					alert(`Email: ${email}`);
+				});
+			}
 		});
 	}
 })();

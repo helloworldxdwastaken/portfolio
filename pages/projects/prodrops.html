@@ -850,7 +850,27 @@
         el.style.transform = 'none';
       });
       
+      // Disable ScrollTrigger completely on mobile
+      ScrollTrigger.disable();
+      
+      console.log('📱 Mobile mode: Animations disabled, all content visible');
+      
     } else {
+      console.log('🖥️ Desktop mode: Animations enabled');
+      
+      // Add resize handler to re-evaluate mobile vs desktop
+      let resizeTimeout;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          const newIsMobile = window.innerWidth <= 768;
+          if (newIsMobile !== isMobile) {
+            console.log('📱🖥️ Device type changed, reloading page...');
+            window.location.reload();
+          }
+        }, 250);
+      });
+      
       // Run animations only on desktop
     
     // Hero section entrance animation

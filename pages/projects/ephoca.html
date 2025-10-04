@@ -526,6 +526,20 @@
     // EPHOCA page animations
     gsap.registerPlugin(ScrollTrigger);
     
+    // Disable animations on mobile
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+        // Make all content visible immediately on mobile
+        gsap.set('section, h1, h2, h3, img, video, p, ul, .tool, .project-overview', { 
+            opacity: 1, 
+            y: 0, 
+            scale: 1,
+            visibility: 'visible'
+        });
+    } else {
+        // Run animations only on desktop
+    
     // Hero section entrance animation
     gsap.fromTo('section:first-of-type h1', 
       { y: 30, opacity: 0 },
@@ -643,6 +657,8 @@
         }
       }
     );
+    
+    } // End desktop animations
   </script>
 </body>
 </html>

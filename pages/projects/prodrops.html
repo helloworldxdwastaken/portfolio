@@ -134,31 +134,43 @@
 	    /* Components section */
 	    .components-wrap { margin-right: 0; justify-content: center; }
 	    .components-hero { 
-	      transform: scale(0.8) translateY(0); 
+	      transform: scale(0.8) translateY(0) !important; 
 	      transform-origin: center center;
 	      filter: drop-shadow(-10px 15px 40px rgba(6, 243, 164, 0.4));
 	    }
 	    
 	    /* Full bleed sections */
-	    .fullbleed-row { position: static; left: auto; width: 100%; margin-left: 0; }
+	    .fullbleed-row { position: static !important; left: auto !important; width: 100% !important; margin-left: 0 !important; }
 	    
 	    /* Assets strip mobile */
 	    .assets-strip { 
-	      width: 1575px;
-	      max-width: 1750px;
+	      width: 1575px !important;
+	      max-width: 1750px !important;
 	    }
 	    
-	    /* Fix parallax elements on mobile - make them static */
-	    .ui-gallery-track, .parallax-row {
-	      position: static !important;
+	    /* Fix parallax elements on mobile - make them visible */
+	    .parallax-row {
+	      position: relative !important;
 	      transform: none !important;
-	      overflow: visible !important;
+	      overflow-x: auto !important;
+	      overflow-y: hidden !important;
+	      height: auto !important;
+	      padding: var(--space-4) 0 !important;
+	    }
+	    
+	    .ui-gallery-track {
+	      position: relative !important;
+	      transform: none !important;
+	      display: flex !important;
+	      flex-wrap: nowrap !important;
+	      gap: var(--space-3) !important;
 	    }
 	    
 	    .ui-gallery-track > div {
-	      position: static !important;
+	      position: relative !important;
 	      transform: none !important;
-	      display: inline-block !important;
+	      display: block !important;
+	      flex-shrink: 0 !important;
 	    }
 	  }
 	  
@@ -848,39 +860,19 @@
     const isMobile = window.innerWidth <= 768;
     
     if (isMobile) {
-      // Skip all animations on mobile - just show content immediately
-      gsap.set('*', { 
-        opacity: 1, 
-        y: 0, 
-        scale: 1,
-        visibility: 'visible',
-        autoAlpha: 1,
-        clearProps: 'all'
-      });
-      
-      // Also ensure all elements are visible with CSS
+      // On mobile, just ensure everything is visible and disable animations
       document.body.style.overflowX = 'hidden';
       document.documentElement.style.overflowX = 'hidden';
       
-      // Force visibility of all sections and content
-      const allElements = document.querySelectorAll('section, h1, h2, h3, p, img, video, ul, li, div, .tool, .tag, .btn');
-      allElements.forEach(el => {
-        el.style.opacity = '1';
-        el.style.visibility = 'visible';
-        el.style.transform = 'none';
-      });
-      
-      // Fix parallax elements on mobile - make them static and visible
-      const parallaxElements = document.querySelectorAll('.ui-gallery-track, .parallax-row');
-      parallaxElements.forEach(el => {
-        el.style.transform = 'none !important';
-        el.style.opacity = '1';
-        el.style.visibility = 'visible';
-        el.style.position = 'static';
-      });
-      
       // Disable ScrollTrigger completely on mobile
       ScrollTrigger.disable();
+      
+      // Use gsap.set to clear all animation properties
+      gsap.set('section, h1, h2, h3, p, img, video, ul, li, .tool, .tag, .btn, .project-overview, .components-wrap, .components-hero', {
+        clearProps: 'all',
+        opacity: 1,
+        visibility: 'visible'
+      });
       
       console.log('📱 Mobile mode: Animations disabled, all content visible');
       

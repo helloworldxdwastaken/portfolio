@@ -2220,6 +2220,31 @@ a { color: inherit; text-decoration: none; }
 		padding: calc(70px + var(--space-4)) var(--space-3) var(--space-4);
 	}
 	
+	/* Homepage work section mobile fixes */
+	.work.section {
+		padding: var(--space-5) var(--space-3);
+	}
+	
+	.work .project-row {
+		margin: 0 auto var(--space-6);
+		padding: var(--space-4);
+	}
+	
+	.work .project-media,
+	.work .project-media-mobile {
+		border-radius: 18px;
+	}
+	
+	.work .project-check {
+		left: 12px;
+		bottom: 12px;
+		padding: 10px 48px 10px 16px;
+	}
+	
+	.work-cta {
+		padding: 0 var(--space-3);
+	}
+	
 	.hero h1 {
 		font-size: clamp(28px, 7vw, 42px);
 	}

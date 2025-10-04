@@ -214,32 +214,17 @@
 	  
 	  @media (max-width: 640px) {
 	    /* Prevent horizontal scroll */
-	    body, main {
+	    body, main, html {
 	      overflow-x: hidden !important;
+	      max-width: 100vw !important;
 	    }
 	    
-	    html {
-	      overflow-x: hidden !important;
-	    }
-	    
-	    /* Smaller parallax cards on mobile */
-	    .parallax-row {
-	      height: 220px !important;
-	      margin-bottom: 24px !important;
-	    }
-	    
-	    .ui-gallery-track > div {
-	      width: 300px !important;
-	      height: 200px !important;
-	    }
-	    
-	    /* Hero section mobile - ONLY target the first section (hero with video) */
+	    /* Hero section mobile - ONLY target the first section */
 	    main > section:first-of-type {
 	      min-height: 100vh !important;
 	      overflow: hidden !important;
 	    }
 	    
-	    /* Video background layer - ensure it covers entire section */
 	    main > section:first-of-type > div:first-child {
 	      position: absolute !important;
 	      inset: 0 !important;
@@ -252,14 +237,12 @@
 	      object-fit: cover !important;
 	    }
 	    
-	    /* Dark overlay - ensure it covers entire section */
 	    main > section:first-of-type > div:nth-child(2) {
 	      position: absolute !important;
 	      inset: 0 !important;
 	      z-index: 1 !important;
 	    }
 	    
-	    /* Content layer - keep on top with breathing room */
 	    main > section:first-of-type > div:last-child {
 	      padding: calc(80px + var(--space-4)) var(--space-4) var(--space-4) !important;
 	      position: relative !important;
@@ -269,200 +252,108 @@
 	    main > section:first-of-type img {
 	      width: 200px !important;
 	      max-width: 80% !important;
-	      margin-bottom: var(--space-4) !important;
 	    }
 	    
-	    /* Project overview mobile - add breathing room */
+	    /* Project overview */
 	    .project-overview {
 	      padding: var(--space-6) var(--space-4) !important;
 	    }
 	    
-	    .project-overview h2 {
-	      font-size: clamp(28px, 6vw, 36px) !important;
-	      margin-bottom: var(--space-4) !important;
-	    }
-	    
 	    .project-overview .grid-2 {
 	      grid-template-columns: 1fr !important;
-	      gap: var(--space-5) !important;
+	      gap: var(--space-4) !important;
 	    }
 	    
-	    /* Ensure all sections are visible and have proper padding */
-	    section {
-	      display: block !important;
-	      visibility: visible !important;
-	      opacity: 1 !important;
-	      max-width: 100vw !important;
-	      overflow-x: hidden !important;
+	    .project-overview h2 {
+	      font-size: clamp(26px, 6vw, 36px) !important;
 	    }
 	    
-	    /* Add breathing room to main content sections */
-	    .project-overview,
-	    section[style*="padding"] {
-	      padding-left: var(--space-4) !important;
-	      padding-right: var(--space-4) !important;
-	    }
-	    
-	    /* Ensure content is visible */
-	    section > div,
-	    section > div > * {
-	      visibility: visible !important;
-	      opacity: 1 !important;
-	    }
-	    
-	    /* Typography adjustments */
-	    h2 {
-	      font-size: clamp(24px, 6vw, 32px) !important;
-	    }
-	    
-	    h3 {
-	      font-size: clamp(18px, 4vw, 22px) !important;
-	    }
-	    
-	    p {
-	      font-size: 15px !important;
-	      line-height: 1.6 !important;
-	    }
-	    
-	    /* Fix lists and bullets */
-	    ul[style*="list-style"] {
-	      padding-left: 0 !important;
-	      padding-right: 0 !important;
-	    }
-	    
-	    li[style*="padding-left"] {
-	      font-size: 14px !important;
-	    }
-	    
-	    /* Tools grid mobile */
+	    /* Tools grid */
 	    .tools-grid {
 	      grid-template-columns: repeat(3, 1fr) !important;
 	      gap: 10px !important;
 	    }
 	    
-	    .tool {
-	      padding: 10px !important;
+	    /* 3D & 2D Assets section with video background */
+	    section[style*="background: none"] > div[style*="max-width"] {
+	      padding-left: var(--space-4) !important;
+	      padding-right: var(--space-4) !important;
 	    }
 	    
-	    .tool img {
-	      width: 20px !important;
-	      height: 20px !important;
+	    section[style*="background: none"] h2,
+	    section[style*="background: none"] p {
+	      padding-left: 0 !important;
+	      padding-right: 0 !important;
 	    }
 	    
-	    .tool span {
-	      font-size: 11px !important;
-	    }
-	    
-	    /* Assets strip mobile */
+	    /* Assets strip */
 	    .assets-strip {
 	      width: 1200px !important;
 	      max-width: 1500px !important;
 	    }
 	    
-	    /* Components wrap mobile */
-	    .components-wrap {
-	      height: auto !important;
-	      padding: var(--space-5) 0 !important;
-	      margin-right: 0 !important;
-	      display: none !important;
+	    /* Parallax gallery */
+	    .parallax-row {
+	      height: 220px !important;
+	      margin-bottom: 24px !important;
 	    }
 	    
-	    /* Marketing section grid mobile */
+	    .ui-gallery-track > div {
+	      width: 300px !important;
+	      height: 200px !important;
+	    }
+	    
+	    /* Marketing section */
 	    .marketing-section {
 	      grid-template-columns: 1fr !important;
 	      gap: var(--space-4) !important;
 	    }
 	    
-	    /* Ensure images and videos don't overflow - but not hero/parallax ones */
-	    section:not(:first-of-type) img:not(.assets-strip):not([style*="width: 100%"]),
-	    section:not(:first-of-type) video:not([style*="width: 100%"]) {
-	      max-width: 100% !important;
-	      height: auto !important;
+	    /* Components wrap */
+	    .components-wrap {
+	      display: none !important;
 	    }
 	    
-	    /* Fix videos in sections */
-	    section video[controls] {
-	      width: 100% !important;
-	      height: auto !important;
-	      border-radius: 16px !important;
-	    }
-	    
-	    /* CTA buttons full width on mobile */
-	    .btn {
-	      width: 100%;
-	      max-width: 100%;
-	      justify-content: center;
-	      font-size: 14px !important;
-	      padding: 12px 20px !important;
-	    }
-	    
-	    /* Fix CTA section - add breathing room */
-	    section[style*="text-align: center"] {
-	      padding: var(--space-6) var(--space-4) !important;
-	    }
-	    
-	    section[style*="text-align: center"] > div {
-	      padding: 0 var(--space-2) !important;
-	    }
-	    
-	    section[style*="text-align: center"] h2 {
-	      font-size: clamp(28px, 6vw, 36px) !important;
-	      margin-bottom: var(--space-4) !important;
-	    }
-	    
-	    section[style*="text-align: center"] p {
-	      font-size: 16px !important;
-	      margin-bottom: var(--space-4) !important;
-	    }
-	    
-	    section[style*="text-align: center"] > div[style*="display: flex"] {
-	      padding: 0 !important;
-	      gap: var(--space-3) !important;
-	      flex-direction: column;
-	    }
-	    
-	    /* Prodrops website section - add breathing room */
+	    /* Prodrops website section */
 	    section[style*="background: linear-gradient"] {
 	      padding: var(--space-6) var(--space-4) !important;
 	    }
 	    
 	    section[style*="background: linear-gradient"] > div {
 	      grid-template-columns: 1fr !important;
-	      gap: var(--space-5) !important;
-	      padding: 0 !important;
+	      gap: var(--space-4) !important;
 	    }
 	    
-	    section[style*="background: linear-gradient"] h2 {
-	      text-align: center !important;
-	      margin-bottom: var(--space-5) !important;
+	    /* CTA section */
+	    section[style*="text-align: center"]:last-of-type {
+	      padding: var(--space-6) var(--space-4) !important;
 	    }
 	    
-	    section[style*="background: linear-gradient"] p {
+	    section[style*="text-align: center"]:last-of-type > div[style*="display: flex"] {
+	      flex-direction: column;
+	      gap: var(--space-3) !important;
+	    }
+	    
+	    /* Typography */
+	    h2 {
+	      font-size: clamp(26px, 6vw, 36px) !important;
+	    }
+	    
+	    p {
 	      font-size: 15px !important;
 	    }
 	    
-	    section[style*="background: linear-gradient"] video {
-	      width: 100% !important;
-	      height: auto !important;
-	      border-radius: 16px !important;
+	    /* Buttons */
+	    .btn {
+	      width: 100%;
+	      font-size: 14px !important;
 	    }
 	  }
 	  
 	  @media (max-width: 480px) {
-	    /* Extra small mobile - maintain breathing room */
-	    .project-overview,
-	    section[style*="padding"] {
-	      padding-left: var(--space-3) !important;
-	      padding-right: var(--space-3) !important;
-	    }
-	    
-	    /* Keep hero video as full background on tiny screens */
-	    main > section:first-of-type {
-	      min-height: 100vh !important;
-	    }
-	    
+	    /* Tighter spacing on tiny screens */
 	    main > section:first-of-type > div:last-child {
-	      padding: calc(80px + var(--space-4)) var(--space-3) var(--space-4) !important;
+	      padding: calc(80px + var(--space-3)) var(--space-3) var(--space-3) !important;
 	    }
 	    
 	    main > section:first-of-type img {
@@ -473,19 +364,23 @@
 	      padding: var(--space-5) var(--space-3) !important;
 	    }
 	    
-	    .project-overview .grid-2 > div {
-	      padding: var(--space-3) !important;
+	    section[style*="background: none"] > div[style*="max-width"] {
+	      padding-left: var(--space-3) !important;
+	      padding-right: var(--space-3) !important;
+	    }
+	    
+	    section[style*="background: linear-gradient"],
+	    section[style*="text-align: center"]:last-of-type {
+	      padding: var(--space-5) var(--space-3) !important;
 	    }
 	    
 	    .parallax-row {
 	      height: 180px !important;
-	      margin-bottom: 20px !important;
 	    }
 	    
 	    .ui-gallery-track > div {
 	      width: 260px !important;
 	      height: 160px !important;
-	      border-radius: 14px !important;
 	    }
 	    
 	    .tools-grid {
@@ -500,14 +395,6 @@
 	    .btn {
 	      font-size: 13px !important;
 	      padding: 10px 16px !important;
-	    }
-	    
-	    section[style*="background: linear-gradient"] {
-	      padding: var(--space-5) var(--space-3) !important;
-	    }
-	    
-	    section[style*="text-align: center"] {
-	      padding: var(--space-5) var(--space-3) !important;
 	    }
 	  }
 	</style>

@@ -443,6 +443,8 @@ a { color: inherit; text-decoration: none; }
 .site-header {
 	opacity: 1 !important;
 	visibility: visible !important;
+	display: block !important;
+	z-index: 9999 !important;
 }
 
 .site-header {

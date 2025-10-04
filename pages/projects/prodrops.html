@@ -233,40 +233,40 @@
 	      height: 200px !important;
 	    }
 	    
-	    /* Hero section mobile - keep video background covering entire section */
-	    section[style*="min-height"] {
+	    /* Hero section mobile - ONLY target the first section (hero with video) */
+	    main > section:first-of-type {
 	      min-height: 100vh !important;
 	      overflow: hidden !important;
 	    }
 	    
 	    /* Video background layer - ensure it covers entire section */
-	    section[style*="min-height"] > div:first-child {
+	    main > section:first-of-type > div:first-child {
 	      position: absolute !important;
 	      inset: 0 !important;
 	      z-index: 0 !important;
 	    }
 	    
-	    section[style*="min-height"] > div:first-child video {
+	    main > section:first-of-type > div:first-child video {
 	      width: 100% !important;
 	      height: 100% !important;
 	      object-fit: cover !important;
 	    }
 	    
 	    /* Dark overlay - ensure it covers entire section */
-	    section[style*="min-height"] > div:nth-child(2) {
+	    main > section:first-of-type > div:nth-child(2) {
 	      position: absolute !important;
 	      inset: 0 !important;
 	      z-index: 1 !important;
 	    }
 	    
 	    /* Content layer - keep on top with breathing room */
-	    section[style*="min-height"] > div:last-child {
+	    main > section:first-of-type > div:last-child {
 	      padding: calc(80px + var(--space-4)) var(--space-4) var(--space-4) !important;
 	      position: relative !important;
 	      z-index: 2 !important;
 	    }
 	    
-	    section[style*="min-height"] img {
+	    main > section:first-of-type img {
 	      width: 200px !important;
 	      max-width: 80% !important;
 	      margin-bottom: var(--space-4) !important;
@@ -414,15 +414,15 @@
 	    }
 	    
 	    /* Keep hero video as full background on tiny screens */
-	    section[style*="min-height"] {
+	    main > section:first-of-type {
 	      min-height: 100vh !important;
 	    }
 	    
-	    section[style*="min-height"] > div:last-child {
+	    main > section:first-of-type > div:last-child {
 	      padding: calc(80px + var(--space-4)) var(--space-3) var(--space-4) !important;
 	    }
 	    
-	    section[style*="min-height"] img {
+	    main > section:first-of-type img {
 	      width: 160px !important;
 	    }
 	    

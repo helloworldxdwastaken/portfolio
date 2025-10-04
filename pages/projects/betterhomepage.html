@@ -171,12 +171,12 @@
 	      overflow-x: hidden !important;
 	    }
 	    
-	    /* Hero section mobile adjustments */
-	    section[style*="min-height: 100vh"] {
+	    /* Hero section mobile adjustments - ONLY target first section */
+	    main > section:first-of-type {
 	      min-height: 90vh !important;
 	    }
 	    
-	    section[style*="min-height: 100vh"] > div[style*="padding"] {
+	    main > section:first-of-type > div[style*="padding"] {
 	      padding: calc(70px + var(--space-4)) var(--space-4) var(--space-4) !important;
 	      max-width: 100% !important;
 	    }

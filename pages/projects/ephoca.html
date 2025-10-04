@@ -62,16 +62,67 @@
 	  
 	  /* Mobile responsiveness */
 	  @media (max-width: 768px) {
+	    /* Prevent horizontal scroll */
+	    body, main, html {
+	      overflow-x: hidden !important;
+	    }
+	    
+	    /* Hero section mobile - ONLY target first section */
+	    main > section:first-of-type {
+	      min-height: 100vh !important;
+	      overflow: hidden !important;
+	    }
+	    
+	    /* Video background layer - ensure it covers entire section */
+	    main > section:first-of-type > div:first-child {
+	      position: absolute !important;
+	      inset: 0 !important;
+	      z-index: 0 !important;
+	    }
+	    
+	    main > section:first-of-type > div:first-child video {
+	      width: 100% !important;
+	      height: 100% !important;
+	      object-fit: cover !important;
+	    }
+	    
+	    /* Dark overlay */
+	    main > section:first-of-type > div:nth-child(2) {
+	      position: absolute !important;
+	      inset: 0 !important;
+	      z-index: 1 !important;
+	    }
+	    
+	    /* Content layer with breathing room */
+	    main > section:first-of-type > div:last-child {
+	      padding: calc(80px + var(--space-4)) var(--space-4) var(--space-4) !important;
+	      position: relative !important;
+	      z-index: 2 !important;
+	    }
+	    
+	    main > section:first-of-type h1 {
+	      font-size: clamp(36px, 8vw, 64px) !important;
+	    }
+	    
+	    /* All sections with breathing room */
+	    section {
+	      padding-left: var(--space-4) !important;
+	      padding-right: var(--space-4) !important;
+	      max-width: 100vw !important;
+	      overflow-x: hidden !important;
+	    }
+	    
 	    .tools-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
 	    .tool { padding: 8px !important; }
 	    .tool img { width: 20px !important; height: 20px !important; }
 	    .tool span { font-size: 11px !important; }
 	    
 	    /* Project overview grid */
+	    .project-overview { padding: var(--space-6) var(--space-4) !important; }
 	    .project-overview .grid-2 { grid-template-columns: 1fr !important; gap: var(--space-4) !important; }
 	    
 	    /* Components section */
-	    .components-wrap { margin-right: 0 !important; }
+	    .components-wrap { margin-right: 0 !important; display: none !important; }
 	    .components-hero { transform: scale(0.8) !important; transform-origin: center center !important; }
 	    
 	    /* Full bleed sections */
@@ -79,6 +130,20 @@
 	  }
 	  
 	  @media (max-width: 480px) {
+	    /* Keep hero video background on tiny screens */
+	    main > section:first-of-type > div:last-child {
+	      padding: calc(80px + var(--space-4)) var(--space-3) var(--space-4) !important;
+	    }
+	    
+	    main > section:first-of-type h1 {
+	      font-size: clamp(32px, 8vw, 48px) !important;
+	    }
+	    
+	    section {
+	      padding-left: var(--space-3) !important;
+	      padding-right: var(--space-3) !important;
+	    }
+	    
 	    .tools-grid { grid-template-columns: 1fr !important; }
 	    .tool { padding: 6px !important; }
 	    .tool img { width: 18px !important; height: 18px !important; }

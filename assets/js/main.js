@@ -37,8 +37,34 @@ const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 			document.body.style.overflow = open ? "hidden" : "";
 		};
 		
-		toggle.addEventListener("click", () => setOpen(!nav.classList.contains("open")));
+		// Toggle on button click
+		toggle.addEventListener("click", (e) => {
+			e.stopPropagation();
+			setOpen(!nav.classList.contains("open"));
+		});
+		
+		// Close on menu link click
 		menuLinks.forEach((a) => a.addEventListener("click", () => setOpen(false)));
+		
+		// Close when clicking outside (on the overlay)
+		document.addEventListener("click", (e) => {
+			if (nav.classList.contains("open")) {
+				const menu = $(".nav-menu");
+				const isClickInsideMenu = menu && menu.contains(e.target);
+				const isClickOnToggle = toggle.contains(e.target);
+				
+				if (!isClickInsideMenu && !isClickOnToggle) {
+					setOpen(false);
+				}
+			}
+		});
+		
+		// Close on ESC key
+		document.addEventListener("keydown", (e) => {
+			if (e.key === "Escape" && nav.classList.contains("open")) {
+				setOpen(false);
+			}
+		});
 		
 		// Navbar shrink on scroll
 		if (header) {

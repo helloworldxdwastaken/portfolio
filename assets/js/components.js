@@ -87,14 +87,14 @@
         
         let pathPrefix = '';
         if (isInProjectsDir) {
-            // From /pages/projects/ -> need ../../ to get to root
-            pathPrefix = '../../';
+            // From /pages/projects/ -> need ../../portfolio/ to get to portfolio root
+            pathPrefix = '../../portfolio/';
         } else if (isInPagesDir) {
-            // From /pages/ -> need ../ to get to root
-            pathPrefix = '../';
+            // From /pages/ -> need ../portfolio/ to get to portfolio root
+            pathPrefix = '../portfolio/';
         } else if (isInLegalPage || isInRoot) {
-            // From root directory -> no prefix needed
-            pathPrefix = '';
+            // From portfolio root directory -> need portfolio/ prefix
+            pathPrefix = 'portfolio/';
         }
         
         console.log('Current path:', window.location.pathname);
@@ -134,14 +134,14 @@
         
         let pathPrefix = '';
         if (isInProjectsDir) {
-            // From /pages/projects/ -> need ../../ to get to root
-            pathPrefix = '../../';
+            // From /pages/projects/ -> need ../../portfolio/ to get to portfolio root
+            pathPrefix = '../../portfolio/';
         } else if (isInPagesDir) {
-            // From /pages/ -> need ../ to get to root
-            pathPrefix = '../';
+            // From /pages/ -> need ../portfolio/ to get to portfolio root
+            pathPrefix = '../portfolio/';
         } else if (isInLegalPage || isInRoot) {
-            // From root directory -> no prefix needed
-            pathPrefix = '';
+            // From portfolio root directory -> need portfolio/ prefix
+            pathPrefix = 'portfolio/';
         }
         
         console.log('Fixing footer links with prefix:', pathPrefix);
@@ -165,16 +165,16 @@
         const isInPagesDir = currentPath.includes('/pages/') && !currentPath.includes('/pages/projects/');
         const isInRoot = !isInPagesDir && !isInProjectsDir;
         
-        let componentPath = 'components/';
+        let componentPath = 'portfolio/components/';
         if (isInProjectsDir) {
-            // From /pages/projects/ -> need ../../ to get to root
-            componentPath = '../../components/';
+            // From /pages/projects/ -> need ../../portfolio/ to get to portfolio root
+            componentPath = '../../portfolio/components/';
         } else if (isInPagesDir) {
-            // From /pages/ -> need ../ to get to root
-            componentPath = '../components/';
+            // From /pages/ -> need ../portfolio/ to get to portfolio root
+            componentPath = '../portfolio/components/';
         } else {
-            // From root directory -> direct path
-            componentPath = 'components/';
+            // From portfolio root directory -> direct path
+            componentPath = 'portfolio/components/';
         }
         
         // Load navbar
@@ -206,7 +206,7 @@
                 const currentPath = window.location.pathname;
                 const isInProjectsDir = currentPath.includes('/pages/projects/');
                 const isInPagesDir = currentPath.includes('/pages/') && !currentPath.includes('/pages/projects/');
-                const pathPrefix = isInProjectsDir ? '../../' : (isInPagesDir ? '../' : '');
+                const pathPrefix = isInProjectsDir ? '../../portfolio/' : (isInPagesDir ? '../portfolio/' : 'portfolio/');
                 footerPlaceholder.innerHTML = `
 <!-- Footer Component -->
 <footer class="site-footer" role="contentinfo">
@@ -268,7 +268,7 @@
                 const currentPath = window.location.pathname;
                 const isInProjectsDir = currentPath.includes('/pages/projects/');
                 const isInPagesDir = currentPath.includes('/pages/') && !currentPath.includes('/pages/projects/');
-                const pathPrefix = isInProjectsDir ? '../../' : (isInPagesDir ? '../' : '');
+                const pathPrefix = isInProjectsDir ? '../../portfolio/' : (isInPagesDir ? '../portfolio/' : 'portfolio/');
                 footerPlaceholder.innerHTML = `
 <!-- Footer Component (Fallback) -->
 <footer class="site-footer" role="contentinfo">

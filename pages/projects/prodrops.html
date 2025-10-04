@@ -218,6 +218,10 @@
 	      overflow-x: hidden !important;
 	    }
 	    
+	    html {
+	      overflow-x: hidden !important;
+	    }
+	    
 	    /* Smaller parallax cards on mobile */
 	    .parallax-row {
 	      height: 220px !important;
@@ -231,8 +235,14 @@
 	    
 	    /* Hero section mobile */
 	    section[style*="min-height"] {
-	      min-height: 85vh !important;
-	      padding: calc(70px + var(--space-4)) var(--space-3) var(--space-4) !important;
+	      min-height: 90vh !important;
+	      padding: calc(80px + var(--space-4)) var(--space-3) var(--space-4) !important;
+	    }
+	    
+	    section[style*="min-height"] img {
+	      width: 200px !important;
+	      max-width: 80% !important;
+	      margin-bottom: var(--space-4) !important;
 	    }
 	    
 	    /* Project overview mobile */
@@ -242,6 +252,12 @@
 	    
 	    .project-overview h2 {
 	      font-size: clamp(28px, 6vw, 36px) !important;
+	      margin-bottom: var(--space-4) !important;
+	    }
+	    
+	    .project-overview .grid-2 {
+	      grid-template-columns: 1fr !important;
+	      gap: var(--space-5) !important;
 	    }
 	    
 	    /* Ensure all sections have proper padding */
@@ -255,21 +271,41 @@
 	    /* Fix any wide containers */
 	    div[style*="max-width"] {
 	      max-width: 100% !important;
-	      padding-left: var(--space-3) !important;
-	      padding-right: var(--space-3) !important;
+	      padding-left: 0 !important;
+	      padding-right: 0 !important;
 	    }
 	    
 	    /* Typography adjustments */
 	    h2 {
-	      font-size: clamp(26px, 6vw, 36px) !important;
+	      font-size: clamp(24px, 6vw, 32px) !important;
 	    }
 	    
 	    h3 {
-	      font-size: clamp(18px, 4vw, 24px) !important;
+	      font-size: clamp(18px, 4vw, 22px) !important;
 	    }
 	    
 	    p {
 	      font-size: 15px !important;
+	      line-height: 1.6 !important;
+	    }
+	    
+	    /* Tools grid mobile */
+	    .tools-grid {
+	      grid-template-columns: repeat(3, 1fr) !important;
+	      gap: 10px !important;
+	    }
+	    
+	    .tool {
+	      padding: 10px !important;
+	    }
+	    
+	    .tool img {
+	      width: 20px !important;
+	      height: 20px !important;
+	    }
+	    
+	    .tool span {
+	      font-size: 11px !important;
 	    }
 	    
 	    /* Assets strip mobile */
@@ -278,20 +314,21 @@
 	      max-width: 1500px !important;
 	    }
 	    
-	    /* Parallax rows mobile */
-	    .parallax-row {
-	      height: 240px !important;
-	      margin-bottom: 32px !important;
-	    }
-	    
 	    /* Components wrap mobile */
 	    .components-wrap {
 	      height: auto !important;
 	      padding: var(--space-5) 0 !important;
 	      margin-right: 0 !important;
+	      display: none !important;
 	    }
 	    
-	    /* Ensure images don't overflow */
+	    /* Marketing section grid mobile */
+	    .marketing-section {
+	      grid-template-columns: 1fr !important;
+	      gap: var(--space-4) !important;
+	    }
+	    
+	    /* Ensure images and videos don't overflow */
 	    img, video {
 	      max-width: 100% !important;
 	      height: auto !important;
@@ -301,6 +338,38 @@
 	    .btn {
 	      width: 100%;
 	      justify-content: center;
+	      font-size: 14px !important;
+	      padding: 12px 20px !important;
+	    }
+	    
+	    /* Fix CTA section */
+	    section[style*="text-align: center"] {
+	      padding: var(--space-6) var(--space-3) !important;
+	    }
+	    
+	    section[style*="text-align: center"] > div {
+	      padding: 0 !important;
+	    }
+	    
+	    section[style*="text-align: center"] h2 {
+	      font-size: clamp(28px, 6vw, 36px) !important;
+	      margin-bottom: var(--space-4) !important;
+	    }
+	    
+	    section[style*="text-align: center"] p {
+	      font-size: 16px !important;
+	      margin-bottom: var(--space-4) !important;
+	    }
+	    
+	    /* Prodrops website section */
+	    section[style*="background: linear-gradient"] {
+	      padding: var(--space-6) var(--space-3) !important;
+	    }
+	    
+	    section[style*="background: linear-gradient"] > div {
+	      grid-template-columns: 1fr !important;
+	      gap: var(--space-5) !important;
+	      padding: 0 !important;
 	    }
 	  }
 	  
@@ -309,6 +378,10 @@
 	    section {
 	      padding-left: var(--space-2) !important;
 	      padding-right: var(--space-2) !important;
+	    }
+	    
+	    section[style*="min-height"] img {
+	      width: 160px !important;
 	    }
 	    
 	    .parallax-row {
@@ -320,6 +393,20 @@
 	      width: 260px !important;
 	      height: 160px !important;
 	      border-radius: 14px !important;
+	    }
+	    
+	    .tools-grid {
+	      grid-template-columns: repeat(2, 1fr) !important;
+	      gap: 8px !important;
+	    }
+	    
+	    h2 {
+	      font-size: clamp(22px, 6vw, 28px) !important;
+	    }
+	    
+	    .btn {
+	      font-size: 13px !important;
+	      padding: 10px 16px !important;
 	    }
 	  }
 	</style>

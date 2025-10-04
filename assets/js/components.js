@@ -89,10 +89,10 @@
         if (isInProjectsDir) {
             // From /pages/projects/ -> need ../../portfolio/ to get to portfolio root
             pathPrefix = '../../portfolio/';
-        } else if (isInPagesDir) {
-            // From /pages/ -> need ../portfolio/ to get to portfolio root
+        } else if (isInPagesDir || isInLegalPage) {
+            // From /pages/ or legal pages -> need ../portfolio/ to get to portfolio root
             pathPrefix = '../portfolio/';
-        } else if (isInLegalPage || isInRoot) {
+        } else if (isInRoot) {
             // From portfolio root directory -> need portfolio/ prefix
             pathPrefix = 'portfolio/';
         }
@@ -136,10 +136,10 @@
         if (isInProjectsDir) {
             // From /pages/projects/ -> need ../../portfolio/ to get to portfolio root
             pathPrefix = '../../portfolio/';
-        } else if (isInPagesDir) {
-            // From /pages/ -> need ../portfolio/ to get to portfolio root
+        } else if (isInPagesDir || isInLegalPage) {
+            // From /pages/ or legal pages -> need ../portfolio/ to get to portfolio root
             pathPrefix = '../portfolio/';
-        } else if (isInLegalPage || isInRoot) {
+        } else if (isInRoot) {
             // From portfolio root directory -> need portfolio/ prefix
             pathPrefix = 'portfolio/';
         }
@@ -163,14 +163,15 @@
         const currentPath = window.location.pathname;
         const isInProjectsDir = currentPath.includes('/pages/projects/');
         const isInPagesDir = currentPath.includes('/pages/') && !currentPath.includes('/pages/projects/');
+        const isInLegalPage = currentPath.endsWith('/legal-notice.html') || currentPath.endsWith('/terms-of-service.html');
         const isInRoot = !isInPagesDir && !isInProjectsDir;
         
         let componentPath = 'portfolio/components/';
         if (isInProjectsDir) {
             // From /pages/projects/ -> need ../../portfolio/ to get to portfolio root
             componentPath = '../../portfolio/components/';
-        } else if (isInPagesDir) {
-            // From /pages/ -> need ../portfolio/ to get to portfolio root
+        } else if (isInPagesDir || isInLegalPage) {
+            // From /pages/ or legal pages -> need ../portfolio/ to get to portfolio root
             componentPath = '../portfolio/components/';
         } else {
             // From portfolio root directory -> direct path
@@ -206,7 +207,8 @@
                 const currentPath = window.location.pathname;
                 const isInProjectsDir = currentPath.includes('/pages/projects/');
                 const isInPagesDir = currentPath.includes('/pages/') && !currentPath.includes('/pages/projects/');
-                const pathPrefix = isInProjectsDir ? '../../portfolio/' : (isInPagesDir ? '../portfolio/' : 'portfolio/');
+                const isInLegalPage = currentPath.endsWith('/legal-notice.html') || currentPath.endsWith('/terms-of-service.html');
+                const pathPrefix = isInProjectsDir ? '../../portfolio/' : ((isInPagesDir || isInLegalPage) ? '../portfolio/' : 'portfolio/');
                 footerPlaceholder.innerHTML = `
 <!-- Footer Component -->
 <footer class="site-footer" role="contentinfo">
@@ -268,7 +270,8 @@
                 const currentPath = window.location.pathname;
                 const isInProjectsDir = currentPath.includes('/pages/projects/');
                 const isInPagesDir = currentPath.includes('/pages/') && !currentPath.includes('/pages/projects/');
-                const pathPrefix = isInProjectsDir ? '../../portfolio/' : (isInPagesDir ? '../portfolio/' : 'portfolio/');
+                const isInLegalPage = currentPath.endsWith('/legal-notice.html') || currentPath.endsWith('/terms-of-service.html');
+                const pathPrefix = isInProjectsDir ? '../../portfolio/' : ((isInPagesDir || isInLegalPage) ? '../portfolio/' : 'portfolio/');
                 footerPlaceholder.innerHTML = `
 <!-- Footer Component (Fallback) -->
 <footer class="site-footer" role="contentinfo">

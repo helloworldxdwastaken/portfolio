@@ -125,16 +125,15 @@
         
         .error-actions .btn {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        /* Only add sweep effect to non-pill buttons */
+        .error-actions .btn:not(.btn-pill) {
             position: relative;
             overflow: hidden;
         }
         
-        .error-actions .btn:hover {
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-        
-        .error-actions .btn::before {
+        .error-actions .btn:not(.btn-pill)::before {
             content: '';
             position: absolute;
             top: 0;
@@ -145,8 +144,12 @@
             transition: left 0.5s;
         }
         
-        .error-actions .btn:hover::before {
+        .error-actions .btn:not(.btn-pill):hover::before {
             left: 100%;
+        }
+        
+        .error-actions .btn:hover {
+            transform: translateY(-2px);
         }
         
         

@@ -309,9 +309,18 @@
 	      gap: var(--space-4) !important;
 	    }
 	    
-	    /* Components wrap */
+	    /* Components wrap - make visible and centered on mobile */
 	    .components-wrap {
-	      display: none !important;
+	      height: auto !important;
+	      margin-right: 0 !important;
+	      justify-content: center !important;
+	      padding: var(--space-6) 0 !important;
+	    }
+	    
+	    .components-hero {
+	      transform: scale(0.7) !important;
+	      transform-origin: center !important;
+	      max-width: 100% !important;
 	    }
 	    
 	    /* Prodrops website section */
@@ -818,7 +827,13 @@
     
     if (isMobile) {
       // Skip all animations on mobile - just show content immediately
-      gsap.set('section, h2, img, video, p, .tool, .project-overview', { opacity: 1, y: 0, scale: 1 });
+      gsap.set('section, h2, h3, img, video, p, ul, .tool, .project-overview, .components-wrap, .components-hero, div', { 
+        opacity: 1, 
+        y: 0, 
+        scale: 1,
+        visibility: 'visible',
+        clearProps: 'all'
+      });
     } else {
       // Run animations only on desktop
     

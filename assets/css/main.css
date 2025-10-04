@@ -2408,8 +2408,12 @@ a { color: inherit; text-decoration: none; }
 		font-size: 14px;
 	}
 	
-	/* Hide button on mobile - make whole card clickable */
+	/* Hide button and description on mobile - make whole card clickable */
 	.work-page .project-check {
+		display: none !important;
+	}
+	
+	.work-page .project-desc {
 		display: none !important;
 	}
 	

@@ -288,18 +288,27 @@
 	    }
 	    
 	    /* Ensure all sections have proper padding with breathing room */
-	    section {
+	    section:not([style*="background: linear-gradient"]):not([style*="overflow: hidden"]) {
 	      padding-left: var(--space-4) !important;
 	      padding-right: var(--space-4) !important;
 	      max-width: 100vw !important;
 	      overflow-x: hidden !important;
 	    }
 	    
-	    /* Fix any wide containers - keep breathing room */
-	    div[style*="max-width"] {
+	    /* Only add padding to direct children containers in sections */
+	    section > div[style*="max-width"] {
 	      max-width: 100% !important;
-	      padding-left: var(--space-4) !important;
-	      padding-right: var(--space-4) !important;
+	    }
+	    
+	    /* Fix specific section inner divs that need padding */
+	    .project-overview > div {
+	      padding-left: 0 !important;
+	      padding-right: 0 !important;
+	    }
+	    
+	    .project-overview .grid-2 > div {
+	      padding: var(--space-4) !important;
+	      margin: 0 !important;
 	    }
 	    
 	    /* Typography adjustments */
@@ -314,6 +323,16 @@
 	    p {
 	      font-size: 15px !important;
 	      line-height: 1.6 !important;
+	    }
+	    
+	    /* Fix lists and bullets */
+	    ul[style*="list-style"] {
+	      padding-left: 0 !important;
+	      padding-right: 0 !important;
+	    }
+	    
+	    li[style*="padding-left"] {
+	      font-size: 14px !important;
 	    }
 	    
 	    /* Tools grid mobile */
@@ -355,15 +374,24 @@
 	      gap: var(--space-4) !important;
 	    }
 	    
-	    /* Ensure images and videos don't overflow */
-	    img, video {
+	    /* Ensure images and videos don't overflow - but not hero/parallax ones */
+	    section:not(:first-of-type) img:not(.assets-strip):not([style*="width: 100%"]),
+	    section:not(:first-of-type) video:not([style*="width: 100%"]) {
 	      max-width: 100% !important;
 	      height: auto !important;
+	    }
+	    
+	    /* Fix videos in sections */
+	    section video[controls] {
+	      width: 100% !important;
+	      height: auto !important;
+	      border-radius: 16px !important;
 	    }
 	    
 	    /* CTA buttons full width on mobile */
 	    .btn {
 	      width: 100%;
+	      max-width: 100%;
 	      justify-content: center;
 	      font-size: 14px !important;
 	      padding: 12px 20px !important;
@@ -404,11 +432,26 @@
 	      gap: var(--space-5) !important;
 	      padding: 0 !important;
 	    }
+	    
+	    section[style*="background: linear-gradient"] h2 {
+	      text-align: center !important;
+	      margin-bottom: var(--space-5) !important;
+	    }
+	    
+	    section[style*="background: linear-gradient"] p {
+	      font-size: 15px !important;
+	    }
+	    
+	    section[style*="background: linear-gradient"] video {
+	      width: 100% !important;
+	      height: auto !important;
+	      border-radius: 16px !important;
+	    }
 	  }
 	  
 	  @media (max-width: 480px) {
 	    /* Extra small mobile - maintain breathing room */
-	    section {
+	    section:not([style*="background: linear-gradient"]):not([style*="overflow: hidden"]) {
 	      padding-left: var(--space-3) !important;
 	      padding-right: var(--space-3) !important;
 	    }
@@ -424,6 +467,14 @@
 	    
 	    main > section:first-of-type img {
 	      width: 160px !important;
+	    }
+	    
+	    .project-overview {
+	      padding: var(--space-5) var(--space-3) !important;
+	    }
+	    
+	    .project-overview .grid-2 > div {
+	      padding: var(--space-3) !important;
 	    }
 	    
 	    .parallax-row {
@@ -451,9 +502,12 @@
 	      padding: 10px 16px !important;
 	    }
 	    
-	    div[style*="max-width"] {
-	      padding-left: var(--space-3) !important;
-	      padding-right: var(--space-3) !important;
+	    section[style*="background: linear-gradient"] {
+	      padding: var(--space-5) var(--space-3) !important;
+	    }
+	    
+	    section[style*="text-align: center"] {
+	      padding: var(--space-5) var(--space-3) !important;
 	    }
 	  }
 	</style>

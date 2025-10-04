@@ -171,13 +171,30 @@
 	      overflow-x: hidden !important;
 	    }
 	    
-	    /* Hero section mobile adjustments - ONLY target first section */
+	    /* Hero section mobile - image background covers entire section */
 	    main > section:first-of-type {
-	      min-height: 90vh !important;
+	      min-height: 100vh !important;
+	      overflow: hidden !important;
 	    }
 	    
-	    main > section:first-of-type > div[style*="padding"] {
-	      padding: calc(70px + var(--space-4)) var(--space-4) var(--space-4) !important;
+	    /* Image background layer - ensure it covers entire section */
+	    main > section:first-of-type > div:first-child {
+	      position: absolute !important;
+	      inset: 0 !important;
+	      z-index: 0 !important;
+	    }
+	    
+	    main > section:first-of-type > div:first-child img {
+	      width: 100% !important;
+	      height: 100% !important;
+	      object-fit: cover !important;
+	    }
+	    
+	    /* Content layer with breathing room */
+	    main > section:first-of-type > div:last-child {
+	      padding: calc(80px + var(--space-4)) var(--space-4) var(--space-4) !important;
+	      position: relative !important;
+	      z-index: 2 !important;
 	      max-width: 100% !important;
 	    }
 	    
@@ -301,6 +318,22 @@
 	    /* Fix container widths */
 	    div[style*="max-width"] {
 	      max-width: 100% !important;
+	    }
+	  }
+	  
+	  @media (max-width: 480px) {
+	    /* Keep hero image background on tiny screens */
+	    main > section:first-of-type {
+	      min-height: 100vh !important;
+	    }
+	    
+	    main > section:first-of-type > div:last-child {
+	      padding: calc(80px + var(--space-4)) var(--space-3) var(--space-4) !important;
+	    }
+	    
+	    section {
+	      padding-left: var(--space-3) !important;
+	      padding-right: var(--space-3) !important;
 	    }
 	  }
 	</style>

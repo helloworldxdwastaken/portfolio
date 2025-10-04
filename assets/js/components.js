@@ -81,11 +81,12 @@
         // Determine the correct path prefix based on current location
         const isInProjectsDir = window.location.pathname.includes('/pages/projects/');
         const isInPagesDir = window.location.pathname.includes('/pages/');
+        const isInLegalPage = window.location.pathname.includes('/legal-notice.html') || window.location.pathname.includes('/terms-of-service.html');
         
         let pathPrefix = '';
-        if (isInProjectsDir || isInLegalDir) {
+        if (isInProjectsDir) {
             pathPrefix = '../../';
-        } else if (isInPagesDir) {
+        } else if (isInPagesDir || isInLegalPage) {
             pathPrefix = '../';
         }
         

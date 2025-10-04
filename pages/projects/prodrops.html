@@ -123,6 +123,12 @@
 	  
 	  /* Mobile responsiveness */
 	  @media (max-width: 768px) {
+	    /* Force all elements to be visible on mobile - prevent GSAP from hiding */
+	    * {
+	      opacity: 1 !important;
+	      visibility: visible !important;
+	    }
+	    
 	    .tools-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
 	    .tool { padding: 8px; }
 	    .tool img { width: 20px; height: 20px; }
@@ -853,31 +859,33 @@
   </script>
   
   <script>
-    // Prodrops page animations
-    gsap.registerPlugin(ScrollTrigger);
-    
-    // Disable animations on mobile for better performance and visibility
+    // Prodrops page animations - check mobile FIRST before GSAP does anything
     const isMobile = window.innerWidth <= 768;
     
     if (isMobile) {
-      // On mobile, just ensure everything is visible and disable animations
+      // MOBILE: Don't register GSAP at all, just ensure everything is visible
+      console.log('📱 Mobile mode: Skipping all GSAP initialization');
+      
+      // Prevent horizontal scroll
       document.body.style.overflowX = 'hidden';
       document.documentElement.style.overflowX = 'hidden';
       
-      // Disable ScrollTrigger completely on mobile
-      ScrollTrigger.disable();
-      
-      // Use gsap.set to clear all animation properties
-      gsap.set('section, h1, h2, h3, p, img, video, ul, li, .tool, .tag, .btn, .project-overview, .components-wrap, .components-hero', {
-        clearProps: 'all',
-        opacity: 1,
-        visibility: 'visible'
+      // Don't initialize GSAP or ScrollTrigger on mobile
+      // Just make sure everything is visible with inline styles
+      document.addEventListener('DOMContentLoaded', function() {
+        const allElements = document.querySelectorAll('*');
+        allElements.forEach(el => {
+          // Remove any opacity/transform that might be set
+          el.style.opacity = '';
+          el.style.transform = '';
+          el.style.visibility = '';
+        });
       });
       
-      console.log('📱 Mobile mode: Animations disabled, all content visible');
-      
     } else {
-      console.log('🖥️ Desktop mode: Animations enabled');
+      // DESKTOP: Initialize GSAP normally
+      console.log('🖥️ Desktop mode: Initializing GSAP animations');
+      gsap.registerPlugin(ScrollTrigger);
       
       // Add resize handler to re-evaluate mobile vs desktop
       let resizeTimeout;

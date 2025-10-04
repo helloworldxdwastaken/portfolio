@@ -21,6 +21,16 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=General+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="../assets/css/main.css?v=10" />
+	<style>
+		/* EMERGENCY FIX: Force navbar visibility */
+		.site-header, #navbar-placeholder, header[role="banner"] {
+			opacity: 1 !important;
+			visibility: visible !important;
+			display: block !important;
+			position: fixed !important;
+			z-index: 9999 !important;
+		}
+	</style>
 </head>
 <body>
 	<!-- Navbar Component -->

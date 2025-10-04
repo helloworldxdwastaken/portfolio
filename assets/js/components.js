@@ -79,15 +79,22 @@
         }
         
         // Determine the correct path prefix based on current location
-        const isInProjectsDir = window.location.pathname.includes('/pages/projects/');
-        const isInPagesDir = window.location.pathname.includes('/pages/');
-        const isInLegalPage = window.location.pathname.includes('/legal-notice.html') || window.location.pathname.includes('/terms-of-service.html');
+        const currentPath = window.location.pathname;
+        const isInProjectsDir = currentPath.includes('/pages/projects/');
+        const isInPagesDir = currentPath.includes('/pages/') && !currentPath.includes('/pages/projects/');
+        const isInLegalPage = currentPath.endsWith('/legal-notice.html') || currentPath.endsWith('/terms-of-service.html');
+        const isInRoot = !isInPagesDir && !isInProjectsDir;
         
         let pathPrefix = '';
         if (isInProjectsDir) {
+            // From /pages/projects/ -> need ../../ to get to root
             pathPrefix = '../../';
-        } else if (isInPagesDir || isInLegalPage) {
+        } else if (isInPagesDir) {
+            // From /pages/ -> need ../ to get to root
             pathPrefix = '../';
+        } else if (isInLegalPage || isInRoot) {
+            // From root directory -> no prefix needed
+            pathPrefix = '';
         }
         
         console.log('Current path:', window.location.pathname);
@@ -119,14 +126,22 @@
         }
         
         // Determine the correct path prefix based on current location
-        const isInProjectsDir = window.location.pathname.includes('/pages/projects/');
-        const isInPagesDir = window.location.pathname.includes('/pages/');
+        const currentPath = window.location.pathname;
+        const isInProjectsDir = currentPath.includes('/pages/projects/');
+        const isInPagesDir = currentPath.includes('/pages/') && !currentPath.includes('/pages/projects/');
+        const isInLegalPage = currentPath.endsWith('/legal-notice.html') || currentPath.endsWith('/terms-of-service.html');
+        const isInRoot = !isInPagesDir && !isInProjectsDir;
         
         let pathPrefix = '';
-        if (isInProjectsDir || isInLegalDir) {
+        if (isInProjectsDir) {
+            // From /pages/projects/ -> need ../../ to get to root
             pathPrefix = '../../';
         } else if (isInPagesDir) {
+            // From /pages/ -> need ../ to get to root
             pathPrefix = '../';
+        } else if (isInLegalPage || isInRoot) {
+            // From root directory -> no prefix needed
+            pathPrefix = '';
         }
         
         console.log('Fixing footer links with prefix:', pathPrefix);
@@ -145,14 +160,21 @@
 
     async function init() {
         // Determine the correct path to components based on current page location
-        const isInPagesDir = window.location.pathname.includes('/pages/');
-        const isInProjectsDir = window.location.pathname.includes('/pages/projects/');
+        const currentPath = window.location.pathname;
+        const isInProjectsDir = currentPath.includes('/pages/projects/');
+        const isInPagesDir = currentPath.includes('/pages/') && !currentPath.includes('/pages/projects/');
+        const isInRoot = !isInPagesDir && !isInProjectsDir;
         
         let componentPath = 'components/';
         if (isInProjectsDir) {
+            // From /pages/projects/ -> need ../../ to get to root
             componentPath = '../../components/';
         } else if (isInPagesDir) {
+            // From /pages/ -> need ../ to get to root
             componentPath = '../components/';
+        } else {
+            // From root directory -> direct path
+            componentPath = 'components/';
         }
         
         // Load navbar
@@ -180,6 +202,11 @@
         if (!footerLoaded) {
             const footerPlaceholder = document.getElementById('footer-placeholder');
             if (footerPlaceholder && !footerPlaceholder.innerHTML.trim()) {
+                // Use the same path logic for fallback footer
+                const currentPath = window.location.pathname;
+                const isInProjectsDir = currentPath.includes('/pages/projects/');
+                const isInPagesDir = currentPath.includes('/pages/') && !currentPath.includes('/pages/projects/');
+                const pathPrefix = isInProjectsDir ? '../../' : (isInPagesDir ? '../' : '');
                 footerPlaceholder.innerHTML = `
 <!-- Footer Component -->
 <footer class="site-footer" role="contentinfo">
@@ -187,16 +214,16 @@
         <div class="footer-col">
             <h4 class="footer-title">Explore</h4>
             <ul class="footer-links">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="work.html">Work</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="${pathPrefix}pages/index.html#home">Home</a></li>
+                <li><a href="${pathPrefix}pages/work.html">Work</a></li>
+                <li><a href="${pathPrefix}pages/index.html#services">Services</a></li>
+                <li><a href="${pathPrefix}pages/about.html">About</a></li>
             </ul>
         </div>
         <div class="footer-col">
             <h4 class="footer-title">Contact</h4>
             <ul class="footer-links">
-                <li><a href="index.html#contact">Let's talk</a></li>
+                <li><a href="${pathPrefix}pages/index.html#contact">Let's talk</a></li>
                 <li><button id="copyEmailFooter" class="linklike" type="button">Copy email</button></li>
             </ul>
         </div>
@@ -237,6 +264,11 @@
             
             if (!footerElement && footerPlaceholder) {
                 console.warn('Footer not found after initial load, injecting fallback...');
+                // Use the same path logic for secondary fallback footer
+                const currentPath = window.location.pathname;
+                const isInProjectsDir = currentPath.includes('/pages/projects/');
+                const isInPagesDir = currentPath.includes('/pages/') && !currentPath.includes('/pages/projects/');
+                const pathPrefix = isInProjectsDir ? '../../' : (isInPagesDir ? '../' : '');
                 footerPlaceholder.innerHTML = `
 <!-- Footer Component (Fallback) -->
 <footer class="site-footer" role="contentinfo">
@@ -244,16 +276,16 @@
         <div class="footer-col">
             <h4 class="footer-title">Explore</h4>
             <ul class="footer-links">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="work.html">Work</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="${pathPrefix}pages/index.html#home">Home</a></li>
+                <li><a href="${pathPrefix}pages/work.html">Work</a></li>
+                <li><a href="${pathPrefix}pages/index.html#services">Services</a></li>
+                <li><a href="${pathPrefix}pages/about.html">About</a></li>
             </ul>
         </div>
         <div class="footer-col">
             <h4 class="footer-title">Contact</h4>
             <ul class="footer-links">
-                <li><a href="index.html#contact">Let's talk</a></li>
+                <li><a href="${pathPrefix}pages/index.html#contact">Let's talk</a></li>
                 <li><button id="copyEmailFooter" class="linklike" type="button">Copy email</button></li>
             </ul>
         </div>

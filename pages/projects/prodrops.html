@@ -813,6 +813,15 @@
     // Prodrops page animations
     gsap.registerPlugin(ScrollTrigger);
     
+    // Disable animations on mobile for better performance and visibility
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+      // Skip all animations on mobile - just show content immediately
+      gsap.set('section, h2, img, video, p, .tool, .project-overview', { opacity: 1, y: 0, scale: 1 });
+    } else {
+      // Run animations only on desktop
+    
     // Hero section entrance animation
     gsap.fromTo('section:first-of-type img', 
       { scale: 0.9, opacity: 0 },
@@ -913,6 +922,8 @@
         }
       }
     );
+    
+    } // End desktop animations
   </script>
 </body>
 </html>

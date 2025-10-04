@@ -438,6 +438,13 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ---------- Layout ---------- */
+
+/* CRITICAL: Ensure navbar is always visible - prevent GSAP from hiding */
+.site-header {
+	opacity: 1 !important;
+	visibility: visible !important;
+}
+
 .site-header {
     position: fixed;
     top: 14px; 

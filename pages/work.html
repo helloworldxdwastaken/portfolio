@@ -298,19 +298,12 @@
 	
 	<script>
 		// Work page animations
-		gsap.registerPlugin(ScrollTrigger);
-		
-		// Disable animations on mobile
+		// Check mobile FIRST before initializing GSAP
 		const isMobile = window.innerWidth <= 768;
 		
 		if (isMobile) {
-			// Make all content visible immediately on mobile
-			gsap.set('.work-hero-inner, .work-filters-inner, .filter-btn, .project-card, .work-cta, h1, h3, p', { 
-				opacity: 1, 
-				y: 0, 
-				scale: 1,
-				visibility: 'visible'
-			});
+			// MOBILE: Don't initialize GSAP at all
+			console.log('📱 Mobile (Work): GSAP disabled');
 			
 			// Add mobile card click functionality
 			document.querySelectorAll('.work-page .project-card').forEach(card => {
@@ -322,6 +315,10 @@
 				});
 			});
 		} else {
+			// DESKTOP ONLY: Initialize GSAP
+			gsap.registerPlugin(ScrollTrigger);
+			console.log('🖥️ Desktop (Work): GSAP enabled');
+			
 			// Run animations only on desktop
 		
 		// Hero section entrance animation

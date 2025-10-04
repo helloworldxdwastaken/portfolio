@@ -524,20 +524,16 @@
   
   <script>
     // EPHOCA page animations
-    gsap.registerPlugin(ScrollTrigger);
-    
-    // Disable animations on mobile
+    // Check mobile FIRST before initializing GSAP
     const isMobile = window.innerWidth <= 768;
     
     if (isMobile) {
-        // Make all content visible immediately on mobile
-        gsap.set('section, h1, h2, h3, img, video, p, ul, .tool, .project-overview', { 
-            opacity: 1, 
-            y: 0, 
-            scale: 1,
-            visibility: 'visible'
-        });
+        // MOBILE: Don't initialize GSAP at all
+        console.log('📱 Mobile (Ephoca): GSAP disabled');
     } else {
+        // DESKTOP ONLY: Initialize GSAP
+        gsap.registerPlugin(ScrollTrigger);
+        console.log('🖥️ Desktop (Ephoca): GSAP enabled');
         // Run animations only on desktop
     
     // Hero section entrance animation

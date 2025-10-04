@@ -281,23 +281,19 @@ let lenis;
 
 // GSAP + ScrollTrigger animations - OPTIMIZED
 (() => {
-	if (!window.gsap) return;
-	gsap.registerPlugin(ScrollTrigger);
-	
-	// Disable animations on mobile
+	// Check if mobile FIRST before doing anything with GSAP
 	const isMobile = window.innerWidth <= 768;
 	
 	if (isMobile) {
-		// Make all content visible immediately on mobile
-		gsap.set('.site-header, .hero, .section, .section-head, .service-card, .project-row, .testi-card, .contact-wrap, h1, h2, h3, p, .btn', { 
-			opacity: 1, 
-			y: 0, 
-			scale: 1,
-			visibility: 'visible',
-			autoAlpha: 1
-		});
+		// MOBILE: Don't initialize GSAP at all
+		console.log('📱 Mobile: GSAP disabled globally');
 		return; // Exit early, skip all animations
 	}
+	
+	// DESKTOP ONLY: Initialize GSAP
+	if (!window.gsap) return;
+	gsap.registerPlugin(ScrollTrigger);
+	console.log('🖥️ Desktop: GSAP enabled');
 	
 	// Desktop animations only
 	ScrollTrigger.config({ 

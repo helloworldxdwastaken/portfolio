@@ -2397,6 +2397,7 @@ a { color: inherit; text-decoration: none; }
 	
 	.work-page .project-card {
 		padding: var(--space-4);
+		cursor: pointer;
 	}
 	
 	.work-page .project-title {
@@ -2405,6 +2406,17 @@ a { color: inherit; text-decoration: none; }
 	
 	.work-page .project-desc {
 		font-size: 14px;
+	}
+	
+	/* Hide button on mobile - make whole card clickable */
+	.work-page .project-check {
+		display: none !important;
+	}
+	
+	/* Make project content always visible on mobile */
+	.work-page .project-content {
+		opacity: 1 !important;
+		visibility: visible !important;
 	}
 	
 	/* Services mobile */

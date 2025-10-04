@@ -88,6 +88,32 @@ const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 		header.classList.remove("hovered");
 	});
 
+	// Make project cards clickable on mobile (when button is hidden)
+	const workProjectCards = document.querySelectorAll('.work-page .project-card');
+	if (workProjectCards.length > 0) {
+		workProjectCards.forEach(card => {
+			card.addEventListener('click', (e) => {
+				// Only make card clickable on mobile (when button is hidden)
+				const button = card.querySelector('.project-check');
+				if (button && window.getComputedStyle(button).display === 'none') {
+					// Don't trigger if clicking on a link inside the card
+					if (!e.target.closest('a')) {
+						const link = button.getAttribute('href');
+						const isExternal = button.getAttribute('target') === '_blank';
+						
+						if (link) {
+							if (isExternal) {
+								window.open(link, '_blank', 'noopener,noreferrer');
+							} else {
+								window.location.href = link;
+							}
+						}
+					}
+				}
+			});
+		});
+	}
+
 	// Work page filtering functionality
 	const filterButtons = document.querySelectorAll('.filter-btn');
 	const projectCards = document.querySelectorAll('.project-card');

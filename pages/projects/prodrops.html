@@ -147,6 +147,19 @@
 	      width: 1575px;
 	      max-width: 1750px;
 	    }
+	    
+	    /* Fix parallax elements on mobile - make them static */
+	    .ui-gallery-track, .parallax-row {
+	      position: static !important;
+	      transform: none !important;
+	      overflow: visible !important;
+	    }
+	    
+	    .ui-gallery-track > div {
+	      position: static !important;
+	      transform: none !important;
+	      display: inline-block !important;
+	    }
 	  }
 	  
 	  @media (max-width: 480px) {
@@ -732,6 +745,13 @@
 	<script>
   // Optimized parallax scroll for UI gallery tracks
   (function() {
+    // Skip parallax on mobile for better performance
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      console.log('📱 Mobile: Skipping parallax animations');
+      return;
+    }
+    
     const tracks = Array.from(document.querySelectorAll('.ui-gallery-track'));
     console.log('Found tracks:', tracks.length);
     
@@ -848,6 +868,15 @@
         el.style.opacity = '1';
         el.style.visibility = 'visible';
         el.style.transform = 'none';
+      });
+      
+      // Fix parallax elements on mobile - make them static and visible
+      const parallaxElements = document.querySelectorAll('.ui-gallery-track, .parallax-row');
+      parallaxElements.forEach(el => {
+        el.style.transform = 'none !important';
+        el.style.opacity = '1';
+        el.style.visibility = 'visible';
+        el.style.position = 'static';
       });
       
       // Disable ScrollTrigger completely on mobile

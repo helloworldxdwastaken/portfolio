@@ -506,17 +506,23 @@ let lenis;
 			const subject = encodeURIComponent(`Project Inquiry${name ? ` from ${name}` : ""}`);
 			const body = encodeURIComponent(`Hi,\n\n${message}\n\n— ${name}${from ? ` (${from})` : ""}`);
 			
-			// Try to open mailto, fallback to showing email if it fails
-			try {
+			// For GitHub Pages, let's try a different approach
+			// First, try to copy the email with form data to clipboard
+			const emailText = `To: ${email}\nSubject: ${decodeURIComponent(subject)}\n\n${decodeURIComponent(body)}`;
+			
+			navigator.clipboard.writeText(emailText).then(() => {
+				// Show success message with instructions
+				alert(`Email content copied to clipboard!\n\nPlease paste it into your email client and send to: ${email}\n\nOr click OK to try opening your email client directly.`);
+				
+				// Also try the mailto link as backup
+				setTimeout(() => {
+					window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+				}, 100);
+			}).catch(() => {
+				// If clipboard fails, show the email and try mailto
+				alert(`Email: ${email}\n\nSubject: ${decodeURIComponent(subject)}\n\nMessage: ${decodeURIComponent(body)}\n\nClick OK to try opening your email client.`);
 				window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-			} catch (error) {
-				// If mailto fails, copy email to clipboard as fallback
-				navigator.clipboard.writeText(email).then(() => {
-					alert(`Email client not available. Email copied to clipboard: ${email}`);
-				}).catch(() => {
-					alert(`Email: ${email}`);
-				});
-			}
+			});
 		});
 	}
 })();

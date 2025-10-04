@@ -284,12 +284,28 @@ let lenis;
 	if (!window.gsap) return;
 	gsap.registerPlugin(ScrollTrigger);
 	
+	// Disable animations on mobile
+	const isMobile = window.innerWidth <= 768;
+	
+	if (isMobile) {
+		// Make all content visible immediately on mobile
+		gsap.set('.site-header, .hero, .section, .section-head, .service-card, .project-row, .testi-card, .contact-wrap, h1, h2, h3, p, .btn', { 
+			opacity: 1, 
+			y: 0, 
+			scale: 1,
+			visibility: 'visible',
+			autoAlpha: 1
+		});
+		return; // Exit early, skip all animations
+	}
+	
+	// Desktop animations only
 	ScrollTrigger.config({ 
 		autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
 		refreshPriority: -1,
 		limitCallbacks: true
 	});
-
+	
     // Hero + nav intro - SIMPLIFIED
     gsap.from(".site-header", { y: -20, autoAlpha: 0, duration: 0.5, ease: "power2.out" });
     gsap.from(".hero h1", { y: 20, autoAlpha: 0, duration: 0.7, ease: "power2.out" });

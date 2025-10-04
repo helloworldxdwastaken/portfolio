@@ -827,12 +827,27 @@
     
     if (isMobile) {
       // Skip all animations on mobile - just show content immediately
-      gsap.set('section, h2, h3, img, video, p, ul, .tool, .project-overview, .components-wrap, .components-hero', { 
+      gsap.set('*', { 
         opacity: 1, 
         y: 0, 
         scale: 1,
-        visibility: 'visible'
+        visibility: 'visible',
+        autoAlpha: 1,
+        clearProps: 'all'
       });
+      
+      // Also ensure all elements are visible with CSS
+      document.body.style.overflowX = 'hidden';
+      document.documentElement.style.overflowX = 'hidden';
+      
+      // Force visibility of all sections and content
+      const allElements = document.querySelectorAll('section, h1, h2, h3, p, img, video, ul, li, div, .tool, .tag, .btn');
+      allElements.forEach(el => {
+        el.style.opacity = '1';
+        el.style.visibility = 'visible';
+        el.style.transform = 'none';
+      });
+      
     } else {
       // Run animations only on desktop
     

@@ -199,6 +199,19 @@
 	    }
 	  }
 	  
+	  @media (max-width: 900px) {
+	    /* Bottom UI gallery parallax responsive */
+	    .parallax-row {
+	      height: 280px !important;
+	      margin-bottom: 32px !important;
+	    }
+	    
+	    .ui-gallery-track > div {
+	      width: 400px !important;
+	      height: 260px !important;
+	    }
+	  }
+	  
 	  @media (max-width: 640px) {
 	    /* Prevent horizontal scroll */
 	    body, main {
@@ -206,9 +219,14 @@
 	    }
 	    
 	    /* Smaller parallax cards on mobile */
+	    .parallax-row {
+	      height: 220px !important;
+	      margin-bottom: 24px !important;
+	    }
+	    
 	    .ui-gallery-track > div {
-	      width: 280px !important;
-	      height: 180px !important;
+	      width: 300px !important;
+	      height: 200px !important;
 	    }
 	    
 	    /* Hero section mobile */
@@ -294,12 +312,14 @@
 	    }
 	    
 	    .parallax-row {
-	      height: 200px !important;
+	      height: 180px !important;
+	      margin-bottom: 20px !important;
 	    }
 	    
 	    .ui-gallery-track > div {
-	      width: 240px !important;
-	      height: 150px !important;
+	      width: 260px !important;
+	      height: 160px !important;
+	      border-radius: 14px !important;
 	    }
 	  }
 	</style>

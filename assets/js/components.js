@@ -166,17 +166,19 @@
         const isInLegalPage = currentPath.endsWith('/legal-notice.html') || currentPath.endsWith('/terms-of-service.html');
         const isInRoot = !isInPagesDir && !isInProjectsDir;
         
-        let componentPath = 'portfolio/components/';
+        let componentPath = 'components/';
         if (isInProjectsDir) {
-            // From /pages/projects/ -> need ../../portfolio/ to get to portfolio root
-            componentPath = '../../portfolio/components/';
+            // From /pages/projects/ -> need ../../components/
+            componentPath = '../../components/';
         } else if (isInPagesDir || isInLegalPage) {
-            // From /pages/ or legal pages -> need ../portfolio/ to get to portfolio root
-            componentPath = '../portfolio/components/';
+            // From /pages/ or legal pages -> need ../components/
+            componentPath = '../components/';
         } else {
-            // From portfolio root directory -> direct path
-            componentPath = 'portfolio/components/';
+            // From root directory -> direct path
+            componentPath = 'components/';
         }
+        
+        console.log('Loading components from:', componentPath);
         
         // Load navbar
         const navLoaded = await loadComponent('navbar-placeholder', componentPath + 'navbar.html');

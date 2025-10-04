@@ -827,12 +827,11 @@
     
     if (isMobile) {
       // Skip all animations on mobile - just show content immediately
-      gsap.set('section, h2, h3, img, video, p, ul, .tool, .project-overview, .components-wrap, .components-hero, div', { 
+      gsap.set('section, h2, h3, img, video, p, ul, .tool, .project-overview, .components-wrap, .components-hero', { 
         opacity: 1, 
         y: 0, 
         scale: 1,
-        visibility: 'visible',
-        clearProps: 'all'
+        visibility: 'visible'
       });
     } else {
       // Run animations only on desktop

@@ -121,19 +121,18 @@
 	    transform-origin: center center;
 	  }
 	  
+	  /* Ensure navbar is always visible - prevent GSAP from hiding */
+	  .site-header {
+	    opacity: 1 !important;
+	    visibility: visible !important;
+	  }
+	  
 	  /* Mobile responsiveness */
 	  @media (max-width: 768px) {
-	    /* Force all elements to be visible on mobile - prevent GSAP from hiding */
-	    * {
-	      opacity: 1 !important;
-	      visibility: visible !important;
-	    }
-	    
 	    /* Force navbar to be visible on mobile */
 	    .site-header {
-	      opacity: 1 !important;
-	      visibility: visible !important;
 	      transform: none !important;
+	      display: block !important;
 	    }
 	    
 	    .tools-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
@@ -878,16 +877,7 @@
       document.documentElement.style.overflowX = 'hidden';
       
       // Don't initialize GSAP or ScrollTrigger on mobile
-      // Just make sure everything is visible with inline styles
-      document.addEventListener('DOMContentLoaded', function() {
-        const allElements = document.querySelectorAll('*');
-        allElements.forEach(el => {
-          // Remove any opacity/transform that might be set
-          el.style.opacity = '';
-          el.style.transform = '';
-          el.style.visibility = '';
-        });
-      });
+      console.log('📱 Mobile: GSAP disabled, using CSS for visibility');
       
     } else {
       // DESKTOP: Initialize GSAP normally

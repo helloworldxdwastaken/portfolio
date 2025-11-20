@@ -4,7 +4,7 @@
 .hero-brands::after { content: ""; display: block; height: 1px; width: 100%; opacity: .25; }
 .hero-brands::before { background: linear-gradient(to right, transparent, rgba(255,255,255,0.25), transparent); margin-bottom: 10px; }
 .hero-brands::after  { background: linear-gradient(to right, transparent, rgba(255,255,255,0.25), transparent); margin-top: 12px; }
-.hero-brands h3 { font-size: clamp(10px, 1.2vw, 14px); font-weight: 500; opacity: .8; margin: 0 auto 16px; }
+.hero-brands h3 { font-size: clamp(10px, 1.2vw, 14px); font-weight: 500; opacity: .8; margin: 0 auto 8px; }
 .hero-brands .brands-strip {
     position: relative;
     overflow: hidden;
@@ -12,18 +12,18 @@
     mask-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0));
 }
 .hero-brands .brands-strip-track { display: flex; align-items: center; gap: 48px; padding: 6px 0; min-width: max-content; animation: strip 26s linear infinite; opacity: .9; }
-.hero-brands .brands-strip-track img { height: 32px; width: auto; }
+.hero-brands .brands-strip-track img { height: 26px; width: auto; }
 .brands--marquee { padding-top: 4px; margin-top: -48px; }
 @keyframes strip { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 @media (max-width: 900px) {
 	.brands-strip-track { gap: 48px; }
-	.brands-strip-track img { height: 28px; }
+	.brands-strip-track img { height: 24px; }
 }
 
 @media (max-width: 600px) {
 	.brands-strip-track { gap: 32px; }
-		.brands-strip-track img { height: 24px; }
+	.brands-strip-track img { height: 20px; }
 	
 	/* Fix hero brands on mobile */
 	.hero-brands { 
@@ -64,7 +64,6 @@
 }
 .brands-strip::before { left: 0; background: linear-gradient(to right, var(--bg) 10%, rgba(14,14,16,0)); }
 .brands-strip::after { right: 0; background: linear-gradient(to left, var(--bg) 10%, rgba(14,14,16,0)); }
-/* brand-white handled by default SVG colors */
 /* ==========================
    UI/UX Freelancer Portfolio Styles
    Modern, edgy, animated aesthetic
@@ -119,7 +118,17 @@
 	--tag-systems-fg: #0a0a0c;
 }
 
-/* Light theme - primary buttons stay the same (gradient + white text) */
+/* Light theme button styles */
+.btn-primary {
+	color: #0a0a0c;
+	text-shadow: none;
+	border: none;
+	box-shadow: none;
+}
+
+.btn-primary:hover {
+	box-shadow: 0 0 0 1px rgba(138,92,255,0.3), 0 20px 40px rgba(0,0,0,0.15) !important;
+}
 
 /* Dark theme - for users with system dark mode preference or data-theme="dark" */
 [data-theme="dark"] {
@@ -199,7 +208,7 @@
 		box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 	}
 	
-		.nav-menu a:not(.btn):hover { background: rgba(255,255,255,0.06); }
+	.nav-menu a:hover { background: rgba(255,255,255,0.06); }
 	
 	.theme-toggle {
 		border-color: rgba(255,255,255,0.12);
@@ -212,44 +221,26 @@
 		background: rgba(138,92,255,0.15);
 	}
 	
+	.nav-menu a.btn:hover {
+		box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.45);
+		background: rgba(255,255,255,0.08);
 	}
 	
-.btn {
-	border: 1px solid rgba(255,255,255,0.08);
-	background: rgba(255,255,255,0.06);
-}
-
-.btn:hover {
-	box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.45);
-	background: rgba(255,255,255,0.08);
-}
-
-.btn-secondary { background: rgba(255,255,255,0.06); }
-
-/* Light-only secondary style (e.g., hero “See Work”) */
-.btn-secondary-light {
-	background: #ffffff;
-	color: #0a0a0c;
-	border: 1px solid rgba(0,0,0,0.08);
-	box-shadow: var(--shadow-soft);
-}
-.btn-secondary-light:hover {
-	background: #ffffff;
-	box-shadow: 0 12px 32px rgba(0,0,0,0.16);
-}
-
-@media (prefers-color-scheme: dark) {
-	.btn-secondary-light {
-		background: rgba(255,255,255,0.06);
-		color: var(--text);
-		border: 1px solid rgba(255,255,255,0.08);
-		box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 0 20px 40px rgba(0,0,0,0.45);
-	}
-	.btn-secondary-light:hover {
-		background: rgba(255,255,255,0.08);
+	.nav-menu a.btn.btn-primary:hover {
 		box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.45);
 	}
-}
+	
+	.btn {
+		border: 1px solid rgba(255,255,255,0.08);
+		background: rgba(255,255,255,0.06);
+	}
+	
+	.btn:hover {
+		box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.45);
+		background: rgba(255,255,255,0.08);
+	}
+	
+	.btn-secondary { background: rgba(255,255,255,0.06); }
 	
 	.btn-pill::after {
 		background: rgba(255,255,255,0.9);
@@ -445,7 +436,7 @@
 		box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 	}
 	
-		.nav-menu a:not(.btn):hover { background: rgba(255,255,255,0.06); }
+	.nav-menu a:hover { background: rgba(255,255,255,0.06); }
 	
 	.theme-toggle {
 		border-color: rgba(255,255,255,0.12);
@@ -458,15 +449,13 @@
 		background: rgba(138,92,255,0.15);
 	}
 	
-		.btn-primary {
-			color: #ffffff !important;
-			text-shadow: 0 1px 2px rgba(10,10,10,0.2);
-		border: 1px solid rgba(138,92,255,0.65);
-		box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+	.nav-menu a.btn:hover {
+		box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.45);
+		background: rgba(255,255,255,0.08);
 	}
 	
-	.btn-primary:hover {
-		box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 20px 40px rgba(0,0,0,0.45);
+	.nav-menu a.btn.btn-primary:hover {
+		box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.45);
 	}
 	
 	.btn {
@@ -1072,26 +1061,31 @@ a { color: inherit; text-decoration: none; }
 
 /* Nav link hover/active states */
 .nav-menu a { position: relative; padding: 8px 10px; border-radius: 10px; transition: color .2s ease, background .2s ease, font-weight .2s ease; font-weight: 500; font-size: 14px; }
-.nav-menu a:not(.btn):hover { background: rgba(255,255,255,0.06); font-weight: 700; }
+.nav-menu a:hover { background: rgba(255,255,255,0.06); font-weight: 700; }
 .nav-menu a:not(.btn).is-active { background: none; color: transparent; background-image: linear-gradient(135deg, var(--accent-1), var(--accent-2)); -webkit-background-clip: text; background-clip: text; font-weight: 800; }
 .nav-menu a.btn.is-active { filter: brightness(1.08); box-shadow: 0 0 0 1px rgba(255,255,255,0.12) inset; }
-/* Keep nav buttons sized like standard buttons without overriding hover styling */
+/* Ensure Contact button matches global button behavior */
 .nav-menu a.btn { 
 	padding: 10px 18px; 
 	min-height: 44px; 
 	border-radius: 9999px; 
+	transition: transform .15s ease, box-shadow .3s ease, background .3s ease;
+	will-change: transform;
 }
-.site-header .nav-menu .btn.btn-primary,
-.site-header .nav-menu .btn.btn-primary:hover {
-	background: linear-gradient(135deg, rgba(138,92,255,1), rgba(34,211,238,1)) !important;
-	color: #ffffff !important;
-	box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 20px 40px rgba(0,0,0,0.45);
+.nav-menu a.btn:hover { 
+	transform: translateY(-1px); 
+	box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.45); 
+	background: rgba(255,255,255,0.08);
 }
-.nav-menu a.btn.btn-primary:hover {
-	background: linear-gradient(135deg, rgba(138,92,255,1), rgba(34,211,238,1));
-	color: #ffffff;
-	box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 20px 40px rgba(0,0,0,0.45);
+.nav-menu a.btn:active { 
+	transform: translateY(0); 
 }
+.nav-menu a.btn.btn-primary:hover { 
+	background: linear-gradient(135deg, rgba(138,92,255,1), rgba(34,211,238,1)); 
+	transform: translateY(-1px); 
+	box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.45); 
+}
+
 /* Theme Toggle Button */
 .theme-toggle {
 	display: inline-flex;
@@ -1169,14 +1163,13 @@ html[style*="color-scheme: dark"] .moon-icon {
     transition: transform .15s ease, box-shadow .3s ease, background .3s ease;
     will-change: transform;
 }
-.btn:hover { transform: translateY(-1px); box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.45); }
-.btn:not(.btn-primary):hover { background: rgba(255,255,255,0.08); }
+.btn:hover { transform: translateY(-1px); box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.45); background: rgba(255,255,255,0.08); }
 .btn:active { transform: translateY(0); }
 
 .btn-primary {
 	position: relative;
 	background: linear-gradient(135deg, rgba(138,92,255,1), rgba(34,211,238,1));
-	color: #ffffff !important;
+	color: #ffffff;
 	text-shadow: 0 1px 2px rgba(10,10,10,0.2);
 	border: 1px solid rgba(138,92,255,0.65);
 	box-shadow: 0 12px 30px rgba(0,0,0,0.35);
@@ -1201,6 +1194,7 @@ html[style*="color-scheme: dark"] .moon-icon {
 	box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 20px 40px rgba(0,0,0,0.45);
 }
 
+.btn-secondary { background: rgba(255,255,255,0.06); color: var(--text); }
 
 /* Pill button with circular arrow used selectively (e.g., Work section) */
 .btn-pill {
@@ -1905,7 +1899,7 @@ html[style*="color-scheme: dark"] .moon-icon {
 .brands-rows { position: relative; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--space-4); border: 0; background: transparent; display: grid; gap: 16px; }
 .brands-row { overflow: hidden; }
 .brands-track { display: flex; align-items: center; gap: 56px; padding: 18px 0; flex-wrap: wrap; justify-content: center; }
-.brands-track img { height: 80px; width: auto; opacity: 1; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25)); transition: transform .2s ease, filter .2s ease; background: transparent; }
+.brands-track img { height: 72px; width: auto; opacity: 1; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25)); transition: transform .2s ease, filter .2s ease; background: transparent; }
 .brands-track img:hover { transform: translateY(-1px); filter: drop-shadow(0 3px 10px rgba(0,0,0,0.35)); }
 .brands-track img.brand-tight { object-fit: contain; transform: translateX(-10px); }
 .brands-track img.brand-white { filter: invert(1); }
@@ -1914,12 +1908,12 @@ html[style*="color-scheme: dark"] .moon-icon {
 
 @media (max-width: 900px) {
 	.brands-track { gap: 36px; padding: 22px 0; }
-		.brands-track img { height: 64px; }
+	.brands-track img { height: 56px; }
 }
 
 @media (max-width: 600px) {
 	.brands-track { gap: 24px; padding: 18px 0; }
-		.brands-track img { height: 48px; }
+	.brands-track img { height: 42px; }
 }
 
 /* Testimonials Carousel */
@@ -2142,6 +2136,15 @@ html[style*="color-scheme: dark"] .moon-icon {
 .contact-form .btn { border-radius: 9999px; }
 .form-row { display: grid; gap: 8px; margin-bottom: var(--space-4); }
 .form-row label { color: var(--muted); font-size: 14px; }
+.contact .btn-secondary {
+	background: linear-gradient(135deg, rgba(138,92,255,1), rgba(34,211,238,1));
+	color: #0a0a0c;
+	border: 1px solid rgba(255,255,255,0.2);
+	box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+.contact .btn-secondary:hover {
+	box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 20px 40px rgba(0,0,0,0.4);
+}
 .form-row input, .form-row textarea {
 	width: 100%;
 	background: rgba(255,255,255,0.04);
@@ -2180,32 +2183,14 @@ html[style*="color-scheme: dark"] .moon-icon {
 	font-weight: 800; 
 	font-size: clamp(100px, 14vw, 200px); 
 	letter-spacing: -0.03em; 
-	color: rgba(255,255,255,0.08); 
-	-webkit-text-stroke: 1px rgba(255,255,255,0.12); 
-	text-shadow: 0 10px 40px rgba(0,0,0,0.35);
+	color: rgba(255,255,255,0.06); 
+	-webkit-text-stroke: 1px rgba(255,255,255,0.08); 
 	pointer-events: none; 
 	user-select: none; 
 	text-align: center; 
 	opacity: 1; 
 	white-space: nowrap; 
 	z-index: 0; 
-}
-.footer-watermark::after {
-	content: "";
-	position: absolute;
-	inset: 0;
-	background: radial-gradient(60% 40% at 50% 60%, rgba(255,255,255,0.12), transparent 65%);
-	opacity: 0.5;
-	filter: blur(12px);
-	z-index: -1;
-}
-[data-theme="light"] .footer-watermark {
-	color: rgba(0,0,0,0.06);
-	-webkit-text-stroke: 1px rgba(0,0,0,0.08);
-	text-shadow: none;
-}
-[data-theme="light"] .footer-watermark::after {
-	background: radial-gradient(60% 40% at 50% 60%, rgba(0,0,0,0.06), transparent 65%);
 }
 .footer-grid, .footer-bottom { position: relative; z-index: 1; }
 
@@ -2600,9 +2585,9 @@ html[style*="color-scheme: dark"] .moon-icon {
 		transition: background 0.2s ease;
 	}
 	
-		.nav-menu li a:not(.btn):hover {
-			background: rgba(255, 255, 255, 0.05);
-		}
+	.nav-menu li a:hover {
+		background: rgba(255, 255, 255, 0.05);
+	}
 	
 	/* Make contact button full width on mobile */
 	.nav-menu .btn-primary {

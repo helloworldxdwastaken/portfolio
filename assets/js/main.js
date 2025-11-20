@@ -3,6 +3,118 @@
    OPTIMIZED FOR PERFORMANCE
    ========================== */
 
+// Theme Detection & Toggle
+(() => {
+	const THEME_KEY = "portfolio-theme";
+	
+	// Swap brand logos for light/dark variants based on filename convention: name.svg -> name_light.svg
+	const updateBrandLogos = (theme) => {
+		const imgs = document.querySelectorAll(".brands-strip img, .brands-track img");
+		imgs.forEach((img) => {
+			// Cache base src and derived light src once
+			if (!img.dataset.srcBase) {
+				const current = img.getAttribute("src");
+				img.dataset.srcBase = current;
+				
+				const dot = current.lastIndexOf(".");
+				if (dot !== -1) {
+					const lightSrc = `${current.slice(0, dot)}_light${current.slice(dot)}`;
+					img.dataset.srcLight = lightSrc;
+				}
+			}
+			
+			const base = img.dataset.srcBase;
+			const light = img.dataset.srcLight;
+			const allowLight = light && img.dataset.hasLight !== "false";
+			const useLight = theme === "light" && allowLight;
+			const target = useLight ? light : base;
+			
+			// Swap with a safe fallback: if light variant 404s, revert to base
+			if (useLight) {
+				img.onerror = () => {
+					img.onerror = null;
+					img.dataset.hasLight = "false";
+					img.src = base;
+				};
+			} else {
+				img.onerror = null;
+			}
+			
+			if (target && img.getAttribute("src") !== target) {
+				img.setAttribute("src", target);
+			}
+		});
+	};
+	
+	// Detect user's preferred theme
+	const getPreferredTheme = () => {
+		// Check localStorage first
+		const saved = localStorage.getItem(THEME_KEY);
+		if (saved) return saved;
+		
+		// Check system preference
+		if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+			return "dark";
+		}
+		if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
+			return "light";
+		}
+		
+		// Default to dark
+		return "dark";
+	};
+	
+	// Apply theme by adding/removing data-theme attribute
+	const applyTheme = (theme) => {
+		document.documentElement.setAttribute("data-theme", theme);
+		document.documentElement.style.colorScheme = theme;
+		localStorage.setItem(THEME_KEY, theme);
+		updateBrandLogos(theme);
+	};
+	
+	// Listen for system theme changes
+	if (window.matchMedia) {
+		const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+		darkModeQuery.addEventListener("change", (e) => {
+			if (!localStorage.getItem(THEME_KEY)) {
+				applyTheme(e.matches ? "dark" : "light");
+			}
+		});
+		
+		const lightModeQuery = window.matchMedia("(prefers-color-scheme: light)");
+		lightModeQuery.addEventListener("change", (e) => {
+			if (!localStorage.getItem(THEME_KEY)) {
+				applyTheme(e.matches ? "light" : "dark");
+			}
+		});
+	}
+	
+	// Initialize theme on page load
+	const preferredTheme = getPreferredTheme();
+	applyTheme(preferredTheme);
+	
+	// Theme toggle button handler
+	const themeToggle = document.getElementById("themeToggle");
+	if (themeToggle) {
+		themeToggle.addEventListener("click", () => {
+			// Get current theme from the actual DOM attribute, not just localStorage
+			const currentDataTheme = document.documentElement.getAttribute("data-theme");
+			const currentTheme = currentDataTheme || localStorage.getItem(THEME_KEY) || preferredTheme;
+			const newTheme = currentTheme === "light" ? "dark" : "light";
+			applyTheme(newTheme);
+			
+			// Update meta theme-color
+			const themeColor = document.getElementById("theme-color");
+			if (themeColor) {
+				themeColor.content = newTheme === "light" ? "#f8f7fc" : "#050507";
+			}
+			
+			// Log for debugging
+			console.log("Theme switched to:", newTheme);
+		});
+	}
+})();
+
 // Utility selectors
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
@@ -437,18 +549,52 @@ let lenis;
         });
     });
 
-    // Resolve logos for the hero-adjacent marquee
-    const stripTrack = document.querySelector('.brands-strip-track');
-    if (stripTrack) {
-        Array.from(stripTrack.querySelectorAll('img[data-domain]')).forEach((img) => {
-            const domain = img.getAttribute('data-domain');
-            img.src = `https://logo.clearbit.com/${domain}`;
-            img.referrerPolicy = 'no-referrer';
-        });
-        const clones = Array.from(stripTrack.children).map((n) => n.cloneNode(true));
-        clones.forEach((c) => stripTrack.appendChild(c));
-    }
-})();
+	    // Resolve logos for the hero-adjacent marquee
+	    const stripTrack = document.querySelector('.brands-strip-track');
+	    if (stripTrack) {
+	        Array.from(stripTrack.querySelectorAll('img[data-domain]')).forEach((img) => {
+	            const domain = img.getAttribute('data-domain');
+	            img.src = `https://logo.clearbit.com/${domain}`;
+	            img.referrerPolicy = 'no-referrer';
+	        });
+	        const clones = Array.from(stripTrack.children).map((n) => n.cloneNode(true));
+	        clones.forEach((c) => stripTrack.appendChild(c));
+	        
+	        // Re-run logo swapper to ensure clones use correct light/dark variant
+	        const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
+	        (function reapplyBrands(theme) {
+	            const imgs = stripTrack.querySelectorAll("img");
+	            imgs.forEach((img) => {
+	                // If base not cached yet, cache it
+	                if (!img.dataset.srcBase) {
+	                    const current = img.getAttribute("src");
+	                    img.dataset.srcBase = current;
+	                    const dot = current.lastIndexOf(".");
+	                    if (dot !== -1) {
+	                        img.dataset.srcLight = `${current.slice(0, dot)}_light${current.slice(dot)}`;
+	                    }
+	                }
+	                const base = img.dataset.srcBase;
+	                const light = img.dataset.srcLight;
+	                const allowLight = light && img.dataset.hasLight !== "false";
+	                const useLight = theme === "light" && allowLight;
+	                const target = useLight ? light : base;
+	                if (useLight) {
+	                    img.onerror = () => {
+	                        img.onerror = null;
+	                        img.dataset.hasLight = "false";
+	                        img.src = base;
+	                    };
+	                } else {
+	                    img.onerror = null;
+	                }
+	                if (target && img.getAttribute("src") !== target) {
+	                    img.setAttribute("src", target);
+	                }
+	            });
+	        })(currentTheme);
+	    }
+	})();
 
 // Card tilt interaction - SIMPLIFIED
 (() => {

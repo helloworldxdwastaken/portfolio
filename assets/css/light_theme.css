@@ -1,0 +1,860 @@
+/* Light Theme - Complete CSS Variables and Styling */
+/* This file contains all light theme styles to keep main.css from getting huge */
+
+/* Apply light theme when explicitly set OR when no theme is set and system prefers light */
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+    /* Background and Surface Colors */
+    --bg: #f8f7fc;
+    --elev-1: #f0eefc;
+    --elev-2: #ebe8fb;
+    
+    /* Text Colors */
+    --text: #1a1a2e;
+    --muted: #6b6b7f;
+    
+    /* Accent Colors */
+    --accent-1: #8a5cff; /* electric purple */
+    --accent-2: #22d3ee; /* cyan */
+    --accent-3: #ff4d9d; /* pink */
+    
+    /* Status Colors */
+    --ok: #70ffb5;
+    --danger: #ff6b6b;
+    
+    /* Spacing and Layout */
+    --radius-xl: 20px;
+    --radius-lg: 16px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    
+    /* Visual Effects */
+    --border: rgba(0,0,0,0.08);
+    --ring: 0 0 0 1px rgba(0,0,0,0.08), 0 10px 30px rgba(0,0,0,0.08);
+    --blur: saturate(140%) blur(12px);
+    --shadow-soft: 0 10px 30px rgba(0,0,0,0.08);
+    --shadow-hard: 0 30px 80px rgba(0,0,0,0.12);
+    
+    /* Sizing */
+    --maxw: 1200px;
+    
+    /* Spacing */
+    --space-1: 8px;
+    --space-2: 12px;
+    --space-3: 16px;
+    --space-4: 24px;
+    --space-5: 32px;
+    --space-6: 48px;
+    --space-7: 72px;
+    --space-8: 112px;
+
+    /* Tag Palette */
+    --tag-prototyping-bg: #9BE7C7;
+    --tag-prototyping-fg: #0a0a0c;
+    --tag-research-bg: #FFE48A;
+    --tag-research-fg: #0a0a0c;
+    --tag-3d-bg: #6D6BF2;
+    --tag-3d-fg: #ffffff;
+    --tag-uiux-bg: #7EC8FF;
+    --tag-uiux-fg: #0a0a0c;
+    --tag-mentoring-bg: #FFA371;
+    --tag-mentoring-fg: #0a0a0c;
+    --tag-creative-bg: #FF6464;
+    --tag-creative-fg: #ffffff;
+    --tag-graphic-bg: #E066FF;
+    --tag-graphic-fg: #ffffff;
+    --tag-systems-bg: #00D4AA;
+    --tag-systems-fg: #0a0a0c;
+}
+
+/* Light Theme Body */
+[data-theme="light"] body,
+:root:not([data-theme="dark"]) body {
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+/* Light Theme Selection */
+[data-theme="light"] ::selection,
+:root:not([data-theme="dark"]) ::selection {
+    background: rgba(138,92,255,0.2);
+    color: var(--text);
+}
+
+/* Light Theme Header */
+[data-theme="light"] .site-header,
+:root:not([data-theme="dark"]) .site-header {
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+[data-theme="light"] .nav-menu a:hover,
+:root:not([data-theme="dark"]) .nav-menu a:hover {
+    background: rgba(0,0,0,0.04);
+}
+
+[data-theme="light"] .nav-menu a:not(.btn).is-active,
+:root:not([data-theme="dark"]) .nav-menu a:not(.btn).is-active {
+    background: none;
+    color: transparent;
+    background-image: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-weight: 800;
+}
+
+[data-theme="light"] .nav-menu a.btn:hover,
+:root:not([data-theme="dark"]) .nav-menu a.btn:hover {
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 20px 40px rgba(0,0,0,0.12);
+    background: rgba(0,0,0,0.06);
+}
+
+[data-theme="light"] .nav-menu a.btn.btn-primary:hover,
+:root:not([data-theme="dark"]) .nav-menu a.btn.btn-primary:hover {
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 20px 40px rgba(0,0,0,0.12);
+}
+
+/* Light Theme Button */
+[data-theme="light"] .theme-toggle,
+:root:not([data-theme="dark"]) .theme-toggle {
+    border-color: rgba(0,0,0,0.12);
+    background: rgba(0,0,0,0.04);
+    color: var(--text);
+}
+
+[data-theme="light"] .theme-toggle:hover,
+:root:not([data-theme="dark"]) .theme-toggle:hover {
+    border-color: var(--accent-1);
+    background: rgba(138,92,255,0.12);
+}
+
+/* Light Theme Buttons */
+[data-theme="light"] .btn,
+:root:not([data-theme="dark"]) .btn {
+    border: 1px solid rgba(0,0,0,0.08);
+    background: rgba(0,0,0,0.04);
+    color: var(--text);
+}
+
+[data-theme="light"] .btn:hover,
+:root:not([data-theme="dark"]) .btn:hover {
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 20px 40px rgba(0,0,0,0.12);
+    background: rgba(0,0,0,0.06);
+}
+
+[data-theme="light"] .btn-primary,
+:root:not([data-theme="dark"]) .btn-primary {
+    background: linear-gradient(135deg, rgba(138,92,255,1), rgba(34,211,238,1));
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(10,10,10,0.2);
+    border: 1px solid rgba(138,92,255,0.65);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+[data-theme="light"] .btn-primary:hover,
+:root:not([data-theme="dark"]) .btn-primary:hover {
+    background: linear-gradient(135deg, rgba(138,92,255,1), rgba(34,211,238,1));
+    color: #ffffff;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 20px 40px rgba(0,0,0,0.45);
+}
+
+[data-theme="light"] .btn-secondary,
+:root:not([data-theme="dark"]) .btn-secondary {
+    background: rgba(0,0,0,0.04);
+    color: var(--text);
+}
+
+[data-theme="light"] .btn-pill::after,
+:root:not([data-theme="dark"]) .btn-pill::after {
+    background: rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.04), 0 4px 15px rgba(0,0,0,0.08);
+    color: var(--text);
+}
+
+[data-theme="light"] .btn-pill:hover::after,
+:root:not([data-theme="dark"]) .btn-pill:hover::after {
+    background: rgba(0,0,0,0.08);
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08), 0 6px 20px rgba(0,0,0,0.12);
+}
+
+[data-theme="light"] .btn-secondary.btn-pill,
+:root:not([data-theme="dark"]) .btn-secondary.btn-pill {
+    color: var(--text);
+    background: rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.08);
+}
+
+[data-theme="light"] .btn-secondary.btn-pill:hover,
+:root:not([data-theme="dark"]) .btn-secondary.btn-pill:hover {
+    background: rgba(0,0,0,0.06);
+}
+
+/* Light Theme Hero Brands - Fix gradients for light theme */
+[data-theme="light"] .hero-brands::before,
+[data-theme="light"] .hero-brands::after,
+:root:not([data-theme="dark"]) .hero-brands::before,
+:root:not([data-theme="dark"]) .hero-brands::after {
+    background: linear-gradient(to right, transparent, rgba(0,0,0,0.15), transparent);
+}
+
+[data-theme="light"] .brands-strip::before,
+:root:not([data-theme="dark"]) .brands-strip::before {
+    background: linear-gradient(to right, var(--bg) 10%, rgba(248,247,252,0));
+}
+
+[data-theme="light"] .brands-strip::after,
+:root:not([data-theme="dark"]) .brands-strip::after {
+    background: linear-gradient(to left, var(--bg) 10%, rgba(248,247,252,0));
+}
+
+/* Light Theme Cards */
+[data-theme="light"] .hero-tag,
+:root:not([data-theme="dark"]) .hero-tag {
+    border: 1px solid rgba(0,0,0,0.08);
+    background: rgba(0,0,0,0.04);
+}
+
+[data-theme="light"] .filter-btn,
+:root:not([data-theme="dark"]) .filter-btn {
+    background: rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.08);
+    color: var(--text);
+}
+
+[data-theme="light"] .filter-btn:hover,
+:root:not([data-theme="dark"]) .filter-btn:hover {
+    background: rgba(0,0,0,0.08);
+    border-color: rgba(0,0,0,0.12);
+}
+
+[data-theme="light"] .filter-btn.active,
+:root:not([data-theme="dark"]) .filter-btn.active {
+    background: rgba(138,92,255,0.12);
+    border-color: var(--accent-1);
+    color: var(--accent-1);
+}
+
+[data-theme="light"] .work-page .project-card,
+:root:not([data-theme="dark"]) .work-page .project-card {
+    background: rgba(0,0,0,0.02);
+    border: 1px solid rgba(0,0,0,0.08);
+}
+
+[data-theme="light"] .work-page .project-card:hover,
+:root:not([data-theme="dark"]) .work-page .project-card:hover {
+    border-color: rgba(0,0,0,0.15);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+[data-theme="light"] .work-page .project-placeholder,
+:root:not([data-theme="dark"]) .work-page .project-placeholder {
+    background: linear-gradient(135deg, rgba(0,0,0,0.04), rgba(0,0,0,0.02));
+}
+
+[data-theme="light"] .work-page .project-tags .tag,
+:root:not([data-theme="dark"]) .work-page .project-tags .tag {
+    background: rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.12);
+    color: var(--text);
+}
+
+[data-theme="light"] .work-page .project-check,
+:root:not([data-theme="dark"]) .work-page .project-check {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+    border: 1px solid rgba(138,92,255,0.5);
+    text-shadow: 0 1px 2px rgba(10,10,10,0.25);
+}
+
+[data-theme="light"] .work-page .project-check::after,
+:root:not([data-theme="dark"]) .work-page .project-check::after {
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+    border: 1px solid rgba(138,92,255,0.5);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2), 0 4px 15px rgba(138,92,255,0.2);
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(10,10,10,0.25);
+}
+
+[data-theme="light"] .work-page .project-check:hover,
+:root:not([data-theme="dark"]) .work-page .project-check:hover {
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+    color: #ffffff !important;
+}
+
+[data-theme="light"] .work-page .project-check:hover::after,
+:root:not([data-theme="dark"]) .work-page .project-check:hover::after {
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3), 0 6px 20px rgba(138,92,255,0.3);
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(10,10,10,0.25);
+}
+
+[data-theme="light"] .work-page .project-content,
+:root:not([data-theme="dark"]) .work-page .project-content {
+    color: var(--text);
+}
+
+[data-theme="light"] .work-page .project-card:hover .project-content,
+:root:not([data-theme="dark"]) .work-page .project-card:hover .project-content {
+    background: rgba(255,255,255,0.92) !important;
+    color: var(--text) !important;
+}
+
+[data-theme="light"] .work-page .project-card:hover .project-title,
+[data-theme="light"] .work-page .project-card:hover .project-desc,
+[data-theme="light"] .work-page .project-card:hover .project-index,
+[data-theme="light"] .work-page .project-card:hover .project-tags .tag,
+:root:not([data-theme="dark"]) .work-page .project-card:hover .project-title,
+:root:not([data-theme="dark"]) .work-page .project-card:hover .project-desc,
+:root:not([data-theme="dark"]) .work-page .project-card:hover .project-index,
+:root:not([data-theme="dark"]) .work-page .project-card:hover .project-tags .tag {
+    color: var(--text) !important;
+}
+
+[data-theme="light"] .work-page .project-desc,
+:root:not([data-theme="dark"]) .work-page .project-desc {
+    color: rgba(26,26,46,0.85);
+}
+
+[data-theme="light"] .work-page .project-card:hover .project-tags .tag,
+:root:not([data-theme="dark"]) .work-page .project-card:hover .project-tags .tag {
+    border-color: rgba(0,0,0,0.15);
+    background: rgba(0,0,0,0.04);
+}
+
+[data-theme="light"] .work-page .project-card:hover .project-check,
+[data-theme="light"] .work-page .project-card:hover .project-check::after,
+:root:not([data-theme="dark"]) .work-page .project-card:hover .project-check,
+:root:not([data-theme="dark"]) .work-page .project-card:hover .project-check::after {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+}
+
+/* Prodrops page should keep its dark presentation */
+[data-theme="light"] body.prodrops-page,
+:root:not([data-theme="dark"]) body.prodrops-page {
+    background-color: #050507;
+    color: #e8e8ef;
+    --bg: #050507;
+    --elev-1: #141419;
+    --elev-2: #1b1b22;
+    --text: #e8e8ef;
+    --muted: #a9a9b3;
+    --ring: 0 0 0 1px rgba(255,255,255,0.06), 0 10px 30px rgba(0,0,0,0.45);
+    --shadow-soft: 0 10px 30px rgba(0,0,0,0.35);
+    --shadow-hard: 0 30px 80px rgba(0,0,0,0.5);
+}
+
+[data-theme="light"] body.prodrops-page .site-header,
+:root:not([data-theme="dark"]) body.prodrops-page .site-header {
+    background: rgba(20,20,25,0.42);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+[data-theme="light"] body.prodrops-page .nav-menu a:hover,
+:root:not([data-theme="dark"]) body.prodrops-page .nav-menu a:hover {
+    background: rgba(255,255,255,0.06);
+}
+
+[data-theme="light"] body.prodrops-page .theme-toggle,
+:root:not([data-theme="dark"]) body.prodrops-page .theme-toggle {
+    border-color: rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    color: #e8e8ef;
+}
+
+[data-theme="light"] body.prodrops-page .theme-toggle:hover,
+:root:not([data-theme="dark"]) body.prodrops-page .theme-toggle:hover {
+    border-color: rgba(138,92,255,0.4);
+    background: rgba(138,92,255,0.15);
+}
+
+[data-theme="light"] body.prodrops-page .btn,
+[data-theme="light"] body.prodrops-page .btn-secondary,
+:root:not([data-theme="dark"]) body.prodrops-page .btn,
+:root:not([data-theme="dark"]) body.prodrops-page .btn-secondary {
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.06);
+    color: #e8e8ef;
+}
+
+[data-theme="light"] body.prodrops-page .btn:hover,
+[data-theme="light"] body.prodrops-page .btn-secondary:hover,
+:root:not([data-theme="dark"]) body.prodrops-page .btn:hover,
+:root:not([data-theme="dark"]) body.prodrops-page .btn-secondary:hover {
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.45);
+    background: rgba(255,255,255,0.08);
+}
+
+[data-theme="light"] body.prodrops-page .btn-secondary.btn-pill,
+:root:not([data-theme="dark"]) body.prodrops-page .btn-secondary.btn-pill {
+    color: #1a1a1c;
+    background: rgba(255,255,255,0.9);
+    border: 1px solid rgba(255,255,255,0.95);
+}
+
+[data-theme="light"] body.prodrops-page .btn-secondary.btn-pill::after,
+:root:not([data-theme="dark"]) body.prodrops-page .btn-secondary.btn-pill::after {
+    background: rgba(255,255,255,0.9);
+    border: 1px solid rgba(255,255,255,0.95);
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1), 0 4px 15px rgba(0,0,0,0.15);
+}
+
+[data-theme="light"] body.prodrops-page .btn-secondary.btn-pill:hover,
+[data-theme="light"] body.prodrops-page .btn-secondary.btn-pill:hover::after,
+:root:not([data-theme="dark"]) body.prodrops-page .btn-secondary.btn-pill:hover,
+:root:not([data-theme="dark"]) body.prodrops-page .btn-secondary.btn-pill:hover::after {
+    background: rgba(255,255,255,1);
+    color: #1a1a1c;
+}
+
+[data-theme="light"] body.prodrops-page .site-footer,
+:root:not([data-theme="dark"]) body.prodrops-page .site-footer {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    background: rgba(0,0,0,0.2);
+    color: var(--muted);
+}
+
+[data-theme="light"] body.prodrops-page .social,
+:root:not([data-theme="dark"]) body.prodrops-page .social {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #e8e8ef;
+}
+
+[data-theme="light"] body.prodrops-page .social:hover,
+:root:not([data-theme="dark"]) body.prodrops-page .social:hover {
+    background: rgba(255,255,255,0.08);
+}
+
+/* Light Theme Service Cards */
+[data-theme="light"] .service-card,
+:root:not([data-theme="dark"]) .service-card {
+    background: rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.08);
+}
+
+[data-theme="light"] .service-card:hover,
+:root:not([data-theme="dark"]) .service-card:hover {
+    background: linear-gradient(135deg, rgba(138,92,255,0.08) 0%, rgba(34,211,238,0.08) 100%);
+    border-color: rgba(0,0,0,0.12);
+    box-shadow: 0 25px 80px rgba(0,0,0,0.08), 0 0 0 1px rgba(138,92,255,0.2), inset 0 1px 0 rgba(0,0,0,0.04);
+}
+
+/* Light Theme Testimonials */
+[data-theme="light"] .testi-card,
+:root:not([data-theme="dark"]) .testi-card {
+    background: linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.02));
+    border: 1px solid rgba(0,0,0,0.08);
+}
+
+[data-theme="light"] .testi-card .avatar,
+:root:not([data-theme="dark"]) .testi-card .avatar {
+    border: 1px solid rgba(0,0,0,0.08);
+    background: rgba(0,0,0,0.04);
+}
+
+[data-theme="light"] .testi-card.is-center,
+:root:not([data-theme="dark"]) .testi-card.is-center {
+    box-shadow: var(--shadow-hard), 0 0 0 2px rgba(138,92,255,0.2), 0 0 30px rgba(138,92,255,0.12);
+    background: linear-gradient(180deg, rgba(138,92,255,0.06) 0%, rgba(34,211,238,0.04) 100%);
+    border: 1px solid rgba(138,92,255,0.12);
+}
+
+/* Contact section – force dark styling even in light theme */
+[data-theme="light"] .contact-wrap,
+:root:not([data-theme="dark"]) .contact-wrap {
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: var(--shadow-hard);
+    background: rgba(5,5,7,0.75);
+}
+
+[data-theme="light"] .contact-wrap::before,
+:root:not([data-theme="dark"]) .contact-wrap::before {
+    opacity: 0.5;
+    filter: saturate(110%);
+    background: url('../images/backgrounds/contact-form-bg.webp') center/cover no-repeat;
+}
+
+[data-theme="light"] .contact-wrap::after,
+:root:not([data-theme="dark"]) .contact-wrap::after {
+    background: radial-gradient(1000px 600px at 10% 10%, rgba(138,92,255,0.12), transparent 40%), radial-gradient(1000px 600px at 90% 90%, rgba(34,211,238,0.12), transparent 40%);
+}
+
+[data-theme="light"] .contact,
+:root:not([data-theme="dark"]) .contact {
+    --bg: #050507;
+    --elev-1: #141419;
+    --elev-2: #1b1b22;
+    --text: #e8e8ef;
+    --muted: #a9a9b3;
+    color: rgba(255,255,255,0.9);
+    background: #050507;
+}
+
+[data-theme="light"] .contact .section-head h2,
+[data-theme="light"] .contact .section-head p,
+[data-theme="light"] .contact .contact-copy,
+[data-theme="light"] .contact .contact-copy p,
+[data-theme="light"] .contact .contact-highlights li,
+[data-theme="light"] .contact .contact-form label,
+:root:not([data-theme="dark"]) .contact .section-head h2,
+:root:not([data-theme="dark"]) .contact .section-head p,
+:root:not([data-theme="dark"]) .contact .contact-copy,
+:root:not([data-theme="dark"]) .contact .contact-copy p,
+:root:not([data-theme="dark"]) .contact .contact-highlights li,
+:root:not([data-theme="dark"]) .contact .contact-form label {
+    color: rgba(255,255,255,0.92);
+}
+
+[data-theme="light"] .contact-form,
+:root:not([data-theme="dark"]) .contact-form {
+    background: rgba(15,15,18,0.55);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: var(--shadow-hard);
+}
+
+[data-theme="light"] .contact-form input,
+[data-theme="light"] .contact-form textarea,
+:root:not([data-theme="dark"]) .contact-form input,
+:root:not([data-theme="dark"]) .contact-form textarea {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #ffffff;
+}
+
+[data-theme="light"] .contact-form input:focus,
+[data-theme="light"] .contact-form textarea:focus,
+:root:not([data-theme="dark"]) .contact-form input:focus,
+:root:not([data-theme="dark"]) .contact-form textarea:focus {
+    border-color: rgba(138,92,255,0.6);
+    background: rgba(255,255,255,0.08);
+}
+
+[data-theme="light"] .form-row input,
+[data-theme="light"] .form-row textarea,
+:root:not([data-theme="dark"]) .form-row input,
+:root:not([data-theme="dark"]) .form-row textarea {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #ffffff;
+}
+
+[data-theme="light"] .form-row input:focus,
+[data-theme="light"] .form-row textarea:focus,
+:root:not([data-theme="dark"]) .form-row input:focus,
+:root:not([data-theme="dark"]) .form-row textarea:focus {
+    border-color: rgba(138,92,255,0.6);
+    background: rgba(255,255,255,0.08);
+}
+
+[data-theme="light"] .contact .btn-secondary,
+:root:not([data-theme="dark"]) .contact .btn-secondary {
+    background: linear-gradient(135deg, rgba(138,92,255,1), rgba(34,211,238,1));
+    color: #0a0a0c;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+[data-theme="light"] .contact .btn-secondary:hover,
+:root:not([data-theme="dark"]) .contact .btn-secondary:hover {
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 20px 40px rgba(0,0,0,0.4);
+}
+
+[data-theme="light"] .contact .btn,
+:root:not([data-theme="dark"]) .contact .btn {
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.06);
+    color: #ffffff;
+    box-shadow: var(--ring);
+}
+
+[data-theme="light"] .contact .btn-primary,
+:root:not([data-theme="dark"]) .contact .btn-primary {
+    background: linear-gradient(135deg, rgba(138,92,255,1), rgba(34,211,238,1));
+    color: #0a0a0c;
+}
+
+[data-theme="light"] .contact .btn-secondary,
+:root:not([data-theme="dark"]) .contact .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: #ffffff;
+}
+
+
+/* Light Theme Footer */
+[data-theme="light"] .site-footer,
+:root:not([data-theme="dark"]) .site-footer {
+    border-top: 1px solid rgba(0,0,0,0.08);
+    background: rgba(0,0,0,0.02);
+}
+
+[data-theme="light"] .social,
+:root:not([data-theme="dark"]) .social {
+    background: rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.08);
+    color: var(--text);
+}
+
+[data-theme="light"] .social:hover,
+:root:not([data-theme="dark"]) .social:hover {
+    background: rgba(0,0,0,0.08);
+}
+
+/* Light Theme Project Row */
+[data-theme="light"] .project-row,
+:root:not([data-theme="dark"]) .project-row {
+    background: transparent;
+}
+
+[data-theme="light"] .project-media,
+:root:not([data-theme="dark"]) .project-media {
+    background: transparent;
+}
+
+/* Light Theme Section */
+[data-theme="light"] .section,
+:root:not([data-theme="dark"]) .section {
+    background: transparent;
+}
+
+/* Light Theme Work Grid */
+[data-theme="light"] .work-grid,
+:root:not([data-theme="dark"]) .work-grid {
+    background: transparent;
+}
+
+/* Light Theme About Cards */
+[data-theme="light"] .about-card,
+:root:not([data-theme="dark"]) .about-card {
+    background: rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Light Theme Sun/Moon Icons */
+[data-theme="light"] .sun-icon,
+:root:not([data-theme="dark"]) .sun-icon {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+[data-theme="light"] .moon-icon,
+:root:not([data-theme="dark"]) .moon-icon {
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Light Theme - Ensure containers are visible */
+[data-theme="light"] .hero-inner,
+[data-theme="light"] .section-head,
+[data-theme="light"] .section,
+[data-theme="light"] .work-page,
+[data-theme="light"] .services-grid,
+[data-theme="light"] .testi-carousel,
+[data-theme="light"] .contact-grid,
+:root:not([data-theme="dark"]) .hero-inner,
+:root:not([data-theme="dark"]) .section-head,
+:root:not([data-theme="dark"]) .section,
+:root:not([data-theme="dark"]) .work-page,
+:root:not([data-theme="dark"]) .services-grid,
+:root:not([data-theme="dark"]) .testi-carousel,
+:root:not([data-theme="dark"]) .contact-grid {
+    background: transparent;
+    color: var(--text);
+}
+
+/* Light Theme - Fix any missing text colors */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] p,
+[data-theme="light"] a:not(.btn),
+:root:not([data-theme="dark"]) h1,
+:root:not([data-theme="dark"]) h2,
+:root:not([data-theme="dark"]) h3,
+:root:not([data-theme="dark"]) h4,
+:root:not([data-theme="dark"]) p,
+:root:not([data-theme="dark"]) a:not(.btn) {
+    color: var(--text);
+}
+
+[data-theme="light"] a:not(.btn):hover,
+:root:not([data-theme="dark"]) a:not(.btn):hover {
+    color: var(--accent-1);
+}
+
+/* Light Theme – Selected work showcase containers */
+[data-theme="light"] .work .project-row,
+[data-theme="light"] body:not(.work-page) .project-row,
+:root:not([data-theme="dark"]) .work .project-row,
+:root:not([data-theme="dark"]) body:not(.work-page) .project-row {
+    background: var(--elev-1);
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 35px 65px rgba(15,12,45,0.08);
+}
+
+[data-theme="light"] .work .project-media,
+[data-theme="light"] body:not(.work-page) .project-media,
+:root:not([data-theme="dark"]) .work .project-media,
+:root:not([data-theme="dark"]) body:not(.work-page) .project-media {
+    border-color: rgba(0,0,0,0.08);
+    background: #fff;
+    box-shadow: 0 25px 60px rgba(15,12,45,0.08);
+}
+
+[data-theme="light"] .work .project-tags .tag,
+[data-theme="light"] body:not(.work-page) .project-tags .tag,
+:root:not([data-theme="dark"]) .work .project-tags .tag,
+:root:not([data-theme="dark"]) body:not(.work-page) .project-tags .tag {
+    background: rgba(248,249,252,0.92);
+    border: 1px solid rgba(0,0,0,0.06);
+    color: #1a1a2e;
+    box-shadow: 0 8px 20px rgba(15,12,45,0.08);
+}
+
+[data-theme="light"] .work .project-tags .tag.tag-prototyping,
+[data-theme="light"] body:not(.work-page) .project-tags .tag.tag-prototyping,
+:root:not([data-theme="dark"]) .work .project-tags .tag.tag-prototyping,
+:root:not([data-theme="dark"]) body:not(.work-page) .project-tags .tag.tag-prototyping {
+    background: rgba(155,231,199,0.45);
+    border-color: rgba(155,231,199,0.7);
+    color: #0a0a0c;
+}
+
+[data-theme="light"] .work .project-tags .tag.tag-research,
+[data-theme="light"] body:not(.work-page) .project-tags .tag.tag-research,
+:root:not([data-theme="dark"]) .work .project-tags .tag.tag-research,
+:root:not([data-theme="dark"]) body:not(.work-page) .project-tags .tag.tag-research {
+    background: rgba(255,228,138,0.5);
+    border-color: rgba(255,228,138,0.75);
+    color: #0a0a0c;
+}
+
+[data-theme="light"] .work .project-tags .tag.tag-3d,
+[data-theme="light"] body:not(.work-page) .project-tags .tag.tag-3d,
+:root:not([data-theme="dark"]) .work .project-tags .tag.tag-3d,
+:root:not([data-theme="dark"]) body:not(.work-page) .project-tags .tag.tag-3d {
+    background: rgba(109,107,242,0.25);
+    border-color: rgba(109,107,242,0.5);
+    color: #2a2a44;
+}
+
+[data-theme="light"] .work .project-tags .tag.tag-uiux,
+[data-theme="light"] body:not(.work-page) .project-tags .tag.tag-uiux,
+:root:not([data-theme="dark"]) .work .project-tags .tag.tag-uiux,
+:root:not([data-theme="dark"]) body:not(.work-page) .project-tags .tag.tag-uiux {
+    background: rgba(126,200,255,0.35);
+    border-color: rgba(126,200,255,0.6);
+    color: #0a0a0c;
+}
+
+[data-theme="light"] .work .project-tags .tag.tag-mentoring,
+[data-theme="light"] body:not(.work-page) .project-tags .tag.tag-mentoring,
+:root:not([data-theme="dark"]) .work .project-tags .tag.tag-mentoring,
+:root:not([data-theme="dark"]) body:not(.work-page) .project-tags .tag.tag-mentoring {
+    background: rgba(255,163,113,0.45);
+    border-color: rgba(255,163,113,0.7);
+    color: #381200;
+}
+
+[data-theme="light"] .work .project-tags .tag.tag-creative,
+[data-theme="light"] body:not(.work-page) .project-tags .tag.tag-creative,
+:root:not([data-theme="dark"]) .work .project-tags .tag.tag-creative,
+:root:not([data-theme="dark"]) body:not(.work-page) .project-tags .tag.tag-creative {
+    background: rgba(255,100,100,0.4);
+    border-color: rgba(255,100,100,0.65);
+    color: #3c0404;
+}
+
+[data-theme="light"] .work .project-tags .tag.tag-graphic,
+[data-theme="light"] body:not(.work-page) .project-tags .tag.tag-graphic,
+:root:not([data-theme="dark"]) .work .project-tags .tag.tag-graphic,
+:root:not([data-theme="dark"]) body:not(.work-page) .project-tags .tag.tag-graphic {
+    background: rgba(224,102,255,0.35);
+    border-color: rgba(224,102,255,0.6);
+    color: #330437;
+}
+
+[data-theme="light"] .work .project-tags .tag.tag-systems,
+[data-theme="light"] body:not(.work-page) .project-tags .tag.tag-systems,
+:root:not([data-theme="dark"]) .work .project-tags .tag.tag-systems,
+:root:not([data-theme="dark"]) body:not(.work-page) .project-tags .tag.tag-systems {
+    background: rgba(0,212,170,0.35);
+    border-color: rgba(0,212,170,0.55);
+    color: #003329;
+}
+
+[data-theme="light"] .work .project-tags .tag.tag-dev,
+[data-theme="light"] body:not(.work-page) .project-tags .tag.tag-dev,
+:root:not([data-theme="dark"]) .work .project-tags .tag.tag-dev,
+:root:not([data-theme="dark"]) body:not(.work-page) .project-tags .tag.tag-dev {
+    background: rgba(34,211,238,0.35);
+    border-color: rgba(34,211,238,0.55);
+    color: #04353c;
+}
+
+[data-theme="light"] .work .project-tags .tag.tag-aicoding,
+[data-theme="light"] body:not(.work-page) .project-tags .tag.tag-aicoding,
+:root:not([data-theme="dark"]) .work .project-tags .tag.tag-aicoding,
+:root:not([data-theme="dark"]) body:not(.work-page) .project-tags .tag.tag-aicoding {
+    background: rgba(138,92,255,0.3);
+    border-color: rgba(138,92,255,0.55);
+    color: #261551;
+}
+}
+
+[data-theme="light"] .work .project-index,
+[data-theme="light"] body:not(.work-page) .project-index,
+:root:not([data-theme="dark"]) .work .project-index,
+:root:not([data-theme="dark"]) body:not(.work-page) .project-index {
+    color: rgba(0,0,0,0.12);
+}
+
+[data-theme="light"] .work .project-placeholder,
+[data-theme="light"] body:not(.work-page) .project-placeholder,
+:root:not([data-theme="dark"]) .work .project-placeholder,
+:root:not([data-theme="dark"]) body:not(.work-page) .project-placeholder {
+    background: linear-gradient(135deg, rgba(0,0,0,0.04), rgba(0,0,0,0.015));
+    color: var(--muted);
+}
+
+[data-theme="light"] .work .project-check,
+[data-theme="light"] body:not(.work-page) .project-check,
+:root:not([data-theme="dark"]) .work .project-check,
+:root:not([data-theme="dark"]) body:not(.work-page) .project-check {
+    color: #1a1a1c;
+    background: rgba(255,255,255,0.9);
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 12px 30px rgba(15,12,45,0.12);
+}
+
+[data-theme="light"] .work .project-check::after,
+[data-theme="light"] body:not(.work-page) .project-check::after,
+:root:not([data-theme="dark"]) .work .project-check::after,
+:root:not([data-theme="dark"]) body:not(.work-page) .project-check::after {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6), 0 4px 12px rgba(15,12,45,0.12);
+    color: #1a1a1c;
+}
+
+[data-theme="light"] .work .project-check:hover,
+[data-theme="light"] body:not(.work-page) .project-check:hover,
+:root:not([data-theme="dark"]) .work .project-check:hover,
+:root:not([data-theme="dark"]) body:not(.work-page) .project-check:hover {
+    background: #fff;
+    color: #1a1a1c;
+}
+
+[data-theme="light"] .work .project-check:hover::after,
+[data-theme="light"] body:not(.work-page) .project-check:hover::after,
+:root:not([data-theme="dark"]) .work .project-check:hover::after,
+:root:not([data-theme="dark"]) body:not(.work-page) .project-check:hover::after {
+    background: #fff;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08), 0 6px 20px rgba(15,12,45,0.16);
+}

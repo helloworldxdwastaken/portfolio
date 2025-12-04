@@ -84,11 +84,68 @@
 /* Light Theme Header */
 [data-theme="light"] .site-header,
 :root:not([data-theme="dark"]) .site-header {
-    background: rgba(255,255,255,0.6);
-    border: 1px solid rgba(0,0,0,0.08);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    background: transparent;
+    border: none;
+    box-shadow: none;
 }
 
+/* Light Theme Logo */
+[data-theme="light"] .logo,
+:root:not([data-theme="dark"]) .logo {
+    color: var(--text) !important;
+}
+
+/* Light Theme Nav Toggle (hamburger) */
+[data-theme="light"] .nav-toggle span,
+:root:not([data-theme="dark"]) .nav-toggle span {
+    background: var(--text);
+}
+
+/* Light Theme Nav Menu Links */
+[data-theme="light"] .nav-menu a,
+:root:not([data-theme="dark"]) .nav-menu a {
+    color: var(--text);
+}
+
+[data-theme="light"] .nav-menu a:not(.btn):hover,
+:root:not([data-theme="dark"]) .nav-menu a:not(.btn):hover {
+    background: rgba(0,0,0,0.06);
+    color: var(--text);
+}
+
+/* Light Theme Language Toggle */
+[data-theme="light"] .lang-toggle,
+:root:not([data-theme="dark"]) .lang-toggle {
+    color: var(--text) !important;
+    border-color: rgba(0,0,0,0.12) !important;
+    background: rgba(0,0,0,0.04) !important;
+}
+
+[data-theme="light"] .lang-toggle:hover,
+:root:not([data-theme="dark"]) .lang-toggle:hover {
+    border-color: rgba(0,0,0,0.2) !important;
+    background: rgba(0,0,0,0.08) !important;
+}
+
+/* Light navbar capsule */
+[data-theme="light"] .nav-surface,
+:root:not([data-theme="dark"]) .nav-surface {
+    background: rgba(255,255,255,0.75) !important;
+    border: 1px solid rgba(0,0,0,0.08) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
+    backdrop-filter: saturate(160%) blur(14px) !important;
+    -webkit-backdrop-filter: saturate(160%) blur(14px) !important;
+}
+
+/* Light selectors pill */
+[data-theme="light"] .nav-utility-pill,
+:root:not([data-theme="dark"]) .nav-utility-pill {
+    background: rgba(255,255,255,0.85) !important;
+    border: 1px solid rgba(0,0,0,0.08) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
+    backdrop-filter: saturate(160%) blur(12px) !important;
+    -webkit-backdrop-filter: saturate(160%) blur(12px) !important;
+}
 [data-theme="light"] .nav-menu a:hover,
 :root:not([data-theme="dark"]) .nav-menu a:hover {
     background: rgba(0,0,0,0.04);
@@ -115,18 +172,59 @@
     box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 20px 40px rgba(0,0,0,0.12);
 }
 
-/* Light Theme Button */
+/* Light Theme Mobile Navigation Menu */
+@media (max-width: 900px) {
+    [data-theme="light"] .nav-menu,
+    :root:not([data-theme="dark"]) .nav-menu {
+        background: rgba(255, 255, 255, 0.95) !important;
+        border: 1px solid rgba(0,0,0,0.08) !important;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05) inset !important;
+    }
+    
+    [data-theme="light"] .nav-menu li a,
+    :root:not([data-theme="dark"]) .nav-menu li a {
+        color: var(--text) !important;
+    }
+    
+    [data-theme="light"] .nav-menu li a:not(.btn):hover,
+    :root:not([data-theme="dark"]) .nav-menu li a:not(.btn):hover {
+        background: rgba(0, 0, 0, 0.05) !important;
+    }
+    
+    /* Mobile nav overlay in light mode */
+    [data-theme="light"] .nav.open::before,
+    :root:not([data-theme="dark"]) .nav.open::before {
+        background: rgba(255, 255, 255, 0.6) !important;
+    }
+}
+
+/* Light Theme Toggle Button */
 [data-theme="light"] .theme-toggle,
 :root:not([data-theme="dark"]) .theme-toggle {
     border-color: rgba(0,0,0,0.12);
     background: rgba(0,0,0,0.04);
     color: var(--text);
+    position: relative;
 }
 
 [data-theme="light"] .theme-toggle:hover,
 :root:not([data-theme="dark"]) .theme-toggle:hover {
     border-color: var(--accent-1);
     background: rgba(138,92,255,0.12);
+}
+
+/* Theme icon container - ensure icons stack properly */
+[data-theme="light"] .theme-icon,
+:root:not([data-theme="dark"]) .theme-icon {
+    position: relative;
+}
+
+[data-theme="light"] .theme-toggle .moon-icon,
+:root:not([data-theme="dark"]) .theme-toggle .moon-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0) !important;
 }
 
 /* Light Theme Buttons */
@@ -349,9 +447,9 @@
 
 [data-theme="light"] body.prodrops-page .site-header,
 :root:not([data-theme="dark"]) body.prodrops-page .site-header {
-    background: rgba(20,20,25,0.42);
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    background: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 [data-theme="light"] body.prodrops-page .nav-menu a:hover,
@@ -633,19 +731,32 @@
     border: 1px solid rgba(0,0,0,0.08);
 }
 
-/* Light Theme Sun/Moon Icons */
+/* Light Theme Sun/Moon Icons - Show sun (to switch to dark), hide moon */
 [data-theme="light"] .sun-icon,
 :root:not([data-theme="dark"]) .sun-icon {
-    opacity: 1;
-    transform: scale(1);
+    opacity: 1 !important;
+    transform: scale(1) !important;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 [data-theme="light"] .moon-icon,
 :root:not([data-theme="dark"]) .moon-icon {
-    opacity: 0;
-    transform: scale(0);
+    opacity: 0 !important;
+    transform: scale(0) !important;
     transition: opacity 0.3s ease, transform 0.3s ease;
+    position: absolute;
+}
+
+/* Dark Theme Sun/Moon Icons - Show moon (to switch to light), hide sun */
+[data-theme="dark"] .sun-icon {
+    opacity: 0 !important;
+    transform: scale(0) !important;
+    position: absolute;
+}
+
+[data-theme="dark"] .moon-icon {
+    opacity: 1 !important;
+    transform: scale(1) !important;
 }
 
 /* Light Theme - Ensure containers are visible */

@@ -20,8 +20,8 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=General+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-	<link rel="stylesheet" href="../assets/css/main.css?v=10" />
-	<link rel="stylesheet" href="../assets/css/light_theme.css?v=1" />
+	<link rel="stylesheet" href="../assets/css/main.css?v=11" />
+	<link rel="stylesheet" href="../assets/css/light_theme.css?v=2" />
 	<script>
 		// Update theme-color meta tag based on system preference
 		const updateThemeColor = () => {
@@ -51,38 +51,60 @@
 <body>
 	<!-- Navbar Component -->
 	<header class="site-header" role="banner">
-		<nav class="nav" aria-label="Primary">
-			<a class="logo" href="#home" aria-label="Go to home">
-				<span>ENML</span>
-				<span>YSLL</span>
-			</a>
-			<button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
-				<span></span><span></span>
-			</button>
-			<ul id="nav-menu" class="nav-menu">
-				<li><a href="about.html">About</a></li>
-				<li><a href="work.html">Work</a></li>
-				<li><a href="#services">Services</a></li>
-				<li><a href="#testimonials">Clients</a></li>
-				<li>
-					<button class="theme-toggle" aria-label="Toggle theme" id="themeToggle" title="Toggle dark/light theme">
-						<svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-							<circle class="sun-icon" cx="12" cy="12" r="5"></circle>
-							<line class="sun-icon" x1="12" y1="1" x2="12" y2="3"></line>
-							<line class="sun-icon" x1="12" y1="21" x2="12" y2="23"></line>
-							<line class="sun-icon" x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-							<line class="sun-icon" x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-							<line class="sun-icon" x1="1" y1="12" x2="3" y2="12"></line>
-							<line class="sun-icon" x1="21" y1="12" x2="23" y2="12"></line>
-							<line class="sun-icon" x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-							<line class="sun-icon" x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-							<path class="moon-icon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-						</svg>
+		<div class="nav-shell">
+			<div class="nav-surface">
+				<nav class="nav" aria-label="Primary">
+					<a class="logo" href="#home" aria-label="Go to home">
+						<span>ENML</span>
+						<span>YSLL</span>
+					</a>
+					<button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
+						<span></span><span></span>
 					</button>
-				</li>
-				<li><a href="#contact" class="btn btn-primary">Contact</a></li>
-			</ul>
-		</nav>
+					<ul id="nav-menu" class="nav-menu">
+						<li><a href="about.html">About</a></li>
+						<li><a href="work.html">Work</a></li>
+						<li><a href="#services">Services</a></li>
+						<li><a href="#testimonials">Clients</a></li>
+						<li class="nav-utility-inline">
+							<button class="theme-toggle" aria-label="Toggle theme" title="Toggle dark/light theme">
+								<svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<circle class="sun-icon" cx="12" cy="12" r="5"></circle>
+									<line class="sun-icon" x1="12" y1="1" x2="12" y2="3"></line>
+									<line class="sun-icon" x1="12" y1="21" x2="12" y2="23"></line>
+									<line class="sun-icon" x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+									<line class="sun-icon" x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+									<line class="sun-icon" x1="1" y1="12" x2="3" y2="12"></line>
+									<line class="sun-icon" x1="21" y1="12" x2="23" y2="12"></line>
+									<line class="sun-icon" x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+									<line class="sun-icon" x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+									<path class="moon-icon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+								</svg>
+							</button>
+						</li>
+						<li class="nav-utility-inline"><a href="home_heb.html" class="lang-toggle">עברית</a></li>
+						<li><a href="#contact" class="btn btn-primary">Contact</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="nav-utility-pill" aria-label="Quick actions">
+				<button class="theme-toggle" aria-label="Toggle theme" id="themeToggle" title="Toggle dark/light theme">
+					<svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<circle class="sun-icon" cx="12" cy="12" r="5"></circle>
+						<line class="sun-icon" x1="12" y1="1" x2="12" y2="3"></line>
+						<line class="sun-icon" x1="12" y1="21" x2="12" y2="23"></line>
+						<line class="sun-icon" x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+						<line class="sun-icon" x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+						<line class="sun-icon" x1="1" y1="12" x2="3" y2="12"></line>
+						<line class="sun-icon" x1="21" y1="12" x2="23" y2="12"></line>
+						<line class="sun-icon" x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+						<line class="sun-icon" x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+						<path class="moon-icon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+					</svg>
+				</button>
+				<a href="home_heb.html" class="lang-toggle">עברית</a>
+			</div>
+		</div>
 	</header>
 
 	<main id="home" class="site-main" role="main">

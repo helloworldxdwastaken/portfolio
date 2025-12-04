@@ -93,25 +93,27 @@
 	const preferredTheme = getPreferredTheme();
 	applyTheme(preferredTheme);
 	
-	// Theme toggle button handler
-	const themeToggle = document.getElementById("themeToggle");
-	if (themeToggle) {
-		themeToggle.addEventListener("click", () => {
-			// Get current theme from the actual DOM attribute, not just localStorage
-			const currentDataTheme = document.documentElement.getAttribute("data-theme");
-			const currentTheme = currentDataTheme || localStorage.getItem(THEME_KEY) || preferredTheme;
-			const newTheme = currentTheme === "light" ? "dark" : "light";
-			applyTheme(newTheme);
-			
-			// Update meta theme-color
-			const themeColor = document.getElementById("theme-color");
-			if (themeColor) {
-				themeColor.content = newTheme === "light" ? "#f8f7fc" : "#050507";
-			}
-			
-			// Log for debugging
-			console.log("Theme switched to:", newTheme);
-		});
+	const handleThemeToggle = () => {
+		// Get current theme from the actual DOM attribute, not just localStorage
+		const currentDataTheme = document.documentElement.getAttribute("data-theme");
+		const currentTheme = currentDataTheme || localStorage.getItem(THEME_KEY) || preferredTheme;
+		const newTheme = currentTheme === "light" ? "dark" : "light";
+		applyTheme(newTheme);
+		
+		// Update meta theme-color
+		const themeColor = document.getElementById("theme-color");
+		if (themeColor) {
+			themeColor.content = newTheme === "light" ? "#f8f7fc" : "#050507";
+		}
+		
+		// Log for debugging
+		console.log("Theme switched to:", newTheme);
+	};
+	
+	// Theme toggle button handler (supports multiple buttons)
+	const themeToggleButtons = document.querySelectorAll(".theme-toggle");
+	if (themeToggleButtons.length) {
+		themeToggleButtons.forEach((btn) => btn.addEventListener("click", handleThemeToggle));
 	}
 })();
 
@@ -278,7 +280,14 @@ const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
     const el = document.getElementById('heroRole');
     if (!el) return;
     
-    const roles = [
+    const isHebrew = document.documentElement.lang === 'he' || document.documentElement.getAttribute('dir') === 'rtl';
+    const roles = isHebrew ? [
+        'UI/UX',
+        'קריאייטיב שיווקי',
+        'מושן',
+        'תלת',
+        'אתרים'
+    ] : [
         'Web Designer',
         'Marketing designer',
         'UI/UX designer',
@@ -286,6 +295,8 @@ const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
         'Motion designer',
         'Video editor'
     ];
+    // Ensure initial text matches the first role
+    el.textContent = roles[0];
     // Prevent layout shift: set fixed width to longest role
     const longest = roles.reduce((a, b) => a.length >= b.length ? a : b, '');
     const meas = document.createElement('span');
@@ -309,7 +320,9 @@ const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
         el.textContent = roles[i];
         el.style.animation = '';
     };
-    setInterval(rotate, 2400);
+    if (roles.length > 1) {
+        setInterval(rotate, 2400);
+    }
 })();
 
 // Optimized scrollspy active state for nav

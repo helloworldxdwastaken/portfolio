@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>מעצב UI/UX עצמאי — תיק עבודות</title>
+		<meta name="description" content="מעצב UI/UX עצמאי יוצר חוויות ממשק מודרניות ונועזות." />
+	<meta name="theme-color" content="#f8f7fc" id="theme-color" />
+	<meta name="author" content="ENMA" />
+	<link rel="canonical" href="https://example.com/" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="מעצב UI/UX עצמאי — תיק עבודות" />
+	<meta property="og:description" content="מעצב UI/UX עצמאי יוצר חוויות ממשק מודרניות ונועזות." />
+	<meta property="og:url" content="https://example.com/" />
+	<meta property="og:image" content="../assets/images/profile/enmanuelyasell.avif" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="מעצב UI/UX עצמאי — תיק עבודות" />
+	<meta name="twitter:description" content="מעצב UI/UX עצמאי יוצר חוויות ממשק מודרניות ונועזות." />
+	<meta name="twitter:image" content="../assets/images/profile/enmanuelyasell.avif" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=General+Sans:wght@400;500;600;700&family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="../assets/css/main.css?v=10" />
+	<link rel="stylesheet" href="../assets/css/light_theme.css?v=2" />
+	<script>
+		// Update theme-color meta tag based on system preference
+		const updateThemeColor = () => {
+			const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+			const themeColorMeta = document.getElementById("theme-color");
+			if (themeColorMeta) {
+				themeColorMeta.content = isDark ? "#050507" : "#f8f7fc";
+			}
+		};
+		updateThemeColor();
+		if (window.matchMedia) {
+			window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateThemeColor);
+			window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", updateThemeColor);
+		}
+	</script>
+	<style>
+		/* EMERGENCY FIX: Force navbar visibility */
+		.site-header, #navbar-placeholder, header[role="banner"] {
+			opacity: 1 !important;
+			visibility: visible !important;
+			display: block !important;
+			position: fixed !important;
+			z-index: 9999 !important;
+		}
+		body { font-family: 'Assistant', 'Inter', 'General Sans', sans-serif; }
+	</style>
+</head>
+<body class="home-heb">
+	<!-- Navbar Component -->
+	<header class="site-header" role="banner">
+		<div class="nav-shell">
+			<div class="nav-surface">
+				<nav class="nav" aria-label="Primary">
+					<a class="logo" href="#home" aria-label="Go to home">
+						<span>ENML</span>
+						<span>YSLL</span>
+					</a>
+					<button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
+						<span></span><span></span>
+					</button>
+						<ul id="nav-menu" class="nav-menu">
+							<li><a href="about.html">אודות</a></li>
+							<li><a href="work.html">עבודות</a></li>
+							<li><a href="#services">שירותים</a></li>
+							<li><a href="#testimonials">לקוחות</a></li>
+							<li class="nav-utility-inline">
+								<button class="theme-toggle" aria-label="Toggle theme" title="Toggle dark/light theme">
+									<svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<circle class="sun-icon" cx="12" cy="12" r="5"></circle>
+										<line class="sun-icon" x1="12" y1="1" x2="12" y2="3"></line>
+										<line class="sun-icon" x1="12" y1="21" x2="12" y2="23"></line>
+										<line class="sun-icon" x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+										<line class="sun-icon" x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+										<line class="sun-icon" x1="1" y1="12" x2="3" y2="12"></line>
+										<line class="sun-icon" x1="21" y1="12" x2="23" y2="12"></line>
+										<line class="sun-icon" x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+										<line class="sun-icon" x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+										<path class="moon-icon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+									</svg>
+								</button>
+							</li>
+							<li class="nav-utility-inline"><a href="index.html" class="lang-toggle">English</a></li>
+							<li><a href="#contact" class="btn btn-primary">צור קשר</a></li>
+						</ul>
+				</nav>
+			</div>
+			<div class="nav-utility-pill" aria-label="פעולות מהירות">
+				<button class="theme-toggle" aria-label="Toggle theme" id="themeToggle" title="Toggle dark/light theme">
+					<svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<circle class="sun-icon" cx="12" cy="12" r="5"></circle>
+						<line class="sun-icon" x1="12" y1="1" x2="12" y2="3"></line>
+						<line class="sun-icon" x1="12" y1="21" x2="12" y2="23"></line>
+						<line class="sun-icon" x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+						<line class="sun-icon" x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+						<line class="sun-icon" x1="1" y1="12" x2="3" y2="12"></line>
+						<line class="sun-icon" x1="21" y1="12" x2="23" y2="12"></line>
+						<line class="sun-icon" x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+						<line class="sun-icon" x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+						<path class="moon-icon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+					</svg>
+				</button>
+				<a href="index.html" class="lang-toggle">English</a>
+			</div>
+		</div>
+	</header>
+
+	<main id="home" class="site-main" role="main">
+		<section class="hero" aria-label="Hero">
+			<div class="hero-inner">
+					<h1><span class="hero-lead">מעצב עצמאי</span> <span class="hero-role" id="heroRole">UI/UX</span></h1>
+					<div class="hero-subline">יוצר חוויות דיגיטליות נועזות</div>
+					<p>אני משלב יצירתיות עם מומחיות טכנית כדי לעצב חוויות שמרגישות חדות ומדויקות. מאתרי ווב ואפליקציות מובייל ועד אנימציה ווידאו, אני בונה מוצרים שמרגישים זורמים ונכונים.</p>
+				<div class="hero-cta">
+						<a href="work.html" class="btn btn-secondary-light">לצפייה בעבודות</a>
+					<a href="#contact" class="btn btn-primary">התחלת פרויקט</a>
+				</div>
+				<!-- Brands under hero buttons -->
+                <div class="hero-brands">
+					<h3>מותגים שעבדתי איתם</h3>
+					<div class="brands-strip">
+						<div class="brands-strip-track" aria-hidden="true">
+							<img src="../assets/images/brands/clients/notion.svg" alt="Notion" class="brand-white" />
+							<img src="../assets/images/brands/clients/iritat netanya.svg" alt="Netanya Municipality" class="brand-color" />
+							<img src="../assets/images/brands/clients/prodrops.svg" alt="Prodrops.gg" class="brand-tight" />
+							<img src="../assets/images/brands/clients/playtika.svg" alt="Playtika" />
+							<img src="../assets/images/brands/clients/wickedclothes.svg" alt="Wicked Clothes" />
+							<img src="../assets/images/brands/clients/Hotmobile logo.svg" alt="Hot Mobile" />
+							<img src="../assets/images/brands/clients/logo-acuba.svg" alt="ACuba" />
+							<img src="../assets/images/brands/clients/cbll-logotipo-color.svg" alt="Cuballama" />
+							<img src="../assets/images/brands/clients/lev-chai.svg" alt="LevChai Genetics" class="brand-color" />
+							<img src="../assets/images/brands/clients/mygenes.svg" alt="MyGenes" />
+							<img src="../assets/images/brands/clients/medygenes.svg" alt="MedyGenes" />
+								<img src="../assets/images/brands/clients/Nedrgames.svg" alt="Nerd Games" />
+								<img src="../assets/images/brands/clients/ephoca.svg" alt="EPHOCA" />
+								<img src="../assets/images/brands/clients/robinhoodbingo.svg" alt="Robin Hood Bingo" />
+								<img src="../assets/images/brands/clients/sarafefer.svg" alt="Sara Fefer" />
+								<img src="../assets/images/brands/clients/rootwise.svg" alt="Rootwise" />
+							</div>
+						</div>
+					</div>
+			</div>
+			<div class="hero-canvas" aria-hidden="true">
+				<canvas id="noiseCanvas"></canvas>
+			</div>
+			<!-- Floating gradient orbs -->
+			<div class="hero-orbs" aria-hidden="true">
+				<div class="hero-orb"></div>
+				<div class="hero-orb"></div>
+				<div class="hero-orb"></div>
+			</div>
+		</section>
+
+        
+			<section id="work" class="section work" aria-label="Selected work">
+				<div class="section-head">
+					<h2>עבודות נבחרות</h2>
+					<p>מחקרי מקרה עם תוצאות מדידות. עוד יישלח לפי בקשה.</p>
+				</div>
+			<!-- Project 01 -->
+			<div class="project-row">
+				<div class="project-left">
+					<div class="project-index">01.</div>
+					<h3 class="project-title">PRODROPS.GG</h3>
+					<!-- Mobile media (hidden on desktop) -->
+					<div class="project-media project-media-mobile">
+						<video class="project-video" src="../assets/videos/presentations/prodrops-presentation.mp4" autoplay muted loop playsinline poster="assets/images/testimonials/avatar-2-female.jpg"></video>
+							<a class="btn btn-secondary btn-pill project-check" href="projects/prodrops.html">לצפייה בפרויקט</a>
+					</div>
+						<p class="project-desc">Prodrops.gg היא פלטפורמת גיימינג דור הבא שמתגמלת שחקנים בפרסים אמיתיים עבור אתגרים במשחק. היא משלבת משחקיות, קהילה ושוק חווייתי ליצירת לופ התקדמות מיומנויות עם ערך ממשי.</p>
+						<ul class="project-tags">
+							<li class="tag tag-prototyping">אבי טיפוס</li>
+							<li class="tag tag-research">מחקר</li>
+							<li class="tag tag-3d">אנימציית תלת</li>
+							<li class="tag tag-systems">מערכות עיצוב</li>
+							<li class="tag tag-uiux">UI/UX</li>
+							<li class="tag tag-creative">קריאייטיב</li>
+					</ul>
+				</div>
+				<div class="project-right">
+					<div class="project-media">
+						<video class="project-video" src="../assets/videos/presentations/prodrops-presentation.mp4" autoplay muted loop playsinline poster="assets/images/testimonials/avatar-2-female.jpg"></video>
+							<a class="btn btn-secondary btn-pill project-check" href="projects/prodrops.html">לצפייה בפרויקט</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Project 02 -->
+			<div class="project-row">
+				<div class="project-left">
+					<div class="project-index">02.</div>
+					<h3 class="project-title">NOTION</h3>
+					<!-- Mobile media (hidden on desktop) -->
+						<div class="project-media project-media-mobile">
+							<img src="../assets/images/projects/brand-notion.avif" alt="Notion project showcase" />
+							<a class="btn btn-secondary btn-pill project-check" href="https://www.figma.com/design/FjTQo3J30lA830zzkWBfpw/Notion?node-id=9-3&t=kJU8vKpazxbkKspA-1" target="_blank" rel="noopener noreferrer">לצפייה בפרויקט</a>
+					</div>
+						<p class="project-desc">Notion היא פלטפורמת פרודוקטיביות הכוללת כתיבה, תכנון, שיתוף וארגון זרימות עבודה במקום אחד. בעזרת ממשק נקי ועיצוב מודולרי היא מחברת מסמכים, מסדי נתונים וניהול משימות למרחב אחד אינטואיטיבי.</p>
+						<ul class="project-tags">
+							<li class="tag tag-prototyping">אבי טיפוס</li>
+							<li class="tag tag-uiux">UI/UX</li>
+							<li class="tag tag-research">מחקר</li>
+							<li class="tag tag-systems">מערכות עיצוב</li>
+							<li class="tag tag-creative">קריאייטיב</li>
+					</ul>
+				</div>
+				<div class="project-right">
+					<div class="project-media">
+						<img src="../assets/images/projects/brand-notion.avif" alt="Notion project showcase" />
+							<a class="btn btn-secondary btn-pill project-check" href="https://www.figma.com/design/FjTQo3J30lA830zzkWBfpw/Notion?node-id=1-1312&amp;t=zqhfJ6ujjhg4TBcz-0" target="_blank" rel="noopener noreferrer">לצפייה בפרויקט</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Project 03 -->
+			<div class="project-row">
+				<div class="project-left">
+					<div class="project-index">03.</div>
+					<h3 class="project-title">EPHOCA</h3>
+					<!-- Mobile media (hidden on desktop) -->
+					<div class="project-media project-media-mobile">
+						<video class="project-video" src="../assets/videos/presentations/ephoca-presentation.mp4" autoplay muted loop playsinline poster="assets/images/testimonials/avatar-1.jpg"></video>
+							<a class="btn btn-secondary btn-pill project-check" href="404.html">לצפייה בפרויקט</a>
+					</div>
+						<p class="project-desc">Ephoca היא חברת HVAC חדשנית המעצבת פתרונות אוויר בני קיימא וחסכוניים באנרגיה. היא משלבת חדשנות תעשייתית עם אסתטיקה מודרנית ומגדירה מחדש כיצד טכנולוגיית אקלים משתלבת במרחבים יומיומיים.</p>
+						<ul class="project-tags">
+							<li class="tag tag-prototyping">אבי טיפוס</li>
+							<li class="tag tag-research">מחקר</li>
+							<li class="tag tag-3d">אנימציית תלת</li>
+							<li class="tag tag-uiux">UI/UX</li>
+							<li class="tag tag-mentoring">מנטורינג</li>
+							<li class="tag tag-creative">קריאייטיב</li>
+					</ul>
+				</div>
+				<div class="project-right">
+					<div class="project-media">
+						<video class="project-video" src="../assets/videos/presentations/ephoca-presentation.mp4" autoplay muted loop playsinline poster="assets/images/testimonials/avatar-1.jpg"></video>
+							<a class="btn btn-secondary btn-pill project-check" href="404.html">לצפייה בפרויקט</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Project 04 -->
+			<div class="project-row">
+				<div class="project-left">
+					<div class="project-index">04.</div>
+					<h3 class="project-title">PLAYTIKA</h3>
+					<!-- Mobile media (hidden on desktop) -->
+					<div class="project-media project-media-mobile">
+						<img src="../assets/images/projects/brand-playtika.avif" alt="Playtika project showcase" />
+						<a class="btn btn-secondary btn-pill project-check" href="https://www.figma.com/proto/7iHGjs42dTHbhPUAKot6UT/PLYATIKA-CAESAR-SLOT---BONUS-PAGE?page-id=0%3A1&amp;node-id=81-2&amp;t=IpBuorvGlpzTKPXg-0&amp;scaling=contain&amp;content-scaling=fixed&amp;starting-point-node-id=81%3A2" target="_blank" rel="noopener noreferrer">לצפייה בפרויקט</a>
+					</div>
+						<p class="project-desc">Playtika היא מובילה עולמית בגיימינג מובייל, מתמחה במשחקים קז'ואליים וחברתיים שמערבים מיליוני משתמשים מדי יום. עם דגש על עיצוב מבוסס נתונים ושימור משתמשים, היא משלבת בידור ומדע התנהגות ליצירת חוויות ממכרות.</p>
+						<ul class="project-tags">
+							<li class="tag tag-prototyping">אבי טיפוס</li>
+							<li class="tag tag-graphic">עיצוב גרפי</li>
+							<li class="tag tag-uiux">UI/UX</li>
+							<li class="tag tag-creative">קריאייטיב</li>
+					</ul>
+				</div>
+				<div class="project-right">
+					<div class="project-media">
+						<img src="../assets/images/projects/brand-playtika.avif" alt="Playtika project showcase" />
+							<a class="btn btn-secondary btn-pill project-check" href="https://www.figma.com/proto/7iHGjs42dTHbhPUAKot6UT/PLYATIKA-CAESAR-SLOT---BONUS-PAGE?page-id=0%3A1&amp;node-id=81-2&amp;t=IpBuorvGlpzTKPXg-0&amp;scaling=contain&amp;content-scaling=fixed&amp;starting-point-node-id=81%3A2" target="_blank" rel="noopener noreferrer">לצפייה בפרויקט</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Project 05 -->
+			<div class="project-row">
+				<div class="project-left">
+					<div class="project-index">05.</div>
+					<h3 class="project-title">HOT MOBILE</h3>
+					<!-- Mobile media (hidden on desktop) -->
+					<div class="project-media project-media-mobile">
+						<img src="../assets/images/projects/brand-hotmobile.avif" alt="Hot Mobile project showcase" />
+						<a class="btn btn-secondary btn-pill project-check" href="404.html">לצפייה בפרויקט</a>
+					</div>
+						<p class="project-desc">Hot Mobile היא ספקית תקשורת מובילה בישראל, עם סל שירותי סלולר, אינטרנט ודיגיטל במחירים תחרותיים. עם תשתית מתרחבת ומיקוד בזמינות, היא מכוונת לחיבור מהיר ונגיש לכל אחד.</p>
+						<ul class="project-tags">
+							<li class="tag tag-creative">קריאייטיב</li>
+							<li class="tag tag-graphic">עיצוב גרפי</li>
+							<li class="tag tag-prototyping">אבי טיפוס</li>
+							<li class="tag tag-research">מחקר</li>
+					</ul>
+				</div>
+				<div class="project-right">
+					<div class="project-media">
+						<img src="../assets/images/projects/brand-hotmobile.avif" alt="Hot Mobile project showcase" />
+							<a class="btn btn-secondary btn-pill project-check" href="404.html">לצפייה בפרויקט</a>
+					</div>
+				</div>
+			</div>
+			<div class="work-cta">
+					<a href="work.html" class="btn btn-secondary btn-pill">לכל הפרויקטים</a>
+			</div>
+		</section>
+
+			<section id="services" class="section services" aria-label="Services">
+				<div class="section-head">
+					<h2>שירותים</h2>
+					<p>פתרונות עיצוב מקצה לקצה המותאמים לעסק שלך. מאסטרטגיה ועד ביצוע, אני מממש את החזון שלך.</p>
+				</div>
+				<div class="services-grid">
+					<article class="service-card">
+						<div class="service-card-content">
+							<div class="service-art">
+								<lottie-player src="../assets/lottie/strategy.json" background="transparent" speed="1" loop autoplay></lottie-player>
+							</div>
+							<h3>אתרים ודפי נחיתה</h3>
+							<ul>
+							<li>עמודי תוכן יחידים</li>
+							<li>דפי נחיתה מרובי מקטעים</li>
+							<li>עמודי מוצר/פיצ'ר</li>
+								<li>Hero להצגת ערך ולכידת לידים</li>
+								<li>ממשק ממוקד המרה</li>
+								<li>עיצוב רספונסיבי מובייל-פרסט</li>
+							</ul>
+						</div>
+						<div class="service-actions"><a href="#contact" class="btn btn-secondary">קבלת הצעת מחיר</a></div>
+					</article>
+					<article class="service-card">
+						<div class="service-card-content">
+							<div class="service-art">
+								<lottie-player src="../assets/lottie/UI_design.json" background="transparent" speed="1" loop autoplay></lottie-player>
+							</div>
+							<h3>עיצוב אפליקציות מובייל ווב</h3>
+							<ul>
+							<li>תרחישי משתמש וארכיטקטורת מידע</li>
+							<li>דיזיין סיסטמס וטוקנים</li>
+							<li>UI מונחה קומפוננטות</li>
+								<li>ממשקי iOS ואנדרואיד</li>
+								<li>עיצוב דשבורדים ל-SaaS</li>
+								<li>אבי טיפוס אינטראקטיביים</li>
+							</ul>
+						</div>
+						<div class="service-actions"><a href="#contact" class="btn btn-secondary">קבלת הצעת מחיר</a></div>
+					</article>
+					<article class="service-card">
+						<div class="service-card-content">
+						<div class="service-art">
+							<lottie-player src="../assets/lottie/UX_design.json" background="transparent" speed="1" loop autoplay></lottie-player>
+						</div>
+							<h3>עיצוב UI & UX</h3>
+							<ul>
+								<li>דיסקברי ומחקר משתמשים</li>
+								<li>פרסונות ומסעות משתמש</li>
+								<li>ויירפריימים באיכות נמוכה/גבוהה</li>
+									<li>ויירפריימים ואבי טיפוס</li>
+									<li>ספריות קומפוננטות</li>
+									<li>בדיקות שימושיות</li>
+							</ul>
+						</div>
+						<div class="service-actions"><a href="#contact" class="btn btn-secondary">קבלת הצעת מחיר</a></div>
+					</article>
+					<article class="service-card">
+						<div class="service-card-content">
+							<div class="service-art">
+								<lottie-player src="../assets/lottie/motion.json" background="transparent" speed="1.2" loop autoplay></lottie-player>
+							</div>
+							<h3>אנימציה ומושן</h3>
+								<ul>
+								<li>אינטראקציות קטנות</li>
+								<li>אפקטי גלילה וחשיפה</li>
+								<li>מעיצוב ב-After Effects ל-Lottie</li>
+									<li>שילובי Lottie</li>
+									<li>אנימציה ל-Hero</li>
+									<li>הדמיות תנועה למוצר</li>
+							</ul>
+						</div>
+						<div class="service-actions"><a href="#contact" class="btn btn-secondary">קבלת הצעת מחיר</a></div>
+					</article>
+					<article class="service-card">
+						<div class="service-card-content">
+						<div class="service-art">
+							<lottie-player src="../assets/lottie/Shopping.json" background="transparent" speed="1" loop autoplay></lottie-player>
+							</div>
+							<h3>עיצוב חנויות ואי-קומרס</h3>
+							<ul>
+							<li>דפי בית, PLP, PDP ועגלת קניות</li>
+							<li>צ'קאאוט ואפסלים</li>
+							<li>הקמות Shopify / Webflow</li>
+								<li>תבניות PLP/PDP</li>
+								<li>פריסות ממוקדות CRO</li>
+								<li>זרימות צ'קאאוט אופטימליות</li>
+							</ul>
+						</div>
+						<div class="service-actions"><a href="#contact" class="btn btn-secondary">קבלת הצעת מחיר</a></div>
+					</article>
+					<article class="service-card">
+						<div class="service-card-content">
+							<div class="service-art">
+								<lottie-player src="../assets/lottie/Social_media.json" background="transparent" speed="1" loop autoplay></lottie-player>
+							</div>
+							<h3>סושיאל ומרקטינג</h3>
+							<ul>
+							<li>קיורי מותג וטמפלטים</li>
+							<li>בניית קונספטים לקמפיינים</li>
+							<li>ווידאו קצר ורילס</li>
+								<li>חבילות של 3–5 פוסטים</li>
+								<li>קרוסלות תוכן</li>
+								<li>קריאייטיב למודעות (סטטי + מושן)</li>
+							</ul>
+						</div>
+						<div class="service-actions"><a href="#contact" class="btn btn-secondary">קבלת הצעת מחיר</a></div>
+					</article>
+			</div>
+		</section>
+
+		<section id="testimonials" class="section testimonials" aria-label="Clients">
+			<div class="section-head">
+				<h2>לקוחות מספרים</h2>
+				<p>מילים של מייסדים ומנהלי מוצר שאני מלווה.</p>
+			</div>
+			<div class="testi-carousel">
+				<div class="testi-viewport">
+					<div class="testi-list">
+						<figure class="testi-card">
+							<img class="avatar" src="../assets/images/testimonials/avatar-1.jpg" alt="Robinhood Bingo team member portrait" loading="lazy" />
+							<figcaption>
+								<blockquote class="quote">"אנמנואל החיה את החזון שלנו עם ויז'ואל מרהיב ו-UX זורם. שותף עיצוב אמיתי."</blockquote>
+								<div class="meta"><span class="name">Michael Torres</span><span class="role">מוביל מוצר, Robinhood Bingo</span></div>
+							</figcaption>
+						</figure>
+						<figure class="testi-card">
+							<img class="avatar" src="../assets/images/testimonials/avatar-2-female.jpg" alt="Prodrops team member portrait" loading="lazy" />
+							<figcaption>
+								<blockquote class="quote">"הדיזיין סיסטם שאנמנואל בנה לפרודרופס הרים את כל הפלטפורמה. נקי, מודרני ומוכן לצמיחה."</blockquote>
+								<div class="meta"><span class="name">Chen Lewestein</span><span class="role">משאבי אנוש, Prodrops</span></div>
+							</figcaption>
+						</figure>
+						<figure class="testi-card">
+							<img class="avatar" src="../assets/images/testimonials/avatar-3.jpg" alt="Notion team member portrait" loading="lazy" />
+							<figcaption>
+								<blockquote class="quote">"העבודה עם אנמנואל על פרויקט Notion הייתה חלקה. איטרציות מהירות, תקשורת מצוינת ותוצאות מרשימות."</blockquote>
+								<div class="meta"><span class="name">Alex Rivera</span><span class="role">ראש תחום עיצוב, פרויקט Notion</span></div>
+							</figcaption>
+						</figure>
+						<figure class="testi-card">
+							<img class="avatar" src="../assets/images/testimonials/avatar-4.jpg" alt="Hot Mobile team member portrait" loading="lazy" />
+							<figcaption>
+								<blockquote class="quote">"אנמנואל שינה את חוויית המובייל שלנו ב-Hot Mobile. המעורבות עלתה משמעותית אחרי ההשקה."</blockquote>
+								<div class="meta"><span class="name">David Levi</span><span class="role">מנהל מוצר, Hot Mobile</span></div>
+							</figcaption>
+						</figure>
+						<figure class="testi-card">
+							<img class="avatar" src="../assets/images/testimonials/avatar-2-female.jpg" alt="Playtika team member portrait" loading="lazy" />
+							<figcaption>
+								<blockquote class="quote">"עיצוב יוצא דופן שתפס בול את האסתטיקה הגיימינגית שלנו. אנמנואל מעבר לכל ציפייה."</blockquote>
+								<div class="meta"><span class="name">Maya Goldstein</span><span class="role">מנהלת קריאייטיב, Playtika</span></div>
+							</figcaption>
+						</figure>
+						<figure class="testi-card">
+							<img class="avatar" src="../assets/images/testimonials/avatar-3.jpg" alt="Client portrait" loading="lazy" />
+							<figcaption>
+								<blockquote class="quote">"מעצב נדיר שמשלב הבנה טכנית עם יצירתיות מצוינת. שיעורי ההמרה שלנו מדברים בעד עצמם."</blockquote>
+								<div class="meta"><span class="name">James Park</span><span class="role">CTO, חברת סטארטאפ</span></div>
+							</figcaption>
+						</figure>
+					</div>
+				</div>
+			</div>
+		</section>
+	        
+	        <section id="contact" class="section contact" aria-label="Contact">
+	            <div class="contact-wrap" role="group" aria-label="Contact">
+	                <div class="section-head">
+	                    <h2>בואו נבנה משהו יחד</h2>
+	                    <p>ספרו לי על המוצר שלכם. אחזור אליכם תוך 24 שעות.</p>
+	                </div>
+	                <div class="contact-grid">
+	                    <div class="contact-copy">
+	                        <p>
+	                            אני עובד עם מייסדים וצוותי מוצר כדי להפוך רעיונות מעורפלים ל-UI חד וביצועי. שתפו לוחות זמנים, מטרות ומגבלות, ואציע גישה וצעד הבא ברור.
+	                        </p>
+	                        <ul class="contact-highlights">
+	                            <li>שיחת היכרות בתוך 24 שעות</li>
+	                            <li>פרויקטים מוגדרי היקף או ריטיינר חודשי</li>
+	                            <li>עבודה מרחוק, אסינכרונית</li>
+	                        </ul>
+	                    </div>
+	                    <form class="contact-form" aria-label="Contact form">
+	                        <div class="form-row">
+	                            <label for="name">שם</label>
+	                            <input id="name" name="name" type="text" autocomplete="name" required />
+	                        </div>
+	                        <div class="form-row">
+	                            <label for="email">אימייל</label>
+	                            <input id="email" name="email" type="email" autocomplete="email" required />
+	                        </div>
+	                        <div class="form-row">
+	                            <label for="message">פרטי פרויקט</label>
+	                            <textarea id="message" name="message" rows="5" required></textarea>
+	                        </div>
+	                        <div class="form-actions">
+	                            <button id="copyEmail" class="btn btn-secondary" type="button">העתק מייל</button>
+	                            <a id="mailTo" class="btn btn-primary" href="mailto:info.dronx@gmail.com?subject=Project%20Inquiry" target="_blank">שלח מייל</a>
+	                        </div>
+	                    </form>
+	                </div>
+            </div>
+        </section>
+	</main>
+
+		<!-- Footer Component -->
+		<footer class="site-footer" role="contentinfo">
+			<div class="footer-grid">
+				<div class="footer-col">
+					<h4 class="footer-title">ניווט</h4>
+					<ul class="footer-links">
+						<li><a href="index.html#home">דף הבית</a></li>
+						<li><a href="work.html">עבודות</a></li>
+						<li><a href="index.html#services">שירותים</a></li>
+						<li><a href="about.html">אודות</a></li>
+					</ul>
+				</div>
+				<div class="footer-col">
+					<h4 class="footer-title">יצירת קשר</h4>
+					<ul class="footer-links">
+						<li><a href="index.html#contact">בואו נדבר</a></li>
+						<li><button id="copyEmailFooter" class="linklike" type="button">העתק מייל</button></li>
+					</ul>
+				</div>
+				<div class="footer-col">
+					<h4 class="footer-title">קישורים</h4>
+					<div class="socials">
+						<a class="social" href="https://linkedin.com/in/enmanuelyasell" aria-label="LinkedIn" target="_blank" rel="noreferrer">
+							<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zM8.5 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.6c0-1.58-.03-3.62-2.21-3.62-2.22 0-2.56 1.73-2.56 3.5V23h-4V8z"/></svg>
+					</a>
+					<a class="social" href="https://instagram.com/tokyo_houseparty" aria-label="Instagram" target="_blank" rel="noreferrer">
+						<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+					</a>
+					<a class="social" href="https://github.com/helloworldxdwastaken" aria-label="GitHub" target="_blank" rel="noreferrer">
+						<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+					</a>
+				</div>
+			</div>
+			</div>
+			<div class="footer-bottom">
+				<p>© <span id="year-footer"></span> Enmanuel Yasell. נבנה באהבה ובהרבה וולט</p>
+				<div class="footer-legal">
+					<a href="terms-of-service.html">תנאי שירות</a>
+					<a href="legal-notice.html">הודעה משפטית</a>
+				</div>
+			</div>
+		<div class="footer-watermark" aria-hidden="true">Enmanuel Yasell</div>
+	</footer>
+
+	<script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+	<script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+	<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+	<script src="../assets/js/main.js?v=11"></script>
+	<!-- Visitor Tracking -->
+	<script src="../assets/js/analytics.js?v=4"></script>
+	<script src="../assets/js/simple-logger.js?v=4"></script>
+	
+	<!-- Fallback tracking for GitHub Pages -->
+	<script>
+		// Simple fallback tracking that always works
+		(function() {
+			// Track page view
+			const pageViews = parseInt(localStorage.getItem('fallbackPageViews') || '0') + 1;
+			localStorage.setItem('fallbackPageViews', pageViews.toString());
+			
+			// Track unique visitors
+			const visitorId = localStorage.getItem('fallbackVisitorId');
+			if (!visitorId) {
+				const newId = 'visitor_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+				localStorage.setItem('fallbackVisitorId', newId);
+			}
+			
+			// Track clicks
+			document.addEventListener('click', function(e) {
+				const clicks = parseInt(localStorage.getItem('fallbackClicks') || '0') + 1;
+				localStorage.setItem('fallbackClicks', clicks.toString());
+			});
+		})();
+	</script>
+</body>
+</html>

@@ -280,14 +280,7 @@ const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
     const el = document.getElementById('heroRole');
     if (!el) return;
     
-    const isHebrew = document.documentElement.lang === 'he' || document.documentElement.getAttribute('dir') === 'rtl';
-    const roles = isHebrew ? [
-        'UI/UX',
-        'קריאייטיב שיווקי',
-        'מושן',
-        'תלת',
-        'אתרים'
-    ] : [
+    const roles = [
         'Web Designer',
         'Marketing designer',
         'UI/UX designer',

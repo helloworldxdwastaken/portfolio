@@ -113,20 +113,6 @@
     color: var(--text);
 }
 
-/* Light Theme Language Toggle */
-[data-theme="light"] .lang-toggle,
-:root:not([data-theme="dark"]) .lang-toggle {
-    color: var(--text) !important;
-    border-color: rgba(0,0,0,0.12) !important;
-    background: rgba(0,0,0,0.04) !important;
-}
-
-[data-theme="light"] .lang-toggle:hover,
-:root:not([data-theme="dark"]) .lang-toggle:hover {
-    border-color: rgba(0,0,0,0.2) !important;
-    background: rgba(0,0,0,0.08) !important;
-}
-
 /* Light navbar capsule */
 [data-theme="light"] .nav-surface,
 :root:not([data-theme="dark"]) .nav-surface {

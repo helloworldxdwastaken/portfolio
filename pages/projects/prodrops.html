@@ -22,32 +22,76 @@
 	<link rel="stylesheet" href="../../assets/css/main.css?v=20" />
 	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 	<style>
-	  /* Force dark theme for Prodrops page */
-	  html, body {
-	    background: #050507 !important;
-	    color: #ffffff !important;
+	  /* Dark theme overrides for Prodrops page */
+	  :root {
+	    --bg: #050507;
+	    --bg-secondary: #0a0a0f;
+	    --bg-tertiary: #111118;
+	    --surface: #0f0f15;
+	    --text: #ffffff;
+	    --text-secondary: #a0a0a0;
+	    --text-muted: #666666;
+	    --border: rgba(255, 255, 255, 0.1);
+	    --border-strong: rgba(255, 255, 255, 0.2);
 	  }
 	  
-	  .site-nav, .site-footer {
-	    background: #050507 !important;
+	  body {
+	    background: var(--bg);
+	    color: var(--text);
 	  }
 	  
-	  .site-nav a, .site-footer a, .footer-title, .footer-links a, p, h1, h2, h3, h4, span, li {
-	    color: #ffffff !important;
+	  /* Navbar dark */
+	  .site-nav {
+	    background: rgba(5, 5, 7, 0.9);
+	    backdrop-filter: blur(10px);
 	  }
 	  
-	  .site-nav .logo {
-	    color: #ffffff !important;
+	  .site-nav .logo,
+	  .nav-links a {
+	    color: #ffffff;
 	  }
 	  
-	  .btn-secondary {
-	    border-color: #ffffff !important;
-	    color: #ffffff !important;
+	  .nav-links a:hover {
+	    color: #0DFA7B;
 	  }
 	  
-	  .btn-secondary:hover {
-	    background: #ffffff !important;
-	    color: #050507 !important;
+	  /* Footer dark */
+	  .site-footer {
+	    background: var(--bg);
+	    border-top: 1px solid var(--border);
+	  }
+	  
+	  .footer-title {
+	    color: #ffffff;
+	  }
+	  
+	  .footer-links a,
+	  .footer-links .linklike {
+	    color: var(--text-secondary);
+	  }
+	  
+	  .footer-links a:hover,
+	  .footer-links .linklike:hover {
+	    color: #0DFA7B;
+	  }
+	  
+	  .footer-bottom p {
+	    color: var(--text-muted);
+	  }
+	  
+	  .footer-legal a {
+	    color: var(--text-muted);
+	  }
+	  
+	  .social {
+	    background: rgba(255, 255, 255, 0.05);
+	    border-color: rgba(255, 255, 255, 0.1);
+	    color: var(--text-secondary);
+	  }
+	  
+	  .social:hover {
+	    background: rgba(255, 255, 255, 0.1);
+	    color: #ffffff;
 	  }
 	  
 	  /* Enable hover effects only on devices that actually support hover */

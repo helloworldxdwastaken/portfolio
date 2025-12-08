@@ -6,6 +6,7 @@
     { "source": "/pages/projects/prodrops.html", "destination": "/projects/prodrops", "permanent": true },
     { "source": "/pages/projects/ephoca.html", "destination": "/projects/ephoca", "permanent": true },
     { "source": "/pages/projects/betterhomepage.html", "destination": "/projects/betterhomepage", "permanent": true },
+    { "source": "/pages/projects/noxa-music.html", "destination": "/projects/noxa-music", "permanent": true },
     { "source": "/pages/terms-of-service.html", "destination": "/terms-of-service", "permanent": true },
     { "source": "/pages/legal-notice.html", "destination": "/legal-notice", "permanent": true }
   ],
@@ -16,6 +17,7 @@
     { "source": "/projects/prodrops", "destination": "/pages/projects/prodrops.html" },
     { "source": "/projects/ephoca", "destination": "/pages/projects/ephoca.html" },
     { "source": "/projects/betterhomepage", "destination": "/pages/projects/betterhomepage.html" },
+    { "source": "/projects/noxa-music", "destination": "/pages/projects/noxa-music.html" },
     { "source": "/terms-of-service", "destination": "/pages/terms-of-service.html" },
     { "source": "/legal-notice", "destination": "/pages/legal-notice.html" },
     { "source": "/((?!assets|_vercel).*)", "destination": "/pages/404.html" }

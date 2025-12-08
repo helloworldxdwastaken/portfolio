@@ -207,29 +207,31 @@
 	    display: flex;
 	    align-items: center;
 	    overflow: hidden;
-	    background: linear-gradient(135deg, var(--root-cream) 0%, #fff 100%);
 	  }
 	  
-	  .hero-rootwise::before {
-	    content: '';
+	  .hero-rootwise-video-container {
 	    position: absolute;
-	    top: -30%;
-	    right: -15%;
-	    width: 70%;
-	    height: 120%;
-	    background: radial-gradient(circle, rgba(136, 243, 172, 0.25) 0%, transparent 70%);
-	    pointer-events: none;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    z-index: 0;
 	  }
 	  
-	  .hero-rootwise::after {
-	    content: '';
+	  .hero-rootwise-video {
+	    width: 100%;
+	    height: 100%;
+	    object-fit: cover;
+	  }
+	  
+	  .hero-rootwise-overlay {
 	    position: absolute;
-	    bottom: -20%;
-	    left: -10%;
-	    width: 50%;
-	    height: 80%;
-	    background: radial-gradient(circle, rgba(236, 254, 116, 0.2) 0%, transparent 70%);
-	    pointer-events: none;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    background: rgba(0, 0, 0, 0.5);
+	    z-index: 1;
 	  }
 	  
 	  .hero-rootwise-content {
@@ -239,6 +241,15 @@
 	    position: relative;
 	    z-index: 2;
 	    text-align: center;
+	  }
+	  
+	  .hero-rootwise-content img,
+	  .hero-rootwise-content h1,
+	  .hero-rootwise-content p,
+	  .hero-rootwise-content ul,
+	  .hero-rootwise-content .hero-actions {
+	    color: #fff;
+	    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 	  }
 	  
 	  .rootwise-logo {
@@ -420,31 +431,32 @@
 	<main class="site-main">
 		<!-- Hero Section -->
 		<section class="hero-rootwise">
+			<!-- Video Background -->
+			<div class="hero-rootwise-video-container" aria-hidden="true">
+				<video class="hero-rootwise-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
+					<source src="../../assets/videos/rootwise.mp4" type="video/mp4">
+				</video>
+				<div class="hero-rootwise-overlay"></div>
+			</div>
+			
 			<div class="hero-rootwise-content">
-				<img src="../../assets/images/rootwise/rootwise-logo.png" alt="RootWise Logo" style="height: 120px; width: auto; margin-bottom: var(--space-4); display: block; margin-left: auto; margin-right: auto;" />
-				<p class="rootwise-tagline">Listen to your body. We help you respond gently. Describe how you feel and get calm, safety-first suggestions for foods, herbs, and daily habits—without pharma.</p>
+				<img src="../../assets/images/rootwise/rootwise-logo.png" alt="RootWise Logo" style="height: 120px; width: auto; margin-bottom: var(--space-4); display: block; margin-left: auto; margin-right: auto; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.3));" />
+				<p class="rootwise-tagline" style="color: #fff;">Listen to your body. We help you respond gently. Describe how you feel and get calm, safety-first suggestions for foods, herbs, and daily habits—without pharma.</p>
 				<ul style="display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 18px; margin: 0 0 var(--space-6); padding: 0; list-style: none;">
-					<li class="tag tag-uiux">UI & UX</li>
-					<li class="tag tag-creative">Creative</li>
-					<li class="tag tag-dev" style="background: rgba(23, 77, 58, 0.15); color: var(--root-green);">Development</li>
-					<li class="tag" style="background: rgba(136, 243, 172, 0.2); color: var(--root-green);">AI Integration</li>
+					<li class="tag tag-uiux" style="background: rgba(255,255,255,0.2); color: #fff; backdrop-filter: blur(10px);">UI & UX</li>
+					<li class="tag tag-creative" style="background: rgba(255,255,255,0.2); color: #fff; backdrop-filter: blur(10px);">Creative</li>
+					<li class="tag tag-dev" style="background: rgba(23, 77, 58, 0.3); color: #fff; backdrop-filter: blur(10px);">Development</li>
+					<li class="tag" style="background: rgba(136, 243, 172, 0.3); color: #fff; backdrop-filter: blur(10px);">AI Integration</li>
 				</ul>
 				<div class="hero-actions">
 					<a href="https://rootwise.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-rootwise">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
 						Visit Website
 					</a>
-					<a href="/#contact" class="btn-outline-rootwise">
+					<a href="/#contact" class="btn-outline-rootwise" style="border-color: #fff; color: #fff;">
 						Start Similar Project
 					</a>
 				</div>
-			</div>
-		</section>
-
-		<!-- Video Preview -->
-		<section style="max-width: var(--maxw); margin: 0 auto; padding: var(--space-8) var(--space-4); background: var(--root-cream);">
-			<div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 25px 80px rgba(23, 77, 58, 0.15); border: 1px solid rgba(23, 77, 58, 0.2);">
-				<video src="../../assets/videos/rootwise.mp4" autoplay muted loop playsinline webkit-playsinline preload="auto" style="width: 100%; height: auto; display: block;"></video>
 			</div>
 		</section>
 

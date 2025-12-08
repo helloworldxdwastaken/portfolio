@@ -1050,7 +1050,7 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
     display: flex;
     align-items: center;
     gap: 60px;
-    animation: marquee 30s linear infinite;
+    animation: marquee 20s linear infinite;
 }
 
 /* Light theme - use light versions of logos (dark logos inverted to light gray) */

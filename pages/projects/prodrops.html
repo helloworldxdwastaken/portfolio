@@ -22,6 +22,34 @@
 	<link rel="stylesheet" href="../../assets/css/main.css?v=20" />
 	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 	<style>
+	  /* Force dark theme for Prodrops page */
+	  html, body {
+	    background: #050507 !important;
+	    color: #ffffff !important;
+	  }
+	  
+	  .site-nav, .site-footer {
+	    background: #050507 !important;
+	  }
+	  
+	  .site-nav a, .site-footer a, .footer-title, .footer-links a, p, h1, h2, h3, h4, span, li {
+	    color: #ffffff !important;
+	  }
+	  
+	  .site-nav .logo {
+	    color: #ffffff !important;
+	  }
+	  
+	  .btn-secondary {
+	    border-color: #ffffff !important;
+	    color: #ffffff !important;
+	  }
+	  
+	  .btn-secondary:hover {
+	    background: #ffffff !important;
+	    color: #050507 !important;
+	  }
+	  
 	  /* Enable hover effects only on devices that actually support hover */
 	  @media (hover: hover) and (pointer: fine) {
 	    .components-tilt:hover { transform: translateX(var(--components-shift-x)) translateY(var(--components-shift-y)) rotateZ(var(--components-rotate)) scale(var(--components-hover-scale)) !important; }

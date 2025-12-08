@@ -1162,14 +1162,23 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 .project-left {
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 1;
 }
 
 .project-index {
-    font-family: var(--font-mono);
-    font-size: 14px;
-    color: var(--accent-primary);
-    letter-spacing: 0.1em;
-    margin-bottom: var(--space-3);
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    font-family: var(--font-display);
+    font-size: clamp(100px, 15vw, 160px);
+    font-weight: 700;
+    color: var(--text);
+    opacity: 0.05;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .project-title {

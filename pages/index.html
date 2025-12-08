@@ -487,22 +487,28 @@
 					</div>
 					
 					<!-- Right Side - Form -->
-					<form class="contact-form" id="contactForm">
+					<form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+						<input type="hidden" name="access_key" value="10d6e15c-abbb-4b47-8ff5-d0f7dfc8898c" />
+						<input type="hidden" name="subject" value="New Project Inquiry from Verox Studio" />
+						<input type="hidden" name="from_name" value="Verox Studio Website" />
+						<input type="hidden" name="redirect" value="https://verox.studio/#contact" />
+						<input type="checkbox" name="botcheck" style="display: none;" />
+						
 						<div class="form-row">
 							<label for="name">Name</label>
-							<input type="text" id="name" name="name" required />
+							<input type="text" id="name" name="name" placeholder="Your name" required />
 						</div>
 						<div class="form-row">
 							<label for="email">Email</label>
-							<input type="email" id="email" name="email" required />
+							<input type="email" id="email" name="email" placeholder="your@email.com" required />
 						</div>
 						<div class="form-row">
 							<label for="message">Project details</label>
-							<textarea id="message" name="message" required></textarea>
+							<textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
 						</div>
 						<div class="form-actions">
-							<button type="button" id="copyEmail" class="btn btn-secondary">Copy email</button>
-							<button type="submit" id="mailTo" class="btn btn-primary">Email me</button>
+							<a href="https://cal.com/YOUR_USERNAME" target="_blank" class="btn btn-secondary">Book a Call</a>
+							<button type="submit" class="btn btn-primary">Send Message</button>
 						</div>
 					</form>
 				</div>

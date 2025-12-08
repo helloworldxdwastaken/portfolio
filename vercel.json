@@ -17,7 +17,8 @@
     { "source": "/projects/ephoca", "destination": "/pages/projects/ephoca.html" },
     { "source": "/projects/betterhomepage", "destination": "/pages/projects/betterhomepage.html" },
     { "source": "/terms-of-service", "destination": "/pages/terms-of-service.html" },
-    { "source": "/legal-notice", "destination": "/pages/legal-notice.html" }
+    { "source": "/legal-notice", "destination": "/pages/legal-notice.html" },
+    { "source": "/((?!assets|_vercel).*)", "destination": "/pages/404.html" }
   ],
   "headers": [
     {

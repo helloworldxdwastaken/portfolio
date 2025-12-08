@@ -2089,6 +2089,13 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
     border-color: #0a0a0a;
 }
 
+/* Disabled project button */
+.project-check.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 /* ---------- About Page Styles ---------- */
 .about-hero {
     min-height: 80vh;

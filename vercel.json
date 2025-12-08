@@ -1,0 +1,26 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/pages/index.html" },
+    { "source": "/about", "destination": "/pages/about.html" },
+    { "source": "/work", "destination": "/pages/work.html" },
+    { "source": "/projects/prodrops", "destination": "/pages/projects/prodrops.html" },
+    { "source": "/projects/ephoca", "destination": "/pages/projects/ephoca.html" },
+    { "source": "/projects/betterhomepage", "destination": "/pages/projects/betterhomepage.html" },
+    { "source": "/terms-of-service", "destination": "/pages/terms-of-service.html" },
+    { "source": "/legal-notice", "destination": "/pages/legal-notice.html" },
+    { "source": "/404", "destination": "/pages/404.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" }
+      ]
+    }
+  ]
+}
+

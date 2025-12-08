@@ -1,0 +1,11 @@
+# Robots.txt for verox.studio
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://verox.studio/sitemap.xml
+
+# Disallow admin/private paths (if any)
+Disallow: /_vercel/
+

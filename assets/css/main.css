@@ -1649,7 +1649,8 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 24px;
+    gap: 8px;
+    padding: 14px 28px;
     background: transparent;
     border: 1.5px solid #ffffff;
     border-radius: var(--radius-full);
@@ -1658,6 +1659,11 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.contact-form .btn-secondary svg {
+    flex-shrink: 0;
 }
 
 .contact-form .btn-secondary:hover {

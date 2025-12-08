@@ -1626,6 +1626,13 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 .contact-form .form-actions .btn {
     padding: 14px 28px;
     font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-form .form-actions .btn svg {
+    flex-shrink: 0;
 }
 
 /* Secondary Button for Contact (matches site btn-secondary) */

@@ -1,33 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>About – Enmanuel Yasell</title>
-    <meta name="description" content="Learn more about Enmanuel Yasell, an independent UI/UX designer and motion specialist." />
-    <meta name="theme-color" content="#f8f7fc" id="theme-color" />
-    <script>
-        // Update theme-color meta tag based on system preference
-        const updateThemeColor = () => {
-            const themeColor = document.getElementById('theme-color');
-            if (themeColor && window.matchMedia) {
-                const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                themeColor.content = isDark ? '#050507' : '#f8f7fc';
-            }
-        };
-        
-        updateThemeColor();
-        
-        if (window.matchMedia) {
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateThemeColor);
-            window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', updateThemeColor);
-        }
-    </script>
+    <title>About – Verox Studio</title>
+    <meta name="description" content="Verox Studio is a design agency specializing in UI/UX, branding, and digital experiences. Meet the team behind your next project." />
+    <meta name="theme-color" content="#ffffff" id="theme-color" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=General+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/main.css?v=12" />
-    <link rel="stylesheet" href="../assets/css/light_theme.css?v=3" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/main.css?v=20" />
 </head>
 <body class="about-page">
     <!-- Navbar Component -->
@@ -36,8 +18,8 @@
             <div class="nav-surface">
                 <nav class="nav" aria-label="Primary">
                     <a class="logo" href="index.html#home" aria-label="Go to home">
-                        <span>ENML</span>
-                        <span>YSLL</span>
+                        <span>VEROX</span>
+                        <span>STUDIO</span>
                     </a>
                     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
                         <span></span><span></span>
@@ -47,59 +29,24 @@
                         <li><a href="work.html">Work</a></li>
                         <li><a href="index.html#services">Services</a></li>
                         <li><a href="index.html#testimonials">Clients</a></li>
-                        <li class="nav-utility-inline">
-                            <button class="theme-toggle" aria-label="Toggle theme" title="Toggle dark/light theme">
-                                <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle class="sun-icon" cx="12" cy="12" r="5"></circle>
-                                    <line class="sun-icon" x1="12" y1="1" x2="12" y2="3"></line>
-                                    <line class="sun-icon" x1="12" y1="21" x2="12" y2="23"></line>
-                                    <line class="sun-icon" x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                                    <line class="sun-icon" x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                                    <line class="sun-icon" x1="1" y1="12" x2="3" y2="12"></line>
-                                    <line class="sun-icon" x1="21" y1="12" x2="23" y2="12"></line>
-                                    <line class="sun-icon" x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                                    <line class="sun-icon" x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                                    <path class="moon-icon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                                </svg>
-                            </button>
-                        </li>
                         <li><a href="index.html#contact" class="btn btn-primary">Contact</a></li>
                     </ul>
                 </nav>
-            </div>
-            <div class="nav-utility-pill" aria-label="Quick actions">
-                <button class="theme-toggle" aria-label="Toggle theme" id="themeToggle" title="Toggle dark/light theme">
-                    <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle class="sun-icon" cx="12" cy="12" r="5"></circle>
-                        <line class="sun-icon" x1="12" y1="1" x2="12" y2="3"></line>
-                        <line class="sun-icon" x1="12" y1="21" x2="12" y2="23"></line>
-                        <line class="sun-icon" x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line class="sun-icon" x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line class="sun-icon" x1="1" y1="12" x2="3" y2="12"></line>
-                        <line class="sun-icon" x1="21" y1="12" x2="23" y2="12"></line>
-                        <line class="sun-icon" x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line class="sun-icon" x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        <path class="moon-icon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                </button>
             </div>
         </div>
     </header>
 
     <main class="site-main" role="main">
         <!-- Hero Section -->
-        <section class="about-hero" aria-label="About Enmanuel">
+        <section class="about-hero about-hero-centered" aria-label="About Verox Studio">
             <div class="about-hero-inner">
                 <div class="about-hero-content">
-                    <h1>About <span class="hero-accent">Enmanuel Yasell</span></h1>
-                    <p class="about-lead">Passionate Senior UI/UX Designer and Motion Graphics Specialist with over six years of experience creating intuitive, user-focused digital solutions.</p>
+                    <h1>About <span class="hero-accent">Verox Studio</span></h1>
+                    <p class="about-lead">We're a design studio specializing in UI/UX, branding, and digital experiences. We help startups and enterprises build products that users love.</p>
                     <div class="about-cta">
-                        <a href="work.html" class="btn btn-secondary">See Work</a>
+                        <a href="work.html" class="btn btn-secondary">See Our Work</a>
                         <a href="index.html#contact" class="btn btn-primary">Start a Project</a>
                     </div>
-                </div>
-                <div class="about-hero-photo">
-                    <img src="../assets/images/profile/enmanuelyasell.avif" alt="Enmanuel Yasell portrait" loading="lazy" />
                 </div>
             </div>
         </section>
@@ -110,9 +57,9 @@
                 <h2>My Story</h2>
                 <div class="story-grid">
                     <div class="story-text">
-                        <p>I blend creativity with technical expertise, designing interfaces that enhance user satisfaction and engage audiences. From web and mobile app designs to motion graphics and video production, I'm dedicated to delivering high-impact visual storytelling that aligns with user needs and business objectives.</p>
-                        <p>I'm happiest partnering with founders and product teams on zero-to-one launches, new monetization strategies, or product refreshes that need design systems, motion, and storytelling woven together seamlessly.</p>
-                        <p>Let's collaborate and bring your ideas to life! When I'm not designing, you'll find me exploring new animation techniques, experimenting with 3D workflows, or mentoring emerging designers in the community.</p>
+                        <p>I founded Verox Studio with a passion for exceptional design—bringing together creativity and technical expertise to craft digital experiences that captivate and convert. I believe great design is more than aesthetics—it's about solving real problems for real people.</p>
+                        <p>My background spans product design, motion graphics, and brand strategy, allowing me to deliver holistic solutions. From startups seeking their first MVP to enterprises refreshing their digital presence, I partner with ambitious teams ready to make an impact.</p>
+                        <p>I'm not just a designer—I'm a strategic partner who understands business goals, user needs, and the technical constraints that shape great products.</p>
                     </div>
                     <div class="story-stats">
                         <div class="stat">
@@ -132,10 +79,39 @@
             </div>
         </section>
 
+        <!-- Team Section -->
+        <section class="section about-team" aria-label="Meet the Founder">
+            <div class="about-team-content">
+                <h2>Meet the Founder</h2>
+                <p class="team-intro">The creative mind behind Verox Studio</p>
+                <div class="team-grid team-single">
+                    <div class="team-member team-member-featured">
+                        <div class="team-photo">
+                            <img src="../assets/images/profile/enmanuelyasell.avif" alt="Enmanuel Yasell" loading="lazy" />
+                        </div>
+                        <h3>Enmanuel Yasell</h3>
+                        <p class="team-role">Founder & Creative Director</p>
+                        <p class="team-bio">Senior UI/UX Designer with 6+ years of experience crafting digital experiences for startups and enterprises. I blend creativity with technical expertise to design interfaces that captivate and convert.</p>
+                        <div class="team-socials">
+                            <a href="https://linkedin.com/in/enmanuelyasell" aria-label="LinkedIn" target="_blank" rel="noreferrer">
+                                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zM8.5 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.6c0-1.58-.03-3.62-2.21-3.62-2.22 0-2.56 1.73-2.56 3.5V23h-4V8z"/></svg>
+                            </a>
+                            <a href="https://instagram.com/tokyo_houseparty" aria-label="Instagram" target="_blank" rel="noreferrer">
+                                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            </a>
+                            <a href="https://github.com/helloworldxdwastaken" aria-label="GitHub" target="_blank" rel="noreferrer">
+                                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Skills Section -->
         <section class="section about-skills" aria-label="Skills & Tools">
             <div class="about-skills-content">
-                <h2>Skills & Tools</h2>
+                <h2>My Expertise</h2>
                 <div class="skills-grid">
                     <div class="skill-category">
                         <h3>Design</h3>
@@ -157,50 +133,50 @@
                         </div>
                     </div>
                     <div class="skill-category">
-                        <h3>Tools</h3>
+                        <h3>Tools I Use</h3>
                         <div class="tools-grid">
-                            <div class="tool ai" title="Adobe Illustrator">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobeillustrator.svg" alt="Adobe Illustrator" />
+                            <div class="tool" title="Adobe Illustrator">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Adobe Illustrator" />
                                 <span>Illustrator</span>
                             </div>
-                            <div class="tool ps" title="Adobe Photoshop">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobephotoshop.svg" alt="Adobe Photoshop" />
+                            <div class="tool" title="Adobe Photoshop">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Adobe Photoshop" />
                                 <span>Photoshop</span>
                             </div>
-                            <div class="tool id" title="Adobe InDesign">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobeindesign.svg" alt="Adobe InDesign" />
+                            <div class="tool" title="Adobe InDesign">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Adobe_InDesign_CC_icon.svg" alt="Adobe InDesign" />
                                 <span>InDesign</span>
                             </div>
-                            <div class="tool ae" title="Adobe After Effects">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobeaftereffects.svg" alt="Adobe After Effects" />
+                            <div class="tool" title="Adobe After Effects">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aftereffects/aftereffects-original.svg" alt="Adobe After Effects" />
                                 <span>After Effects</span>
                             </div>
-                            <div class="tool pr" title="Adobe Premiere Pro">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobepremierepro.svg" alt="Adobe Premiere Pro" />
+                            <div class="tool" title="Adobe Premiere Pro">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-original.svg" alt="Adobe Premiere Pro" />
                                 <span>Premiere Pro</span>
                             </div>
-                            <div class="tool figma" title="Figma">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/figma.svg" alt="Figma" />
+                            <div class="tool" title="DaVinci Resolve">
+                                <img src="https://img.icons8.com/color/96/davinci-resolve.png" alt="DaVinci Resolve" />
+                                <span>DaVinci Resolve</span>
+                            </div>
+                            <div class="tool" title="Figma">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" />
                                 <span>Figma</span>
                             </div>
-                            <div class="tool wix" title="Wix">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/wix.svg" alt="Wix" />
-                                <span>Wix</span>
+                            <div class="tool" title="Affinity Designer">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/affinitydesigner.svg" alt="Affinity Designer" />
+                                <span>Affinity Designer</span>
                             </div>
-                            <div class="tool framer" title="Framer">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/framer.svg" alt="Framer" />
+                            <div class="tool" title="Canva">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" alt="Canva" />
+                                <span>Canva</span>
+                            </div>
+                            <div class="tool" title="Framer">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg" alt="Framer" />
                                 <span>Framer</span>
                             </div>
-                            <div class="tool elementor" title="Elementor">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/elementor.svg" alt="Elementor" />
-                                <span>Elementor</span>
-                            </div>
-                            <div class="tool wordpress" title="WordPress">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/wordpress.svg" alt="WordPress" />
-                                <span>WordPress</span>
-                            </div>
-                            <div class="tool blender" title="Blender">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/blender.svg" alt="Blender" />
+                            <div class="tool" title="Blender">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg" alt="Blender" />
                                 <span>Blender</span>
                             </div>
                         </div>
@@ -208,29 +184,53 @@
                     <div class="skill-category">
                         <h3>Development</h3>
                         <div class="tools-grid">
-                            <div class="tool html5" title="HTML5">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/html5.svg" alt="HTML5" />
+                            <div class="tool" title="HTML5">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
                                 <span>HTML5</span>
                             </div>
-                            <div class="tool css3" title="CSS3">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/css3.svg" alt="CSS3" />
+                            <div class="tool" title="CSS3">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
                                 <span>CSS3</span>
                             </div>
-                            <div class="tool js" title="JavaScript">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/javascript.svg" alt="JavaScript" />
+                            <div class="tool" title="JavaScript">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
                                 <span>JavaScript</span>
                             </div>
-                            <div class="tool cursor" title="Cursor">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/visualstudiocode.svg" alt="Cursor" />
-                                <span>Cursor</span>
+                            <div class="tool" title="Python">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+                                <span>Python</span>
                             </div>
-                            <div class="tool git" title="Git">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/git.svg" alt="Git" />
+                            <div class="tool" title="React">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
+                                <span>React</span>
+                            </div>
+                            <div class="tool" title="React Native">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native" />
+                                <span>React Native</span>
+                            </div>
+                            <div class="tool" title="iOS">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" alt="iOS" />
+                                <span>iOS</span>
+                            </div>
+                            <div class="tool" title="Android">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android" />
+                                <span>Android</span>
+                            </div>
+                            <div class="tool" title="WordPress">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg" alt="WordPress" />
+                                <span>WordPress</span>
+                            </div>
+                            <div class="tool" title="Elementor">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/elementor.svg" alt="Elementor" />
+                                <span>Elementor</span>
+                            </div>
+                            <div class="tool" title="Wix">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/wix.svg" alt="Wix" />
+                                <span>Wix</span>
+                            </div>
+                            <div class="tool" title="Git">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
                                 <span>Git</span>
-                            </div>
-                            <div class="tool github" title="GitHub">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/github.svg" alt="GitHub" />
-                                <span>GitHub</span>
                             </div>
                         </div>
                     </div>
@@ -254,8 +254,8 @@
             <div class="footer-col">
                 <h4 class="footer-title">Contact</h4>
                 <ul class="footer-links">
-                    <li><a href="index.html#contact">Let's talk</a></li>
-                    <li><button id="copyEmailFooter" class="linklike" type="button">Copy email</button></li>
+                    <li><a href="index.html#contact">Start a Project</a></li>
+                    <li><button id="copyEmailFooter" class="linklike" type="button">Copy Email</button></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -274,155 +274,158 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© <span id="year-footer"></span> Enmanuel Yasell. Made with ❤️ and a lot of Wolt takeaways</p>
+            <p>© <span id="year-footer"></span> Verox Studio. Crafted with precision.</p>
             <div class="footer-legal">
                 <a href="terms-of-service.html">Terms of Service</a>
                 <a href="legal-notice.html">Legal Notice</a>
             </div>
         </div>
-        <div class="footer-watermark" aria-hidden="true">Enmanuel Yasell</div>
+        <div class="footer-watermark" aria-hidden="true">Verox Studio</div>
     </footer>
 
     <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="../assets/js/main.js?v=10"></script>
     
     <script>
         // About page animations
-        // Check mobile FIRST before initializing GSAP
         const isMobile = window.innerWidth <= 768;
         
         if (isMobile) {
-            // MOBILE: Don't initialize GSAP at all
             console.log('📱 Mobile (About): GSAP disabled');
         } else {
-            // DESKTOP ONLY: Initialize GSAP
             gsap.registerPlugin(ScrollTrigger);
             console.log('🖥️ Desktop (About): GSAP enabled');
-            // Run animations only on desktop
         
-        // Hero section entrance animation
-        gsap.fromTo('.about-hero h1', 
-            { y: 30, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
-        );
-        
-        gsap.fromTo('.about-hero .about-lead', 
-            { y: 20, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8, delay: 0.2, ease: "power2.out" }
-        );
-        
-        gsap.fromTo('.about-hero .about-cta', 
-            { y: 20, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8, delay: 0.3, ease: "power2.out" }
-        );
-        
-        gsap.fromTo('.about-hero-photo img', 
-            { scale: 0.9, opacity: 0 },
-            { scale: 1, opacity: 1, duration: 0.8, delay: 0.4, ease: "power2.out" }
-        );
-        
-        // Story section animation
-        gsap.fromTo('.about-story h2', 
-            { y: 20, opacity: 0 },
-            { 
-                y: 0, 
-                opacity: 1, 
-                duration: 0.6, 
-                scrollTrigger: {
-                    trigger: '.about-story',
-                    start: "top 80%",
-                    end: "bottom 20%",
-                    toggleActions: "play none none reverse"
+            // Hero section entrance animation
+            gsap.fromTo('.about-hero h1', 
+                { y: 30, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
+            );
+            
+            gsap.fromTo('.about-hero .about-lead', 
+                { y: 20, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, delay: 0.2, ease: "power2.out" }
+            );
+            
+            gsap.fromTo('.about-hero .about-cta', 
+                { y: 20, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, delay: 0.3, ease: "power2.out" }
+            );
+            
+            gsap.fromTo('.about-hero-photo img', 
+                { scale: 0.9, opacity: 0 },
+                { scale: 1, opacity: 1, duration: 0.8, delay: 0.4, ease: "power2.out" }
+            );
+            
+            // Story section animation
+            gsap.fromTo('.about-story h2', 
+                { y: 20, opacity: 0 },
+                { 
+                    y: 0, 
+                    opacity: 1, 
+                    duration: 0.6, 
+                    scrollTrigger: {
+                        trigger: '.about-story',
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    }
                 }
-            }
-        );
-        
-        gsap.fromTo('.story-text p', 
-            { y: 20, opacity: 0 },
-            { 
-                y: 0, 
-                opacity: 1, 
-                duration: 0.6, 
-                stagger: 0.1,
-                scrollTrigger: {
-                    trigger: '.story-text',
-                    start: "top 80%",
-                    end: "bottom 20%",
-                    toggleActions: "play none none reverse"
+            );
+            
+            gsap.fromTo('.story-text p', 
+                { y: 20, opacity: 0 },
+                { 
+                    y: 0, 
+                    opacity: 1, 
+                    duration: 0.6, 
+                    stagger: 0.1,
+                    scrollTrigger: {
+                        trigger: '.story-text',
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    }
                 }
-            }
-        );
-        
-        // Stats animation
-        gsap.fromTo('.story-stats .stat', 
-            { y: 30, opacity: 0 },
-            { 
-                y: 0, 
-                opacity: 1, 
-                duration: 0.6, 
-                stagger: 0.1,
-                scrollTrigger: {
-                    trigger: '.story-stats',
-                    start: "top 80%",
-                    end: "bottom 20%",
-                    toggleActions: "play none none reverse"
+            );
+            
+            // Stats animation
+            gsap.fromTo('.story-stats .stat', 
+                { y: 30, opacity: 0 },
+                { 
+                    y: 0, 
+                    opacity: 1, 
+                    duration: 0.6, 
+                    stagger: 0.1,
+                    scrollTrigger: {
+                        trigger: '.story-stats',
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    }
                 }
-            }
-        );
-        
-        // Skills section animation
-        gsap.fromTo('.about-skills h2', 
-            { y: 20, opacity: 0 },
-            { 
-                y: 0, 
-                opacity: 1, 
-                duration: 0.6, 
-                scrollTrigger: {
-                    trigger: '.about-skills',
-                    start: "top 80%",
-                    end: "bottom 20%",
-                    toggleActions: "play none none reverse"
+            );
+            
+            // Team section animation
+            gsap.fromTo('.about-team h2', 
+                { y: 20, opacity: 0 },
+                { 
+                    y: 0, 
+                    opacity: 1, 
+                    duration: 0.6, 
+                    scrollTrigger: {
+                        trigger: '.about-team',
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    }
                 }
-            }
-        );
-        
-        gsap.fromTo('.skill-category', 
-            { y: 30, opacity: 0 },
-            { 
-                y: 0, 
-                opacity: 1, 
-                duration: 0.6, 
-                stagger: 0.1,
-                scrollTrigger: {
-                    trigger: '.skills-grid',
-                    start: "top 80%",
-                    end: "bottom 20%",
-                    toggleActions: "play none none reverse"
+            );
+            
+            gsap.fromTo('.team-member', 
+                { y: 40, opacity: 0 },
+                { 
+                    y: 0, 
+                    opacity: 1, 
+                    duration: 0.7, 
+                    stagger: 0.15,
+                    scrollTrigger: {
+                        trigger: '.team-grid',
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    }
                 }
-            }
-        );
-        
-        // Tools animation
-        gsap.fromTo('.tool-item', 
-            { y: 20, opacity: 0, scale: 0.9 },
-            { 
-                y: 0, 
-                opacity: 1, 
-                scale: 1,
-                duration: 0.5, 
-                stagger: 0.05,
-                scrollTrigger: {
-                    trigger: '.tools-grid',
-                    start: "top 80%",
-                    end: "bottom 20%",
-                    toggleActions: "play none none reverse"
+            );
+            
+            // Skills section animation
+            gsap.fromTo('.about-skills h2', 
+                { y: 20, opacity: 0 },
+                { 
+                    y: 0, 
+                    opacity: 1, 
+                    duration: 0.6, 
+                    scrollTrigger: {
+                        trigger: '.about-skills',
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    }
                 }
-            }
-        );
-        
-        } // End desktop animations
+            );
+            
+            gsap.fromTo('.skill-category', 
+                { y: 30, opacity: 0 },
+                { 
+                    y: 0, 
+                    opacity: 1, 
+                    duration: 0.6, 
+                    stagger: 0.1,
+                    scrollTrigger: {
+                        trigger: '.skills-grid',
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+        }
     </script>
 </body>
 </html>

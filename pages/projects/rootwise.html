@@ -3,24 +3,26 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>RootWise – AI Parenting Companion Case Study</title>
-	<meta name="description" content="RootWise is an AI-powered parenting companion providing 24/7 support, evidence-based guidance, and personalized advice for modern families." />
-	<meta name="theme-color" content="#7C3AED" />
+	<title>RootWise – Natural Wellness Companion Case Study</title>
+	<meta name="description" content="RootWise helps you describe how you feel and receive gentle, safety-first suggestions for foods, herbs and daily habits to support your body naturally." />
+	<meta name="theme-color" content="#174D3A" />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link rel="stylesheet" href="../../assets/css/main.css?v=23" />
+	<link rel="stylesheet" href="../../assets/css/main.css?v=25" />
 	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 	<style>
 	  :root {
-	    --root-purple: #7C3AED;
-	    --root-pink: #EC4899;
-	    --root-light: #F5F3FF;
-	    --root-card: #FAFAFF;
-	    --root-dark: #1F1F3D;
+	    --root-green: #174D3A;
+	    --root-mint: #88F3AC;
+	    --root-lime: #ECFE74;
+	    --root-cream: #FCF9F7;
+	    --root-beige: #F4EDE1;
+	    --root-dark: #0a0a0a;
+	    --root-red: #F26C63;
 	  }
 	  
 	  body {
-	    background: linear-gradient(180deg, var(--root-light) 0%, #fff 50%);
+	    background: linear-gradient(180deg, var(--root-cream) 0%, #fff 50%);
 	    color: var(--root-dark);
 	  }
 	  
@@ -37,13 +39,13 @@
 	  
 	  .feature-card {
 	    background: #fff;
-	    border: 1px solid rgba(124, 58, 237, 0.15);
+	    border: 1px solid rgba(23, 77, 58, 0.15);
 	    border-radius: var(--radius-lg);
 	    padding: var(--space-6);
 	    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 	    position: relative;
 	    overflow: hidden;
-	    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.08);
+	    box-shadow: 0 4px 20px rgba(23, 77, 58, 0.08);
 	  }
 	  
 	  .feature-card::before {
@@ -53,7 +55,7 @@
 	    left: 0;
 	    right: 0;
 	    bottom: 0;
-	    background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(236, 72, 153, 0.08));
+	    background: linear-gradient(135deg, rgba(136, 243, 172, 0.15), rgba(236, 254, 116, 0.1));
 	    opacity: 0;
 	    transition: opacity 0.4s ease;
 	    pointer-events: none;
@@ -65,8 +67,8 @@
 	  
 	  .feature-card:hover {
 	    transform: translateY(-12px) scale(1.02);
-	    box-shadow: 0 25px 50px rgba(124, 58, 237, 0.15);
-	    border-color: rgba(124, 58, 237, 0.3);
+	    box-shadow: 0 25px 50px rgba(23, 77, 58, 0.15);
+	    border-color: rgba(23, 77, 58, 0.3);
 	  }
 	  
 	  .feature-icon {
@@ -78,7 +80,7 @@
 	    display: flex;
 	    align-items: center;
 	    justify-content: center;
-	    background: linear-gradient(135deg, var(--root-purple), var(--root-pink));
+	    background: linear-gradient(135deg, var(--root-green), #1a5c45);
 	    border-radius: 16px;
 	    color: #fff;
 	  }
@@ -96,8 +98,8 @@
 	  }
 	  
 	  .screenshot-placeholder {
-	    background: linear-gradient(135deg, var(--root-card), #fff);
-	    border: 2px dashed rgba(124, 58, 237, 0.25);
+	    background: linear-gradient(135deg, var(--root-beige), #fff);
+	    border: 2px dashed rgba(23, 77, 58, 0.25);
 	    border-radius: var(--radius-lg);
 	    aspect-ratio: 16/10;
 	    display: flex;
@@ -105,13 +107,13 @@
 	    align-items: center;
 	    justify-content: center;
 	    gap: var(--space-3);
-	    color: rgba(124, 58, 237, 0.6);
+	    color: rgba(23, 77, 58, 0.6);
 	    transition: all 0.3s ease;
 	  }
 	  
 	  .screenshot-placeholder:hover {
-	    border-color: var(--root-purple);
-	    background: linear-gradient(135deg, #fff, var(--root-card));
+	    border-color: var(--root-green);
+	    background: linear-gradient(135deg, #fff, var(--root-beige));
 	  }
 	  
 	  .screenshot-placeholder svg {
@@ -136,23 +138,25 @@
 	  }
 	  
 	  .mobile-placeholder {
-	    background: linear-gradient(135deg, var(--root-card), #fff);
-	    border: 2px dashed rgba(124, 58, 237, 0.25);
-	    border-radius: 24px;
-	    width: 180px;
-	    height: 380px;
+	    background: linear-gradient(135deg, #fff, var(--root-beige));
+	    border: 2px dashed rgba(23, 77, 58, 0.25);
+	    border-radius: 32px;
+	    width: 160px;
+	    height: 340px;
 	    display: flex;
 	    flex-direction: column;
 	    align-items: center;
 	    justify-content: center;
 	    gap: var(--space-3);
-	    color: rgba(124, 58, 237, 0.6);
+	    color: rgba(23, 77, 58, 0.6);
 	    transition: all 0.3s ease;
+	    box-shadow: 0 10px 40px rgba(23, 77, 58, 0.08);
 	  }
 	  
 	  .mobile-placeholder:hover {
-	    border-color: var(--root-purple);
+	    border-color: var(--root-green);
 	    transform: translateY(-8px);
+	    box-shadow: 0 20px 50px rgba(23, 77, 58, 0.15);
 	  }
 	  
 	  .tech-stack {
@@ -164,18 +168,18 @@
 	  }
 	  
 	  .tech-badge {
-	    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(236, 72, 153, 0.1));
-	    border: 1px solid rgba(124, 58, 237, 0.2);
+	    background: linear-gradient(135deg, rgba(23, 77, 58, 0.1), rgba(136, 243, 172, 0.1));
+	    border: 1px solid rgba(23, 77, 58, 0.2);
 	    border-radius: 50px;
 	    padding: 10px 20px;
 	    font-size: 14px;
 	    font-weight: 500;
-	    color: var(--root-purple);
+	    color: var(--root-green);
 	    transition: all 0.3s ease;
 	  }
 	  
 	  .tech-badge:hover {
-	    background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(236, 72, 153, 0.15));
+	    background: linear-gradient(135deg, rgba(23, 77, 58, 0.15), rgba(136, 243, 172, 0.15));
 	    transform: translateY(-2px);
 	  }
 	  
@@ -185,7 +189,7 @@
 	    display: flex;
 	    align-items: center;
 	    overflow: hidden;
-	    background: linear-gradient(135deg, var(--root-light) 0%, #fff 100%);
+	    background: linear-gradient(135deg, var(--root-cream) 0%, #fff 100%);
 	  }
 	  
 	  .hero-rootwise::before {
@@ -195,7 +199,7 @@
 	    right: -15%;
 	    width: 70%;
 	    height: 120%;
-	    background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+	    background: radial-gradient(circle, rgba(136, 243, 172, 0.25) 0%, transparent 70%);
 	    pointer-events: none;
 	  }
 	  
@@ -206,7 +210,7 @@
 	    left: -10%;
 	    width: 50%;
 	    height: 80%;
-	    background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%);
+	    background: radial-gradient(circle, rgba(236, 254, 116, 0.2) 0%, transparent 70%);
 	    pointer-events: none;
 	  }
 	  
@@ -223,7 +227,7 @@
 	    font-size: clamp(56px, 10vw, 100px);
 	    font-weight: 800;
 	    letter-spacing: -3px;
-	    background: linear-gradient(135deg, var(--root-purple), var(--root-pink));
+	    background: linear-gradient(135deg, var(--root-green), var(--root-mint));
 	    -webkit-background-clip: text;
 	    -webkit-text-fill-color: transparent;
 	    background-clip: text;
@@ -247,7 +251,7 @@
 	  }
 	  
 	  .btn-rootwise {
-	    background: linear-gradient(135deg, var(--root-purple), var(--root-pink));
+	    background: var(--root-green);
 	    color: #fff;
 	    padding: 16px 32px;
 	    border-radius: 50px;
@@ -257,12 +261,12 @@
 	    align-items: center;
 	    gap: 10px;
 	    transition: all 0.3s ease;
-	    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+	    box-shadow: 0 8px 25px rgba(23, 77, 58, 0.3);
 	  }
 	  
 	  .btn-rootwise:hover {
 	    transform: translateY(-3px);
-	    box-shadow: 0 12px 35px rgba(124, 58, 237, 0.4);
+	    box-shadow: 0 12px 35px rgba(23, 77, 58, 0.4);
 	  }
 	  
 	  .btn-rootwise svg {
@@ -272,8 +276,8 @@
 	  
 	  .btn-outline-rootwise {
 	    background: transparent;
-	    border: 2px solid var(--root-purple);
-	    color: var(--root-purple);
+	    border: 2px solid var(--root-green);
+	    color: var(--root-green);
 	    padding: 14px 30px;
 	    border-radius: 50px;
 	    font-weight: 600;
@@ -285,7 +289,7 @@
 	  }
 	  
 	  .btn-outline-rootwise:hover {
-	    background: rgba(124, 58, 237, 0.08);
+	    background: rgba(23, 77, 58, 0.08);
 	    transform: translateY(-3px);
 	  }
 	  
@@ -304,12 +308,12 @@
 	  }
 	  
 	  .overview-card {
-	    background: var(--root-card) !important;
-	    border: 1px solid rgba(124, 58, 237, 0.1) !important;
+	    background: var(--root-beige) !important;
+	    border: 1px solid rgba(23, 77, 58, 0.1) !important;
 	  }
 	  
 	  .overview-card .label {
-	    color: var(--root-purple) !important;
+	    color: var(--root-green) !important;
 	  }
 	  
 	  section h2 {
@@ -400,12 +404,12 @@
 		<section class="hero-rootwise">
 			<div class="hero-rootwise-content">
 				<img src="../../assets/images/rootwise/full icon + name.png" alt="RootWise Logo" style="height: 120px; width: auto; margin-bottom: var(--space-4);" />
-				<p class="rootwise-tagline">Your AI-powered parenting companion. Get 24/7 support, evidence-based guidance, and personalized advice to navigate the beautiful journey of raising children.</p>
+				<p class="rootwise-tagline">Listen to your body. We help you respond gently. Describe how you feel and get calm, safety-first suggestions for foods, herbs, and daily habits—without pharma.</p>
 				<ul style="display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 18px; margin: 0 0 var(--space-6); padding: 0; list-style: none;">
 					<li class="tag tag-uiux">UI & UX</li>
 					<li class="tag tag-creative">Creative</li>
-					<li class="tag tag-dev" style="background: rgba(124, 58, 237, 0.15); color: var(--root-purple);">Development</li>
-					<li class="tag" style="background: rgba(236, 72, 153, 0.15); color: var(--root-pink);">AI Integration</li>
+					<li class="tag tag-dev" style="background: rgba(23, 77, 58, 0.15); color: var(--root-green);">Development</li>
+					<li class="tag" style="background: rgba(136, 243, 172, 0.2); color: var(--root-green);">AI Integration</li>
 				</ul>
 				<div class="hero-actions">
 					<a href="https://rootwise.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-rootwise">
@@ -424,32 +428,32 @@
 			<div style="max-width: var(--maxw); margin: 0 auto;">
 				<h2 style="font-size: clamp(32px, 4vw, 48px); margin: 0 0 var(--space-5); text-align: center;">Project Overview</h2>
 				<div class="grid-2" style="display: grid; grid-template-columns: 0.35fr 0.65fr; gap: var(--space-7); align-items: start;">
-					<div class="overview-card" style="background: var(--root-card); border: 1px solid rgba(124, 58, 237, 0.1); border-radius: 24px; padding: var(--space-6);">
-						<div style="margin-bottom: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid rgba(124, 58, 237, 0.1);">
-							<div class="label" style="font-size: 12px; text-transform: uppercase; color: var(--root-purple); margin-bottom: 8px; font-weight: 600;">Timeline</div>
-							<div style="font-size: 16px; font-weight: 600;">4 Weeks</div>
+					<div class="overview-card" style="background: var(--root-beige); border: 1px solid rgba(23, 77, 58, 0.1); border-radius: 24px; padding: var(--space-6);">
+						<div style="margin-bottom: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid rgba(23, 77, 58, 0.1);">
+							<div class="label" style="font-size: 12px; text-transform: uppercase; color: var(--root-green); margin-bottom: 8px; font-weight: 600;">Project Type</div>
+							<div style="font-size: 16px; font-weight: 600;">MVP Launch</div>
 						</div>
-						<div style="margin-bottom: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid rgba(124, 58, 237, 0.1);">
-							<div class="label" style="font-size: 12px; text-transform: uppercase; color: var(--root-purple); margin-bottom: 8px; font-weight: 600;">Role</div>
+						<div style="margin-bottom: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid rgba(23, 77, 58, 0.1);">
+							<div class="label" style="font-size: 12px; text-transform: uppercase; color: var(--root-green); margin-bottom: 8px; font-weight: 600;">Role</div>
 							<div style="font-size: 16px; font-weight: 600;">Full-Stack Developer & UI/UX Designer</div>
 						</div>
-						<div style="margin-bottom: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid rgba(124, 58, 237, 0.1);">
-							<div class="label" style="font-size: 12px; text-transform: uppercase; color: var(--root-purple); margin-bottom: 8px; font-weight: 600;">Platform</div>
-							<div style="font-size: 16px; font-weight: 600;">Web Application</div>
+						<div style="margin-bottom: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid rgba(23, 77, 58, 0.1);">
+							<div class="label" style="font-size: 12px; text-transform: uppercase; color: var(--root-green); margin-bottom: 8px; font-weight: 600;">Platform</div>
+							<div style="font-size: 16px; font-weight: 600;">Web + Mobile App</div>
 						</div>
 						<div>
-							<div class="label" style="font-size: 12px; text-transform: uppercase; color: var(--root-purple); margin-bottom: 8px; font-weight: 600;">Deliverables</div>
-							<div style="font-size: 16px; font-weight: 600;">AI Chat, Content Library, Self-Care Tools, User Dashboard</div>
+							<div class="label" style="font-size: 12px; text-transform: uppercase; color: var(--root-green); margin-bottom: 8px; font-weight: 600;">Deliverables</div>
+							<div style="font-size: 16px; font-weight: 600;">Landing Page, AI Chat, Food Scanner, User Dashboard, Mobile App</div>
 						</div>
 					</div>
 					<div>
-						<div class="overview-card" style="background: var(--root-card); border: 1px solid rgba(124, 58, 237, 0.1); border-radius: var(--radius-lg); padding: var(--space-5); margin-bottom: var(--space-5);">
-							<h3 style="font-size: 18px; font-weight: 600; margin: 0 0 var(--space-3); color: var(--root-purple);">The Challenge</h3>
-							<p style="margin: 0; line-height: 1.7;">Modern parents face overwhelming amounts of conflicting advice online. They need a trusted, available-anytime resource that understands their unique situation and provides personalized, evidence-based guidance without judgment.</p>
+						<div class="overview-card" style="background: var(--root-beige); border: 1px solid rgba(23, 77, 58, 0.1); border-radius: var(--radius-lg); padding: var(--space-5); margin-bottom: var(--space-5);">
+							<h3 style="font-size: 18px; font-weight: 600; margin: 0 0 var(--space-3); color: var(--root-green);">The Challenge</h3>
+							<p style="margin: 0; line-height: 1.7;">People seeking natural wellness solutions are overwhelmed by conflicting health advice online. They need a trusted, judgment-free resource that listens to how they feel and offers gentle, safety-first suggestions without pushing pharmaceuticals.</p>
 						</div>
-						<div class="overview-card" style="background: var(--root-card); border: 1px solid rgba(124, 58, 237, 0.1); border-radius: var(--radius-lg); padding: var(--space-5);">
-							<h3 style="font-size: 18px; font-weight: 600; margin: 0 0 var(--space-3); color: var(--root-purple);">The Solution</h3>
-							<p style="margin: 0; line-height: 1.7;">RootWise combines advanced AI with curated expert content to create a personalized parenting experience. The app learns each family's needs and delivers relevant advice, self-care tools, and community support—all wrapped in a calming, intuitive interface.</p>
+						<div class="overview-card" style="background: var(--root-beige); border: 1px solid rgba(23, 77, 58, 0.1); border-radius: var(--radius-lg); padding: var(--space-5);">
+							<h3 style="font-size: 18px; font-weight: 600; margin: 0 0 var(--space-3); color: var(--root-green);">The Solution</h3>
+							<p style="margin: 0; line-height: 1.7;">RootWise is an AI-powered natural wellness companion. Describe how you feel in everyday language, and get personalized suggestions for foods, herbs, and daily habits—with safety notes and red-flag warnings included in every plan.</p>
 						</div>
 					</div>
 				</div>
@@ -457,11 +461,11 @@
 		</section>
 
 		<!-- Hero Screenshot -->
-		<section style="max-width: var(--maxw); margin: 0 auto; padding: var(--space-8) var(--space-4); background: var(--root-light);">
-			<h2 style="font-size: clamp(32px, 4vw, 48px); text-align: center; margin: 0 0 var(--space-4);">Platform Overview</h2>
-			<p style="text-align: center; max-width: 600px; margin: 0 auto var(--space-6);">A comprehensive platform for parents to access all features, track progress, and connect with the AI assistant.</p>
+		<section style="max-width: var(--maxw); margin: 0 auto; padding: var(--space-8) var(--space-4); background: var(--root-cream);">
+			<h2 style="font-size: clamp(32px, 4vw, 48px); text-align: center; margin: 0 0 var(--space-4);">Website Overview</h2>
+			<p style="text-align: center; max-width: 600px; margin: 0 auto var(--space-6);">A calming, nature-inspired landing page that introduces users to gentle wellness support.</p>
 			
-			<div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 25px 80px rgba(124, 58, 237, 0.15); border: 1px solid rgba(124, 58, 237, 0.2);">
+			<div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 25px 80px rgba(23, 77, 58, 0.15); border: 1px solid rgba(23, 77, 58, 0.2);">
 				<img src="../../assets/images/rootwise/hero section.png" alt="RootWise Hero Section" style="width: 100%; height: auto; display: block;" />
 			</div>
 		</section>
@@ -470,25 +474,25 @@
 		<section style="background: #fff; padding: var(--space-8) var(--space-4);">
 			<div style="max-width: var(--maxw); margin: 0 auto;">
 				<h2 style="font-size: clamp(32px, 4vw, 48px); text-align: center; margin: 0 0 var(--space-4);">Personal Dashboard</h2>
-				<p style="text-align: center; max-width: 600px; margin: 0 auto var(--space-6);">Track your parenting journey with personalized insights, progress tracking, and quick access to all features.</p>
+				<p style="text-align: center; max-width: 600px; margin: 0 auto var(--space-6);">Track your wellness journey with personalized insights, symptom history, and quick access to AI suggestions.</p>
 				
-				<div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 25px 80px rgba(124, 58, 237, 0.12); border: 1px solid rgba(124, 58, 237, 0.15);">
+				<div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 25px 80px rgba(23, 77, 58, 0.12); border: 1px solid rgba(23, 77, 58, 0.15);">
 					<img src="../../assets/images/rootwise/mydashboard.png" alt="RootWise Dashboard" style="width: 100%; height: auto; display: block;" />
 				</div>
 			</div>
 		</section>
 
 		<!-- Woman Health Section -->
-		<section style="background: var(--root-light); padding: var(--space-8) var(--space-4);">
+		<section style="background: var(--root-cream); padding: var(--space-8) var(--space-4);">
 			<div style="max-width: var(--maxw); margin: 0 auto;">
 				<h2 style="font-size: clamp(32px, 4vw, 48px); text-align: center; margin: 0 0 var(--space-4);">Women's Health Focus</h2>
-				<p style="text-align: center; max-width: 600px; margin: 0 auto var(--space-6);">Specialized content and support for women's health throughout the parenting journey.</p>
+				<p style="text-align: center; max-width: 600px; margin: 0 auto var(--space-6);">Specialized natural support for women navigating hormones, cycles, and wellness throughout life.</p>
 				
-				<div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 25px 80px rgba(124, 58, 237, 0.15); border: 1px solid rgba(124, 58, 237, 0.2); margin-bottom: var(--space-6);">
+				<div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 25px 80px rgba(23, 77, 58, 0.15); border: 1px solid rgba(23, 77, 58, 0.2); margin-bottom: var(--space-6);">
 					<img src="../../assets/images/rootwise/woman health hero.png" alt="Women's Health Hero" style="width: 100%; height: auto; display: block;" />
 				</div>
 				
-				<div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 25px 80px rgba(124, 58, 237, 0.15); border: 1px solid rgba(124, 58, 237, 0.2);">
+				<div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 25px 80px rgba(23, 77, 58, 0.15); border: 1px solid rgba(23, 77, 58, 0.2);">
 					<img src="../../assets/images/rootwise/womans healthe ffectiveness.png" alt="Women's Health Effectiveness" style="width: 100%; height: auto; display: block;" />
 				</div>
 			</div>
@@ -498,10 +502,41 @@
 		<section style="background: #fff; padding: var(--space-8) var(--space-4);">
 			<div style="max-width: var(--maxw); margin: 0 auto;">
 				<h2 style="font-size: clamp(32px, 4vw, 48px); text-align: center; margin: 0 0 var(--space-4);">Flexible Pricing</h2>
-				<p style="text-align: center; max-width: 600px; margin: 0 auto var(--space-6);">Plans designed to fit every family's needs, from free access to premium features.</p>
+				<p style="text-align: center; max-width: 600px; margin: 0 auto var(--space-6);">Start free, upgrade when you want more. Plans designed for every wellness journey.</p>
 				
-				<div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 25px 80px rgba(124, 58, 237, 0.12); border: 1px solid rgba(124, 58, 237, 0.15);">
+				<div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 25px 80px rgba(23, 77, 58, 0.12); border: 1px solid rgba(23, 77, 58, 0.15);">
 					<img src="../../assets/images/rootwise/pricing.png" alt="RootWise Pricing" style="width: 100%; height: auto; display: block;" />
+				</div>
+			</div>
+		</section>
+
+		<!-- Mobile App Section -->
+		<section style="background: var(--root-cream); padding: var(--space-8) var(--space-4);">
+			<div style="max-width: var(--maxw); margin: 0 auto;">
+				<h2 style="font-size: clamp(32px, 4vw, 48px); text-align: center; margin: 0 0 var(--space-4);">Mobile App Experience</h2>
+				<p style="text-align: center; max-width: 600px; margin: 0 auto var(--space-6);">Your wellness companion in your pocket. Scan foods, chat with AI, and track your journey on the go.</p>
+				
+				<div class="mobile-screenshots">
+					<div class="mobile-placeholder">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+						<span style="font-size: 12px;">Login</span>
+					</div>
+					<div class="mobile-placeholder">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+						<span style="font-size: 12px;">Food Scanner</span>
+					</div>
+					<div class="mobile-placeholder">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+						<span style="font-size: 12px;">Home</span>
+					</div>
+					<div class="mobile-placeholder">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+						<span style="font-size: 12px;">AI Chat</span>
+					</div>
+					<div class="mobile-placeholder">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+						<span style="font-size: 12px;">Settings</span>
+					</div>
 				</div>
 			</div>
 		</section>

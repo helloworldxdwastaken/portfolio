@@ -2069,12 +2069,32 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
     background: #ffffff;
     color: #0a0a0a;
     border-color: var(--border-strong);
+    padding-right: 20px; /* Override btn-pill padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+}
+
+.work-page .project-check::after {
+    position: static;
+    transform: none;
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    flex-shrink: 0;
 }
 
 .work-page .project-check:hover {
     background: #0a0a0a;
     color: #ffffff;
     border-color: #0a0a0a;
+}
+
+.work-page .project-check:hover::after {
+    transform: none;
+    background: #ffffff;
+    color: #0a0a0a;
 }
 
 [data-theme="dark"] .work-page .project-check {
@@ -2089,11 +2109,20 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
     border-color: #0a0a0a;
 }
 
+[data-theme="dark"] .work-page .project-check:hover::after {
+    background: #ffffff;
+    color: #0a0a0a;
+}
+
 /* Disabled project button */
 .project-check.disabled {
-    opacity: 0.5;
+    opacity: 0.6;
     cursor: not-allowed;
     pointer-events: none;
+}
+
+.project-check.disabled::after {
+    display: none;
 }
 
 /* ---------- About Page Styles ---------- */

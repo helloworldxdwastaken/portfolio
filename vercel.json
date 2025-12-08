@@ -1,6 +1,4 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
   "rewrites": [
     { "source": "/", "destination": "/pages/index.html" },
     { "source": "/about", "destination": "/pages/about.html" },
@@ -9,8 +7,7 @@
     { "source": "/projects/ephoca", "destination": "/pages/projects/ephoca.html" },
     { "source": "/projects/betterhomepage", "destination": "/pages/projects/betterhomepage.html" },
     { "source": "/terms-of-service", "destination": "/pages/terms-of-service.html" },
-    { "source": "/legal-notice", "destination": "/pages/legal-notice.html" },
-    { "source": "/404", "destination": "/pages/404.html" }
+    { "source": "/legal-notice", "destination": "/pages/legal-notice.html" }
   ],
   "headers": [
     {
@@ -23,4 +20,3 @@
     }
   ]
 }
-

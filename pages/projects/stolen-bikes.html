@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Stolen Bikes IL – Community Recovery Platform Case Study</title>
+	<meta name="description" content="Stolen Bikes IL is a community-driven platform helping people in Israel report and recover stolen bicycles and scooters through real-time reporting and alerts." />
+	<meta name="theme-color" content="#fbbf24" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link rel="stylesheet" href="../../assets/css/main.css?v=24" />
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+	<style>
+	  :root {
+	    --bike-amber: #fbbf24;
+	    --bike-orange: #f59e0b;
+	    --bike-dark-orange: #d97706;
+	    --bike-red: #ef4444;
+	    --bike-dark: #0a0a0f;
+	    --bike-card: #141420;
+	    --bike-hover: #1a1a2e;
+	  }
+	  
+	  body {
+	    background: var(--bike-dark);
+	  }
+	  
+	  .feature-grid {
+	    display: grid;
+	    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	    gap: var(--space-6);
+	  }
+	  
+	  .feature-card {
+	    background: linear-gradient(135deg, rgba(251, 191, 36, 0.08), rgba(245, 158, 11, 0.03));
+	    border: 1px solid rgba(251, 191, 36, 0.2);
+	    border-radius: var(--radius-lg);
+	    padding: var(--space-6);
+	    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+	    position: relative;
+	    overflow: hidden;
+	  }
+	  
+	  .feature-card::before {
+	    content: '';
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(245, 158, 11, 0.08));
+	    opacity: 0;
+	    transition: opacity 0.4s ease;
+	    pointer-events: none;
+	  }
+	  
+	  .feature-card:hover::before {
+	    opacity: 1;
+	  }
+	  
+	  .feature-card:hover {
+	    transform: translateY(-12px) scale(1.02);
+	    box-shadow: 0 25px 50px rgba(251, 191, 36, 0.15), 0 10px 20px rgba(0,0,0,0.3);
+	    border-color: rgba(251, 191, 36, 0.4);
+	  }
+	  
+	  .feature-icon {
+	    width: 64px;
+	    height: 64px;
+	    margin: 0 auto var(--space-4);
+	    position: relative;
+	    z-index: 1;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    background: linear-gradient(135deg, var(--bike-amber), var(--bike-orange));
+	    border-radius: 16px;
+	    color: var(--bike-dark);
+	  }
+	  
+	  .feature-icon svg {
+	    width: 32px;
+	    height: 32px;
+	  }
+	  
+	  .screenshot-grid {
+	    display: grid;
+	    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	    gap: var(--space-5);
+	    margin: var(--space-6) 0;
+	  }
+	  
+	  .screenshot-placeholder {
+	    background: linear-gradient(135deg, var(--bike-card), var(--bike-hover));
+	    border: 2px dashed rgba(251, 191, 36, 0.3);
+	    border-radius: var(--radius-lg);
+	    aspect-ratio: 16/10;
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    justify-content: center;
+	    gap: var(--space-3);
+	    color: rgba(251, 191, 36, 0.6);
+	    transition: all 0.3s ease;
+	  }
+	  
+	  .screenshot-placeholder:hover {
+	    border-color: var(--bike-amber);
+	    background: linear-gradient(135deg, var(--bike-hover), var(--bike-card));
+	  }
+	  
+	  .screenshot-placeholder svg {
+	    width: 48px;
+	    height: 48px;
+	    opacity: 0.5;
+	  }
+	  
+	  .screenshot-placeholder span {
+	    font-size: 14px;
+	    text-transform: uppercase;
+	    letter-spacing: 1px;
+	  }
+	  
+	  .mobile-screenshots {
+	    display: flex;
+	    justify-content: center;
+	    gap: var(--space-5);
+	    flex-wrap: wrap;
+	    margin: var(--space-6) 0;
+	  }
+	  
+	  .mobile-placeholder {
+	    background: linear-gradient(135deg, var(--bike-card), var(--bike-hover));
+	    border: 2px dashed rgba(251, 191, 36, 0.3);
+	    border-radius: 24px;
+	    width: 180px;
+	    height: 380px;
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    justify-content: center;
+	    gap: var(--space-3);
+	    color: rgba(251, 191, 36, 0.6);
+	    transition: all 0.3s ease;
+	  }
+	  
+	  .mobile-placeholder:hover {
+	    border-color: var(--bike-amber);
+	    transform: translateY(-8px);
+	  }
+	  
+	  .tech-stack {
+	    display: flex;
+	    flex-wrap: wrap;
+	    gap: var(--space-3);
+	    justify-content: center;
+	    margin: var(--space-5) 0;
+	  }
+	  
+	  .tech-badge {
+	    background: rgba(251, 191, 36, 0.1);
+	    border: 1px solid rgba(251, 191, 36, 0.3);
+	    border-radius: 50px;
+	    padding: 10px 20px;
+	    font-size: 14px;
+	    font-weight: 500;
+	    color: var(--bike-amber);
+	    transition: all 0.3s ease;
+	  }
+	  
+	  .tech-badge:hover {
+	    background: rgba(251, 191, 36, 0.2);
+	    transform: translateY(-2px);
+	  }
+	  
+	  .stats-grid {
+	    display: grid;
+	    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+	    gap: var(--space-4);
+	    margin: var(--space-6) 0;
+	  }
+	  
+	  .stat-card {
+	    background: rgba(251, 191, 36, 0.08);
+	    border: 1px solid rgba(251, 191, 36, 0.2);
+	    border-radius: var(--radius-md);
+	    padding: var(--space-5);
+	    text-align: center;
+	  }
+	  
+	  .stat-number {
+	    font-size: clamp(28px, 4vw, 40px);
+	    font-weight: 700;
+	    color: var(--bike-amber);
+	    line-height: 1;
+	  }
+	  
+	  .stat-label {
+	    font-size: 13px;
+	    color: var(--muted);
+	    margin-top: var(--space-2);
+	  }
+	  
+	  .hero-bikes {
+	    min-height: 100vh;
+	    position: relative;
+	    display: flex;
+	    align-items: center;
+	    overflow: hidden;
+	    background: linear-gradient(135deg, var(--bike-dark), #0f0f1a);
+	  }
+	  
+	  .hero-bikes::before {
+	    content: '';
+	    position: absolute;
+	    top: -50%;
+	    right: -20%;
+	    width: 80%;
+	    height: 150%;
+	    background: radial-gradient(circle, rgba(251, 191, 36, 0.1) 0%, transparent 70%);
+	    pointer-events: none;
+	  }
+	  
+	  .hero-bikes::after {
+	    content: '';
+	    position: absolute;
+	    bottom: -30%;
+	    left: -10%;
+	    width: 60%;
+	    height: 100%;
+	    background: radial-gradient(circle, rgba(239, 68, 68, 0.08) 0%, transparent 70%);
+	    pointer-events: none;
+	  }
+	  
+	  .hero-bikes-content {
+	    max-width: var(--maxw);
+	    margin: 0 auto;
+	    padding: calc(80px + var(--space-6)) var(--space-4) var(--space-6);
+	    position: relative;
+	    z-index: 2;
+	    text-align: center;
+	  }
+	  
+	  .bikes-logo {
+	    width: 140px;
+	    height: 140px;
+	    margin: 0 auto var(--space-5);
+	  }
+	  
+	  .bikes-title {
+	    font-size: clamp(48px, 10vw, 90px);
+	    font-weight: 800;
+	    letter-spacing: -3px;
+	    background: linear-gradient(135deg, var(--bike-amber), var(--bike-orange));
+	    -webkit-background-clip: text;
+	    -webkit-text-fill-color: transparent;
+	    background-clip: text;
+	    margin-bottom: var(--space-4);
+	    line-height: 1.1;
+	  }
+	  
+	  .bikes-tagline {
+	    font-size: clamp(18px, 3vw, 22px);
+	    color: rgba(255,255,255,0.7);
+	    max-width: 650px;
+	    margin: 0 auto var(--space-6);
+	    line-height: 1.6;
+	  }
+	  
+	  .hero-actions {
+	    display: flex;
+	    gap: var(--space-4);
+	    justify-content: center;
+	    flex-wrap: wrap;
+	  }
+	  
+	  .btn-bikes {
+	    background: linear-gradient(135deg, var(--bike-amber), var(--bike-orange));
+	    color: var(--bike-dark);
+	    padding: 16px 32px;
+	    border-radius: 50px;
+	    font-weight: 600;
+	    text-decoration: none;
+	    display: inline-flex;
+	    align-items: center;
+	    gap: 10px;
+	    transition: all 0.3s ease;
+	    box-shadow: 0 8px 25px rgba(251, 191, 36, 0.3);
+	  }
+	  
+	  .btn-bikes:hover {
+	    transform: translateY(-3px);
+	    box-shadow: 0 12px 35px rgba(251, 191, 36, 0.4);
+	  }
+	  
+	  .btn-bikes svg {
+	    width: 20px;
+	    height: 20px;
+	  }
+	  
+	  .btn-outline-bikes {
+	    background: transparent;
+	    border: 2px solid var(--bike-amber);
+	    color: var(--bike-amber);
+	    padding: 14px 30px;
+	    border-radius: 50px;
+	    font-weight: 600;
+	    text-decoration: none;
+	    display: inline-flex;
+	    align-items: center;
+	    gap: 10px;
+	    transition: all 0.3s ease;
+	  }
+	  
+	  .btn-outline-bikes:hover {
+	    background: rgba(251, 191, 36, 0.1);
+	    transform: translateY(-3px);
+	  }
+	  
+	  .alert-banner {
+	    background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(251, 191, 36, 0.1));
+	    border: 1px solid rgba(239, 68, 68, 0.3);
+	    border-radius: var(--radius-lg);
+	    padding: var(--space-5);
+	    display: flex;
+	    align-items: center;
+	    gap: var(--space-4);
+	    margin: var(--space-6) 0;
+	  }
+	  
+	  .alert-icon {
+	    width: 48px;
+	    height: 48px;
+	    background: var(--bike-red);
+	    border-radius: 12px;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    flex-shrink: 0;
+	  }
+	  
+	  .alert-icon svg {
+	    width: 24px;
+	    height: 24px;
+	    color: #fff;
+	  }
+	  
+	  @media (max-width: 768px) {
+	    .feature-grid {
+	      grid-template-columns: 1fr;
+	      gap: var(--space-4);
+	    }
+	    .feature-icon {
+	      width: 56px;
+	      height: 56px;
+	    }
+	    .feature-icon svg {
+	      width: 28px;
+	      height: 28px;
+	    }
+	    .screenshot-grid {
+	      grid-template-columns: 1fr;
+	    }
+	    .mobile-screenshots {
+	      gap: var(--space-4);
+	    }
+	    .mobile-placeholder {
+	      width: 140px;
+	      height: 300px;
+	    }
+	    .bikes-logo {
+	      width: 100px;
+	      height: 100px;
+	    }
+	    .bikes-title {
+	      letter-spacing: -2px;
+	    }
+	    .project-overview .grid-2 {
+	      grid-template-columns: 1fr !important;
+	    }
+	    .alert-banner {
+	      flex-direction: column;
+	      text-align: center;
+	    }
+	    .stats-grid {
+	      grid-template-columns: repeat(2, 1fr);
+	    }
+	  }
+	</style>
+</head>
+<body>
+	<!-- Navbar -->
+	<header class="site-header" role="banner">
+		<div class="nav-shell">
+			<nav class="nav nav-centered" aria-label="Primary">
+				<a class="logo" href="/" aria-label="Go to home">
+					<span>VEROX</span>
+					<span>STUDIO</span>
+				</a>
+				<button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
+					<span></span><span></span>
+				</button>
+				<ul id="nav-menu" class="nav-menu nav-links-center">
+					<li><a href="/">Home</a></li>
+					<li><a href="/work">Work</a></li>
+					<li><a href="/#services">Services</a></li>
+					<li><a href="/about">About</a></li>
+					<li><a href="/#testimonials">Clients</a></li>
+					<li class="nav-menu-cta"><a href="/#contact" class="btn btn-primary">Start a Project</a></li>
+				</ul>
+				<div class="nav-cta">
+					<a href="/#contact" class="btn btn-primary">Start a Project</a>
+				</div>
+			</nav>
+		</div>
+	</header>
+	
+	<main class="site-main">
+		<!-- Hero Section -->
+		<section class="hero-bikes">
+			<div class="hero-bikes-content">
+				<img src="../../assets/images/projects/stolenbikes-favicon.svg" alt="Stolen Bikes IL Logo" class="bikes-logo" />
+				<h1 class="bikes-title">Stolen Bikes IL</h1>
+				<p class="bikes-tagline">A community-driven platform helping people across Israel report and recover stolen bicycles and scooters. Together, we're fighting bike theft one report at a time.</p>
+				<ul style="display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 18px; margin: 0 0 var(--space-6); padding: 0; list-style: none;">
+					<li class="tag tag-uiux">UI & UX</li>
+					<li class="tag tag-creative">Creative</li>
+					<li class="tag tag-systems">Design Systems</li>
+					<li class="tag" style="background: rgba(251, 191, 36, 0.2); color: var(--bike-amber);">Community</li>
+				</ul>
+				<div class="hero-actions">
+					<a href="https://www.stolenbikesisrael.com" target="_blank" rel="noopener noreferrer" class="btn-bikes">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+						Visit Website
+					</a>
+					<a href="/#contact" class="btn-outline-bikes">
+						Start Similar Project
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Impact Stats -->
+		<section style="background: var(--bike-card); padding: var(--space-7) var(--space-4);">
+			<div style="max-width: var(--maxw); margin: 0 auto;">
+				<h2 style="font-size: clamp(28px, 4vw, 40px); text-align: center; margin: 0 0 var(--space-5);">Making an Impact</h2>
+				<div class="stats-grid">
+					<div class="stat-card">
+						<div class="stat-number">500+</div>
+						<div class="stat-label">Reports Filed</div>
+					</div>
+					<div class="stat-card">
+						<div class="stat-number">15%</div>
+						<div class="stat-label">Recovery Rate</div>
+					</div>
+					<div class="stat-card">
+						<div class="stat-number">50+</div>
+						<div class="stat-label">Cities Covered</div>
+					</div>
+					<div class="stat-card">
+						<div class="stat-number">24/7</div>
+						<div class="stat-label">Active Alerts</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Project Overview -->
+		<section class="project-overview" style="padding: var(--space-7) var(--space-4); background: var(--bike-dark);">
+			<div style="max-width: var(--maxw); margin: 0 auto;">
+				<h2 style="font-size: clamp(32px, 4vw, 48px); margin: 0 0 var(--space-5); text-align: center;">Project Overview</h2>
+				<div class="grid-2" style="display: grid; grid-template-columns: 0.35fr 0.65fr; gap: var(--space-7); align-items: start;">
+					<div style="background: var(--bike-card); border: 1px solid rgba(251, 191, 36, 0.15); border-radius: 24px; padding: var(--space-6);">
+						<div style="margin-bottom: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid rgba(255,255,255,0.08);">
+							<div style="font-size: 12px; text-transform: uppercase; color: var(--bike-amber); margin-bottom: 8px; font-weight: 600;">Timeline</div>
+							<div style="font-size: 16px; font-weight: 600;">3 Weeks</div>
+						</div>
+						<div style="margin-bottom: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid rgba(255,255,255,0.08);">
+							<div style="font-size: 12px; text-transform: uppercase; color: var(--bike-amber); margin-bottom: 8px; font-weight: 600;">Role</div>
+							<div style="font-size: 16px; font-weight: 600;">Full-Stack Developer & Designer</div>
+						</div>
+						<div style="margin-bottom: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid rgba(255,255,255,0.08);">
+							<div style="font-size: 12px; text-transform: uppercase; color: var(--bike-amber); margin-bottom: 8px; font-weight: 600;">Platform</div>
+							<div style="font-size: 16px; font-weight: 600;">Web & PWA</div>
+						</div>
+						<div>
+							<div style="font-size: 12px; text-transform: uppercase; color: var(--bike-amber); margin-bottom: 8px; font-weight: 600;">Deliverables</div>
+							<div style="font-size: 16px; font-weight: 600;">Report System, Database, Map View, Alert System, Admin Panel</div>
+						</div>
+					</div>
+					<div>
+						<div class="alert-banner">
+							<div class="alert-icon">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+							</div>
+							<div>
+								<h4 style="margin: 0 0 4px; color: var(--bike-red);">The Problem</h4>
+								<p style="margin: 0; color: var(--muted); font-size: 14px;">Thousands of bikes are stolen in Israel every year. Owners have no centralized platform to report theft, share information, or alert others—making recovery nearly impossible.</p>
+							</div>
+						</div>
+						<div style="background: var(--bike-card); border: 1px solid rgba(251, 191, 36, 0.15); border-radius: var(--radius-lg); padding: var(--space-5); margin-bottom: var(--space-5);">
+							<h3 style="font-size: 18px; font-weight: 600; margin: 0 0 var(--space-3); color: var(--bike-amber);">The Solution</h3>
+							<p style="color: var(--muted); margin: 0; line-height: 1.7;">A community-powered platform where victims can quickly report stolen bikes with photos, descriptions, and location data. The searchable database and real-time alerts help the community spot and recover stolen vehicles.</p>
+						</div>
+						<div style="background: var(--bike-card); border: 1px solid rgba(251, 191, 36, 0.15); border-radius: var(--radius-lg); padding: var(--space-5);">
+							<h3 style="font-size: 18px; font-weight: 600; margin: 0 0 var(--space-3); color: var(--bike-amber);">The Impact</h3>
+							<p style="color: var(--muted); margin: 0; line-height: 1.7;">By creating visibility around bike theft, we've built a deterrent system and support network. Recovered bikes mean real wins for real people—and every success story strengthens the community.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Desktop Screenshots Section -->
+		<section style="max-width: var(--maxw); margin: 0 auto; padding: var(--space-8) var(--space-4);">
+			<h2 style="font-size: clamp(32px, 4vw, 48px); text-align: center; margin: 0 0 var(--space-4);">Desktop Experience</h2>
+			<p style="text-align: center; color: var(--muted); max-width: 600px; margin: 0 auto var(--space-6);">A comprehensive dashboard for browsing reports, filing new cases, and tracking recoveries across Israel.</p>
+			
+			<div class="screenshot-grid">
+				<div class="screenshot-placeholder">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+					<span>Home / Feed</span>
+				</div>
+				<div class="screenshot-placeholder">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+					<span>Report Form</span>
+				</div>
+				<div class="screenshot-placeholder">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+					<span>Map View</span>
+				</div>
+				<div class="screenshot-placeholder">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+					<span>Search Results</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- Mobile Screenshots Section -->
+		<section style="background: var(--bike-card); padding: var(--space-8) var(--space-4);">
+			<div style="max-width: var(--maxw); margin: 0 auto;">
+				<h2 style="font-size: clamp(32px, 4vw, 48px); text-align: center; margin: 0 0 var(--space-4);">Mobile Experience</h2>
+				<p style="text-align: center; color: var(--muted); max-width: 600px; margin: 0 auto var(--space-6);">Report on-the-go with our Progressive Web App. Quick uploads, instant alerts, and community at your fingertips.</p>
+				
+				<div class="mobile-screenshots">
+					<div class="mobile-placeholder">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+						<span style="font-size: 12px;">Feed</span>
+					</div>
+					<div class="mobile-placeholder">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+						<span style="font-size: 12px;">Report</span>
+					</div>
+					<div class="mobile-placeholder">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+						<span style="font-size: 12px;">Map</span>
+					</div>
+					<div class="mobile-placeholder">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+						<span style="font-size: 12px;">Alerts</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Key Features -->
+		<section style="max-width: var(--maxw); margin: 0 auto; padding: var(--space-8) var(--space-4);">
+			<h2 style="font-size: clamp(32px, 4vw, 48px); text-align: center; margin: 0 0 var(--space-7);">Key Features</h2>
+			<div class="feature-grid">
+				<div class="feature-card">
+					<div class="feature-icon">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+					</div>
+					<h3 style="margin: 0 0 var(--space-3); position: relative; z-index: 1; text-align: center;">Quick Reporting</h3>
+					<p style="color: var(--muted); margin: 0; line-height: 1.6; position: relative; z-index: 1; text-align: center;">File a report in under 2 minutes. Upload photos, add descriptions, mark the location, and your stolen bike is instantly visible to the entire community.</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+					</div>
+					<h3 style="margin: 0 0 var(--space-3); position: relative; z-index: 1; text-align: center;">Interactive Map</h3>
+					<p style="color: var(--muted); margin: 0; line-height: 1.6; position: relative; z-index: 1; text-align: center;">Visual heat map showing theft hotspots across Israel. See where bikes were stolen, identify risky areas, and help the community stay vigilant.</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+					</div>
+					<h3 style="margin: 0 0 var(--space-3); position: relative; z-index: 1; text-align: center;">Real-Time Alerts</h3>
+					<p style="color: var(--muted); margin: 0; line-height: 1.6; position: relative; z-index: 1; text-align: center;">Get notified when bikes matching your search criteria are reported, or when there's theft activity in your neighborhood. Stay informed, stay protected.</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+					</div>
+					<h3 style="margin: 0 0 var(--space-3); position: relative; z-index: 1; text-align: center;">Smart Search</h3>
+					<p style="color: var(--muted); margin: 0; line-height: 1.6; position: relative; z-index: 1; text-align: center;">Search by brand, color, type, serial number, or location. Powerful filters help you scan through reports quickly to spot your bike or help others.</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+					</div>
+					<h3 style="margin: 0 0 var(--space-3); position: relative; z-index: 1; text-align: center;">Community Power</h3>
+					<p style="color: var(--muted); margin: 0; line-height: 1.6; position: relative; z-index: 1; text-align: center;">Crowdsourced recovery network. When someone spots a bike, they can flag it. The more eyes we have, the better our chances of reuniting owners with their bikes.</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+					</div>
+					<h3 style="margin: 0 0 var(--space-3); position: relative; z-index: 1; text-align: center;">Prevention Tips</h3>
+					<p style="color: var(--muted); margin: 0; line-height: 1.6; position: relative; z-index: 1; text-align: center;">Educational resources on securing your bike, choosing quality locks, safe parking spots, and what to do immediately after a theft to maximize recovery chances.</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Tech Stack -->
+		<section style="background: var(--bike-card); padding: var(--space-8) var(--space-4);">
+			<div style="max-width: var(--maxw); margin: 0 auto; text-align: center;">
+				<h2 style="font-size: clamp(32px, 4vw, 48px); margin: 0 0 var(--space-4);">Built With Modern Tech</h2>
+				<p style="color: var(--muted); max-width: 600px; margin: 0 auto var(--space-6);">Reliable, fast, and scalable technology stack to handle community growth and real-time functionality.</p>
+				
+				<div class="tech-stack">
+					<span class="tech-badge">React</span>
+					<span class="tech-badge">TypeScript</span>
+					<span class="tech-badge">Node.js</span>
+					<span class="tech-badge">Firebase</span>
+					<span class="tech-badge">Google Maps API</span>
+					<span class="tech-badge">Cloudinary</span>
+					<span class="tech-badge">PWA</span>
+					<span class="tech-badge">Tailwind CSS</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA Section -->
+		<section style="max-width: var(--maxw); margin: 0 auto; padding: var(--space-8) var(--space-4); text-align: center;">
+			<h2 style="font-size: clamp(32px, 4vw, 48px); margin: 0 0 var(--space-5);">Help Us Fight Bike Theft</h2>
+			<p style="font-size: 18px; color: var(--muted); max-width: 600px; margin: 0 auto var(--space-6); line-height: 1.6;">
+				Join the community, report sightings, and help reunite owners with their stolen bikes. Every pair of eyes counts.
+			</p>
+			<div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+				<a href="https://www.stolenbikesisrael.com" target="_blank" rel="noopener noreferrer" class="btn-bikes">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+					Visit Website
+				</a>
+				<a href="/#contact" class="btn-outline-bikes">
+					Build Something Similar
+				</a>
+			</div>
+		</section>
+	</main>
+
+	<!-- Footer -->
+	<footer class="site-footer" role="contentinfo">
+		<div class="footer-grid">
+			<div class="footer-col">
+				<h4 class="footer-title">Explore</h4>
+				<ul class="footer-links">
+					<li><a href="/">Home</a></li>
+					<li><a href="/work">Work</a></li>
+					<li><a href="/#services">Services</a></li>
+					<li><a href="/about">About</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h4 class="footer-title">Contact</h4>
+				<ul class="footer-links">
+					<li><a href="/#contact">Start a Project</a></li>
+					<li><button id="copyEmailFooter" class="linklike" type="button">Copy Email</button></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h4 class="footer-title">Connect</h4>
+				<div class="socials">
+					<a class="social" href="https://linkedin.com/in/enmanuelyasell" aria-label="LinkedIn" target="_blank" rel="noreferrer">
+						<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zM8.5 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.6c0-1.58-.03-3.62-2.21-3.62-2.22 0-2.56 1.73-2.56 3.5V23h-4V8z"/></svg>
+					</a>
+					<a class="social" href="https://instagram.com/tokyo_houseparty" aria-label="Instagram" target="_blank" rel="noreferrer">
+						<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+					</a>
+					<a class="social" href="https://github.com/helloworldxdwastaken" aria-label="GitHub" target="_blank" rel="noreferrer">
+						<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<p>© <span id="year-footer"></span> Verox Studio. Crafted with precision.</p>
+			<div class="footer-legal">
+				<a href="/terms-of-service">Terms of Service</a>
+				<a href="/legal-notice">Legal Notice</a>
+			</div>
+		</div>
+		<div class="footer-watermark" aria-hidden="true">Verox Studio</div>
+	</footer>
+
+	<script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+	<script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+	<script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+	<script src="../../assets/js/main.js?v=11"></script>
+</body>
+</html>
+

@@ -8,6 +8,7 @@
     { "source": "/pages/projects/betterhomepage.html", "destination": "/projects/betterhomepage", "permanent": true },
     { "source": "/pages/projects/noxa-music.html", "destination": "/projects/noxa-music", "permanent": true },
     { "source": "/pages/projects/rootwise.html", "destination": "/projects/rootwise", "permanent": true },
+    { "source": "/pages/projects/stolen-bikes.html", "destination": "/projects/stolen-bikes", "permanent": true },
     { "source": "/pages/terms-of-service.html", "destination": "/terms-of-service", "permanent": true },
     { "source": "/pages/legal-notice.html", "destination": "/legal-notice", "permanent": true }
   ],
@@ -20,6 +21,7 @@
     { "source": "/projects/betterhomepage", "destination": "/pages/projects/betterhomepage.html" },
     { "source": "/projects/noxa-music", "destination": "/pages/projects/noxa-music.html" },
     { "source": "/projects/rootwise", "destination": "/pages/projects/rootwise.html" },
+    { "source": "/projects/stolen-bikes", "destination": "/pages/projects/stolen-bikes.html" },
     { "source": "/terms-of-service", "destination": "/pages/terms-of-service.html" },
     { "source": "/legal-notice", "destination": "/pages/legal-notice.html" },
     { "source": "/((?!assets|_vercel).*)", "destination": "/pages/404.html" }

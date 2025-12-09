@@ -20,8 +20,13 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link rel="stylesheet" href="../../assets/css/main.css?v=20" />
-	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 	<style>
+	  /* Force Poppins across the page */
+	  html, body, .site-main, .site-header, .nav, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, label, .btn, .metric-card, .tag, .hero-content, .nav-menu a, .brochure-btn, .brochure-chip, .line-card {
+	    font-family: 'Poppins', sans-serif !important;
+	  }
+
 	  /* Enable hover effects only on devices that actually support hover */
 	  @media (hover: hover) and (pointer: fine) {
 	    .components-tilt:hover { transform: translateX(var(--components-shift-x)) translateY(var(--components-shift-y)) rotateZ(var(--components-rotate)) scale(var(--components-hover-scale)) !important; }
@@ -148,6 +153,646 @@
 	    .tool img { width: 18px !important; height: 18px !important; }
 	    .tool span { font-size: 10px !important; }
 	  }
+
+	  /* Ephoca page layout */
+	  .ephoca-page {
+	    background: #ffffff;
+	    color: #0f172a;
+	  }
+
+	  .ephoca-hero {
+	    position: relative;
+	    min-height: 90vh;
+	    display: grid;
+	    place-items: center;
+	    overflow: hidden;
+	  }
+
+	  .ephoca-hero video {
+	    position: absolute;
+	    inset: 0;
+	    width: 100%;
+	    height: 100%;
+	    object-fit: cover;
+	    z-index: 0;
+	  }
+
+	  .ephoca-hero::after {
+	    content: "";
+	    position: absolute;
+	    inset: 0;
+	    background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.75));
+	    z-index: 1;
+	  }
+
+	  .ephoca-hero .hero-content {
+	    position: relative;
+	    z-index: 2;
+	    max-width: var(--maxw);
+	    margin: 0 auto;
+	    padding: calc(80px + var(--space-6)) var(--space-4) var(--space-7);
+	    text-align: center;
+	  }
+
+	  .ephoca-hero h1 {
+	    font-size: clamp(48px, 7vw, 96px);
+	    margin-bottom: var(--space-3);
+	    color: #ffffff;
+	  }
+
+	  .ephoca-hero p {
+	    max-width: 760px;
+	    margin: 0 auto var(--space-4);
+	    color: rgba(255,255,255,0.86);
+	    font-size: 18px;
+	  }
+
+	  .ephoca-tags {
+	    display: inline-flex;
+	    gap: 8px;
+	    flex-wrap: wrap;
+	    justify-content: center;
+	  }
+
+	  .ephoca-metrics {
+	    display: grid;
+	    grid-template-columns: repeat(4, minmax(0, 1fr));
+	    gap: var(--space-3);
+	    margin-top: var(--space-4);
+	  }
+
+	  @media (max-width: 900px) {
+	    .ephoca-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	  }
+
+	  @media (max-width: 540px) {
+	    .ephoca-metrics { grid-template-columns: 1fr; }
+	  }
+
+	  .metric-card {
+	    padding: var(--space-4);
+	    border-radius: var(--radius-lg);
+	    background: rgba(255,255,255,0.14);
+	    border: 1px solid rgba(255,255,255,0.25);
+	    box-shadow: 0 20px 50px rgba(15,23,42,0.12);
+	    backdrop-filter: blur(10px);
+	  }
+
+	  .metric-label {
+	    font-size: 12px;
+	    letter-spacing: 0.12em;
+	    text-transform: uppercase;
+	    color: rgba(255,255,255,0.82);
+	  }
+
+	  .metric-value {
+	    font-size: 24px;
+	    font-weight: 700;
+	    margin-top: 6px;
+	    color: #ffffff;
+	  }
+
+	  .section-shell {
+	    padding: var(--space-7) var(--space-4);
+	    background: #f6f7fb;
+	  }
+
+	  .section-shell .inner {
+	    max-width: var(--maxw);
+	    margin: 0 auto;
+	    display: grid;
+	    gap: var(--space-5);
+	  }
+
+	  .cards-grid {
+	    display: grid;
+	    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	    gap: var(--space-4);
+	  }
+
+	  .info-card {
+	    padding: var(--space-5);
+	    border-radius: var(--radius-lg);
+	    background: #ffffff;
+	    border: 1px solid rgba(15,23,42,0.08);
+	    box-shadow: 0 10px 30px rgba(15,23,42,0.06);
+	  }
+
+	  .info-card h3 { margin-bottom: var(--space-2); }
+	  .info-card p { color: rgba(15,23,42,0.78); }
+
+	  .media-section {
+	    padding: var(--space-7) var(--space-4);
+	    background: #ffffff;
+	  }
+	  
+	  .media-container {
+	    max-width: var(--maxw);
+	    margin: 0 auto;
+	    display: grid;
+	    gap: var(--space-5);
+	  }
+	  
+	  .media-grid {
+	    display: grid;
+	    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	    gap: var(--space-4);
+	  }
+	  
+	  .media-card {
+	    background: #ffffff;
+	    border: 1px solid rgba(15,23,42,0.08);
+	    border-radius: var(--radius-lg);
+	    overflow: hidden;
+	    box-shadow: 0 10px 30px rgba(15,23,42,0.06);
+	    min-height: 220px;
+	  }
+	  
+	  .media-card video,
+	  .media-card img {
+	    display: block;
+	    width: 100%;
+	    height: 100%;
+	    object-fit: cover;
+	  }
+	  
+	  .logo-grid {
+	    display: grid;
+	    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+	    gap: var(--space-3);
+	    align-items: center;
+	    justify-items: center;
+	  }
+	  
+	  .logo-card {
+	    padding: var(--space-3);
+	    border: 1px solid rgba(15,23,42,0.08);
+	    background: #ffffff;
+	    border-radius: var(--radius-lg);
+	    display: grid;
+	    place-items: center;
+	    box-shadow: 0 10px 24px rgba(15,23,42,0.05);
+	  }
+	  
+	  .logo-card img {
+	    max-width: 120px;
+	    max-height: 60px;
+	    object-fit: contain;
+	    filter: drop-shadow(0 6px 16px rgba(0,0,0,0.15));
+	  }
+
+	  .lines-section {
+	    padding: var(--space-8) var(--space-4);
+	    background: #ffffff;
+	    border-bottom: 1px solid rgba(15,23,42,0.06);
+	  }
+
+	  .lines-inner {
+	    max-width: var(--maxw);
+	    margin: 0 auto;
+	    display: grid;
+	    grid-template-columns: 1fr;
+	    gap: clamp(20px, 4vw, 40px);
+	    align-items: center;
+	    padding: 0 var(--space-2);
+	  }
+
+	  .lines-media {
+	    position: relative;
+	    border-radius: 0;
+	    overflow: visible;
+	    background: transparent;
+	    border: none;
+	    box-shadow: none;
+	    isolation: isolate;
+	    min-height: 0;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	  }
+
+	  .lines-media video {
+	    width: 100%;
+	    max-width: 1100px;
+	    height: auto;
+	    max-height: clamp(560px, 70vw, 900px);
+	    display: block;
+	    object-fit: contain;
+	    background: transparent;
+	  }
+
+	  .lines-right {
+	    display: flex;
+	    flex-direction: column;
+	    gap: var(--space-3);
+	    align-items: center;
+	    justify-content: center;
+	    text-align: center;
+	  }
+
+	  .lines-title {
+	    font-size: clamp(22px, 3vw, 28px);
+	    margin: 0;
+	    font-weight: 800;
+	    color: #0f172a;
+	  }
+
+	  .lines-title strong { color: #0f766e; }
+
+	  .lines-logos {
+	    display: grid;
+	    grid-template-columns: repeat(2, minmax(0, 1fr));
+	    gap: var(--space-3);
+	    align-content: start;
+	  }
+
+	  .line-card {
+	    padding: var(--space-4);
+	    border-radius: var(--radius-lg);
+	    background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(255,255,255,0.82));
+	    border: 1px solid rgba(15,23,42,0.08);
+	    box-shadow: 0 12px 34px rgba(15,23,42,0.07);
+	    display: grid;
+	    gap: 10px;
+	    align-content: start;
+	  }
+
+	  .line-card img {
+	    height: 36px;
+	    width: auto;
+	    object-fit: contain;
+	    filter: none;
+	  }
+
+	  .line-card p {
+	    margin: 0;
+	    color: rgba(15,23,42,0.8);
+	    font-size: 14px;
+	    line-height: 1.6;
+	  }
+
+	  .brochure-section {
+	    padding: var(--space-8) var(--space-4);
+	    background: #ffffff;
+	    border-bottom: 1px solid rgba(15,23,42,0.06);
+	  }
+
+	  .brochure-inner {
+	    max-width: var(--maxw);
+	    margin: 0 auto;
+	    display: grid;
+	    grid-template-columns: minmax(260px, 1.1fr) minmax(260px, 1fr);
+	    gap: var(--space-5);
+	    align-items: start;
+	    padding: 0 var(--space-4);
+	  }
+
+	  .brochure-video {
+	    position: relative;
+	    border-radius: 0;
+	    overflow: hidden;
+	    background: transparent;
+	    border: none;
+	    box-shadow: none;
+	  }
+
+	  .brochure-video video {
+	    width: 100%;
+	    height: 100%;
+	    min-height: 260px;
+	    display: block;
+	    object-fit: cover;
+	  }
+
+	  .brochure-buttons {
+	    display: grid;
+	    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	    gap: var(--space-3);
+	    padding: var(--space-1) 0;
+	    align-items: stretch;
+	    grid-auto-rows: 1fr;
+	  }
+
+	  .brochure-btn {
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    justify-content: center;
+	    gap: 12px;
+	    padding: 12px 0;
+	    border-radius: 14px;
+	    color: #0f172a;
+	    font-weight: 700;
+	    font-size: 15px;
+	    text-decoration: none;
+	    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+	    width: 100%;
+	    min-height: 150px;
+	    text-align: center;
+	  }
+
+	  .brochure-btn img {
+	    height: 32px;
+	    width: auto;
+	    object-fit: contain;
+	    filter: drop-shadow(0 4px 10px rgba(15,23,42,0.12));
+	    margin-bottom: 4px;
+	  }
+
+	  .brochure-btn:hover {
+	    transform: translateY(-2px);
+	    filter: brightness(1.03);
+	  }
+
+	  .brochure-btn .brochure-chip {
+	    display: inline-flex;
+	    align-items: center;
+	    justify-content: center;
+	    min-width: 200px;
+	    width: 100%;
+	    padding: 12px 18px;
+	    border-radius: 12px;
+	    background: var(--brochure-color, #1e3a8a);
+	    color: #ffffff;
+	    box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+	    line-height: 1.4;
+	  }
+
+	  .brochure-btn.brand-aio { --brochure-color: #1e3a8a; }
+	  .brochure-btn.brand-nextac { --brochure-color: #d62828; }
+	  .brochure-btn.brand-stone { --brochure-color: #374151; }
+	  .brochure-btn.brand-osmo { --brochure-color: #facc15; }
+	  .brochure-btn.brand-osmo .brochure-chip { color: #111827; }
+
+	  .experience-section {
+	    position: relative;
+	    background: #111827;
+	    color: #f8fafc;
+	    overflow: hidden;
+	    padding: calc(var(--space-8) + 8px) var(--space-4);
+	  }
+
+	  .experience-section::before {
+	    content: "";
+	    position: absolute;
+	    inset: 0;
+	    background: linear-gradient(180deg, rgba(15,23,42,0.78), rgba(17,24,39,0.58));
+	    z-index: 1;
+	  }
+
+	  .experience-section::after {
+	    content: "";
+	    position: absolute;
+	    inset: 0;
+	    background-image: url("../../assets/images/Ephoca/experince%20layers%20b%20g.jpg");
+	    background-size: cover;
+	    background-position: center;
+	    opacity: 0.28;
+	    z-index: 0;
+	  }
+
+	  .experience-section > .inner {
+	    position: relative;
+	    z-index: 2;
+	  }
+
+	  .experience-section p,
+	  .experience-section h2,
+	  .experience-section li {
+	    color: #f8fafc;
+	  }
+
+	  .experience-section .info-card {
+	    background: rgba(255,255,255,0.08);
+	    border: 1px solid rgba(255,255,255,0.14);
+	    box-shadow: 0 14px 36px rgba(0,0,0,0.35);
+	  }
+
+	  .experience-section .info-card p {
+	    color: rgba(248,250,252,0.88);
+	  }
+
+	  /* Line carousel */
+	  .line-carousel {
+	    display: grid;
+	    gap: 10px;
+	  }
+
+	  .carousel-track {
+	    display: grid;
+	    grid-template-columns: repeat(4, minmax(0, 1fr));
+	    gap: 10px;
+	    overflow: visible;
+	    padding: 0;
+	  }
+
+	  @media (max-width: 900px) {
+	    .carousel-track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	  }
+
+	  @media (max-width: 540px) {
+	    .carousel-track { grid-template-columns: 1fr; }
+	  }
+
+	  .carousel-item {
+	    width: 100%;
+	    border-radius: 0;
+	    overflow: hidden;
+	    border: none;
+	    background: transparent;
+	    box-shadow: none;
+	    backdrop-filter: none;
+	    position: relative;
+	    aspect-ratio: 1 / 1;
+	  }
+
+	  .carousel-item video,
+	  .carousel-item img {
+	    width: 100%;
+	    height: 100%;
+	    display: block;
+	    object-fit: contain;
+	  }
+
+	  .split-grid {
+	    display: grid;
+	    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	    gap: var(--space-5);
+	    align-items: start;
+	  }
+
+	  .bullet-list {
+	    list-style: none;
+	    padding: 0;
+	    margin: var(--space-3) 0 0;
+	    display: grid;
+	    gap: 10px;
+	  }
+
+	  .bullet-list li {
+	    display: grid;
+	    grid-template-columns: 20px 1fr;
+	    align-items: start;
+	    gap: 10px;
+	    color: rgba(255,255,255,0.82);
+	    font-size: 15px;
+	  }
+
+	  .bullet-list li::before {
+	    content: "•";
+	    color: #6ee7ff;
+	    font-weight: 700;
+	    font-size: 18px;
+	    line-height: 1;
+	  }
+
+	  .cta-panel {
+	    padding: 100px var(--space-5);
+	    background: linear-gradient(145deg, rgba(15,23,42,0.03), rgba(15,23,42,0.01));
+	    border-top: 1px solid rgba(15,23,42,0.06);
+	  }
+
+	  .cta-actions .btn {
+	    min-height: 52px;
+	    padding: 14px 24px;
+	    display: inline-flex;
+	    align-items: center;
+	    justify-content: center;
+	  }
+
+	  .cta-inner {
+	    max-width: 840px;
+	    margin: 0 auto;
+	    text-align: center;
+	    display: grid;
+	    gap: var(--space-3);
+	    color: #0f172a;
+	  }
+
+	  .cta-actions {
+	    display: flex;
+	    gap: var(--space-3);
+	    justify-content: center;
+	    flex-wrap: wrap;
+	  }
+	  /* Before/After Slider */
+	  .ba-section {
+	    padding: var(--space-7) var(--space-4);
+	    background: #ffffff;
+	    border-top: 1px solid rgba(15,23,42,0.06);
+	  }
+	  
+	  .ba-container {
+	    max-width: var(--maxw);
+	    margin: 0 auto;
+	    display: grid;
+	    gap: var(--space-5);
+	  }
+	  
+	  .ba-header h2 {
+	    margin: 0 0 var(--space-2);
+	  }
+	  
+	  .ba-header p {
+	    color: rgba(15,23,42,0.75);
+	    max-width: 640px;
+	    margin: 0;
+	  }
+	  
+	  .ba-wrap {
+	    position: relative;
+	    border-radius: var(--radius-xl);
+	    overflow: hidden;
+	    aspect-ratio: 16 / 9;
+	    isolation: isolate;
+	    --split: 50%;
+	    background: #f3f4f6;
+	  }
+	  
+	  .ba-wrap .img {
+	    position: absolute;
+	    inset: 0;
+	    background-size: cover;
+	    background-position: center;
+	  }
+	  
+	  .ba-wrap .img.before {
+	    clip-path: inset(0 calc(100% - var(--split)) 0 0);
+	  }
+	  
+	  .ba-wrap .img.after {
+	    clip-path: inset(0 0 0 var(--split));
+	  }
+	  
+	  .ba-wrap .divider {
+	    position: absolute;
+	    inset: 0;
+	    pointer-events: none;
+	  }
+	  
+	  .ba-wrap .handle {
+	    position: absolute;
+	    top: 50%;
+	    left: var(--split);
+	    transform: translate(-50%, -50%);
+	    width: 56px;
+	    height: 56px;
+	    border-radius: 50%;
+	    background: rgba(0,0,0,0.7);
+	    border: 2px solid rgba(255,255,255,0.25);
+	    display: grid;
+	    place-items: center;
+	    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+	    pointer-events: auto;
+	    touch-action: none;
+	    cursor: grab;
+	    backdrop-filter: blur(6px);
+	  }
+	  
+	  .ba-wrap .handle:active { cursor: grabbing; }
+	  
+	  .ba-wrap .handle .arrows path {
+	    stroke: white;
+	    stroke-width: 2;
+	    fill: none;
+	  }
+	  
+	  .ba-wrap .rail {
+	    position: absolute;
+	    inset: 0;
+	    left: var(--split);
+	    width: 2px;
+	    background: rgba(255,255,255,0.25);
+	    transform: translateX(-50%);
+	  }
+	  
+	  .ba-wrap .label {
+	    position: absolute;
+	    top: var(--space-3);
+	    padding: 12px 16px;
+	    border-radius: 12px;
+	    background: rgba(255,255,255,0.9);
+	    color: #0f172a;
+	    backdrop-filter: blur(6px);
+	    box-shadow: 0 6px 20px rgba(15,23,42,0.12);
+	    font-size: 15px;
+	    font-weight: 700;
+	  }
+	  
+	  .ba-wrap .label.before { left: var(--space-3); }
+	  .ba-wrap .label.after { right: var(--space-3); }
+	  
+	  .ba-wrap .label small { display: block; color: rgba(15,23,42,0.75); font-size: 13px; font-weight: 600; }
+	  
+	  .ba-wrap .range {
+	    position: absolute;
+	    inset: 0;
+	    opacity: 0;
+	    width: 100%;
+	    height: 100%;
+	    cursor: ew-resize;
+	  }
+
 	</style>
 </head>
 	<body>
@@ -175,246 +820,198 @@
 				</div>
 			</nav>
 		</div>
-	</header>
-		<main class="site-main">
-		<!-- Hero with Video Background -->
-		<section style="min-height: 100vh; position: relative; display: flex; align-items: center; overflow: hidden;">
-			<div style="position: absolute; inset: 0; z-index: 0;">
-				<video src="../../assets/videos/presentations/ephoca-presentation.mp4" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+		</header>
+<main class="site-main ephoca-page">
+	<section class="ephoca-hero">
+		<video src="https://ephoca.com/wp-content/uploads/2025/09/ephoca_vibe-1080p.mp4" autoplay muted loop playsinline></video>
+		<div class="hero-content">
+			<div style="display:flex; justify-content:center; margin-bottom: var(--space-3);">
+				<img src="../../assets/images/Ephoca/ephoca%20white%20logo%20.png" alt="EPHOCA" style="max-width: 340px; width: 70vw; height: auto; display:block;">
 			</div>
-			<!-- Dark overlay for better text readability -->
-			<div style="position: absolute; inset: 0; z-index: 1; background: rgba(0,0,0,0.6);"></div>
-			<div style="max-width: var(--maxw); margin: 0 auto; position: relative; z-index: 2; text-align: center; padding: calc(80px + var(--space-6)) var(--space-4) var(--space-6); width: 100%;">
-				<h1 style=" font-size: clamp(48px, 8vw, 96px); font-weight: 800; color: #ffffff; margin: 0 0 var(--space-5); letter-spacing: -0.02em;">EPHOCA</h1>
-				<p style=" font-size: clamp(18px, 2.4vw, 24px); color: rgba(255,255,255,0.9); max-width: 720px; margin: 0 auto var(--space-5);">Cutting-edge HVAC systems company focused on designing sustainable and energy-efficient air solutions</p>
-				<ul style="display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 18px; margin: 0; padding: 0; list-style: none;">
-					<li class="tag tag-prototyping">Prototyping</li>
-					<li class="tag tag-research">Research</li>
-					<li class="tag tag-3d">3D Animation</li>
-					<li class="tag tag-uiux">UI & UX</li>
-					<li class="tag tag-mentoring">Mentoring</li>
-					<li class="tag tag-creative">Creative</li>
+			<p>We led the redesign of the entire Ephoca ecosystem—strategy, visuals, motion, and on-site assets—to make their HVAC lines feel premium and effortless.</p>
+			<div class="ephoca-tags">
+				<span class="tag tag-prototyping">Prototyping</span>
+				<span class="tag tag-research">Research</span>
+				<span class="tag tag-3d">3D Animation</span>
+				<span class="tag tag-uiux">UI & UX</span>
+				<span class="tag tag-creative">Creative</span>
+				<span class="tag tag-dev">Development</span>
+			</div>
+			<div class="ephoca-metrics">
+				<div class="metric-card">
+					<div class="metric-label">Lines</div>
+					<div class="metric-value">AIO / STONE / OSMO</div>
+				</div>
+				<div class="metric-card">
+					<div class="metric-label">Markets</div>
+					<div class="metric-value">Residential + Commercial</div>
+				</div>
+				<div class="metric-card">
+					<div class="metric-label">Deliverables</div>
+					<div class="metric-value">Brand, 3D, Web, Product UI</div>
+				</div>
+				<div class="metric-card">
+					<div class="metric-label">Timeline</div>
+					<div class="metric-value">4+ Months</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section-shell">
+		<div class="inner">
+			<div>
+				<h2 style="margin: 0 0 var(--space-3);">Project Overview</h2>
+				<p style="color: rgba(15,23,42,0.78); max-width: 780px;">Case study of our end-to-end design direction: visual identity, product storytelling, motion snippets, brochure system, and launch-ready media for all Ephoca lines.</p>
+			</div>
+			<div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 16px 38px rgba(15,23,42,0.12);">
+				<video src="../../assets/videos/presentations/ephoca-presentation.mp4" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+			</div>
+			<div class="cards-grid">
+				<div class="info-card">
+					<h3>Role</h3>
+					<p>Lead product design, creative direction, 3D art direction, and motion prototypes.</p>
+				</div>
+				<div class="info-card">
+					<h3>Platform</h3>
+					<p>Web experience, product marketing, and UI system for the AIO/STONE/OSMO families.</p>
+				</div>
+				<div class="info-card">
+					<h3>Deliverables</h3>
+					<p>Design system, responsive website, product shots, motion snippets, and brand assets.</p>
+				</div>
+				<div class="info-card">
+					<h3>Toolchain</h3>
+					<p>Figma, After Effects, Photoshop, Illustrator, 3D pipeline for product renders.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="lines-section">
+		<div style="max-width: var(--maxw); margin: 0 auto var(--space-4); padding: 0 var(--space-4); display: grid; gap: var(--space-2); text-align: center; justify-items: center;">
+			<h2 style="margin: 0; font-size: clamp(26px, 3.8vw, 40px); color: #0f172a;">Product lines in motion</h2>
+			<p style="margin: 0; color: rgba(15,23,42,0.75); max-width: 780px;">Quick look at the four EPHOCA lines—logo family on the left, live motion strip on the right—to show how the ecosystem stays consistent across products.</p>
+		</div>
+		<div class="lines-inner">
+			<div class="lines-right">
+				<div class="lines-media">
+					<video src="../../assets/images/Ephoca/lines%20showcase.webm" autoplay muted loop playsinline></video>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="brochure-section">
+		<div style="max-width: var(--maxw); margin: 0 auto var(--space-4); padding: 0 var(--space-4); display: grid; gap: var(--space-2);">
+			<h2 style="margin: 0; font-size: clamp(26px, 3.8vw, 40px); color: #0f172a;">Brochures & sales kit</h2>
+			<p style="margin: 0; color: rgba(15,23,42,0.75); max-width: 820px;">Animated brochure preview plus quick links to each line’s PDF flipbook—AIO, NextAC, STONE, and OSMO—so stakeholders can dive deeper.</p>
+		</div>
+		<div class="brochure-inner">
+			<div class="brochure-video">
+				<video src="../../assets/images/Ephoca/brochures/Stone%20brochure%20showcase.webm" autoplay muted loop playsinline></video>
+			</div>
+			<div class="brochure-buttons">
+				<a class="brochure-btn brand-aio" href="https://brochures.ephoca.com/aio#page1" target="_blank" rel="noopener noreferrer" aria-label="View AIO brochure">
+					<img src="../../assets/images/Ephoca/Brands%20logos/aiologo.svg" alt="">
+					<span class="brochure-chip">View Brochure</span>
+				</a>
+				<a class="brochure-btn brand-nextac" href="http://brochures.ephoca.com/pdfflipbooklets/nextac#page1" target="_blank" rel="noopener noreferrer" aria-label="View NextAC brochure">
+					<img src="../../assets/images/Ephoca/Brands%20logos/nextac%20logo.png" alt="">
+					<span class="brochure-chip">View Brochure</span>
+				</a>
+				<a class="brochure-btn brand-stone" href="https://flipbooklets.com/pdfflipbooklets/stone#page1" target="_blank" rel="noopener noreferrer" aria-label="View STONE brochure">
+					<img src="../../assets/images/Ephoca/Brands%20logos/STONE-LOGO.svg" alt="">
+					<span class="brochure-chip">View Brochure</span>
+				</a>
+				<a class="brochure-btn brand-osmo" href="https://brochures.ephoca.com/pdfflipbooklets/osmo" target="_blank" rel="noopener noreferrer" aria-label="View OSMO brochure">
+					<img src="../../assets/images/Ephoca/Brands%20logos/OSMO-LOGO.svg" alt="">
+					<span class="brochure-chip">View Brochure</span>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="ba-section">
+		<div class="ba-container">
+			<div class="ba-header">
+				<h2 style="font-size: clamp(28px, 4vw, 40px); margin-bottom: var(--space-2);">Before / After</h2>
+				<p style="color: rgba(15,23,42,0.75);">See how the new EPHOCA units evolved from bulky industrial to sleek, residential-friendly design.</p>
+			</div>
+			<div class="ba-wrap" id="baSlider" style="--split: 50%;">
+				<div class="img before" style="background-image:url('https://nextac.com/wp-content/uploads/2025/11/right-2-scaled.png')"></div>
+				<div class="img after" style="background-image:url('https://nextac.com/wp-content/uploads/2025/10/left-2-2.jpg')"></div>
+
+				<div class="label before" id="baBefore">
+					<strong>Before</strong>
+					<small>Bulky & Noisy</small>
+				</div>
+				<div class="label after" id="baAfter">
+					<strong>After</strong>
+					<small>Sleek & Quiet</small>
+				</div>
+
+				<div class="divider" aria-hidden="true">
+					<div class="rail"></div>
+					<div class="handle" id="baHandle" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Before/After position">
+						<svg class="arrows" viewBox="0 0 40 20" aria-hidden="true">
+							<path d="M16 2 L8 10 L16 18"></path>
+							<path d="M24 2 L32 10 L24 18"></path>
+						</svg>
+					</div>
+				</div>
+
+				<input class="range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Before/After slider">
+			</div>
+		</div>
+	</section>
+
+	<section class="section-shell experience-section">
+		<div class="inner" style="grid-template-columns: 1fr; gap: var(--space-3); text-align: center; align-items: center;">
+			<div style="display: grid; gap: var(--space-2);">
+				<h2 style="margin: 0; font-size: clamp(26px, 3.6vw, 40px);">How we unified the lines</h2>
+				<p style="color: rgba(248,250,252,0.9); margin: 0;">We choreographed how AIO, STONE, OSMO, and NextAC show up together: consistent visuals, motion, and sales assets that translate hardware benefits into a premium story.</p>
+				<ul class="bullet-list" style="justify-content: center;">
+					<li>Art-directed renders and explosion views to highlight engineering in a consumer-friendly way.</li>
+					<li>Unified brochure/video system per line for launches and sales teams.</li>
+					<li>Consistent UI/UX patterns and buttons that match the visual language across pages.</li>
 				</ul>
 			</div>
-		</section>
-
-		<!-- Overview -->
-		<section class="project-overview" style="padding: var(--space-7) var(--space-4); background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.06);">
-			<div style="max-width: var(--maxw); margin: 0 auto;">
-				<h2 style="font-size: clamp(32px, 4vw, 48px); margin: 0 0 var(--space-5);">Project Overview</h2>
-				<div class="grid-2" style="display: grid; grid-template-columns: 0.35fr 0.65fr; gap: var(--space-7); align-items: start; margin-bottom: var(--space-7);">
-					<div  style="border-radius: 24px; padding: var(--space-6); box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-						<div style="margin-bottom: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid rgba(255,255,255,0.08);">
-							<div style="font-size: 12px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; letter-spacing: 0.1em;">Timeline</div>
-							<div style="font-size: 16px; font-weight: 600; color: var(--text);">4+ Months</div>
-						</div>
-						<div style="margin-bottom: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid rgba(255,255,255,0.08);">
-							<div style="font-size: 12px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; letter-spacing: 0.1em;">Role</div>
-							<div style="font-size: 16px; font-weight: 600; color: var(--text);">Lead UI/UX Designer & Art Director</div>
-						</div>
-						<div>
-							<div style="font-size: 12px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; letter-spacing: 0.1em;">Platform</div>
-							<div style="font-size: 16px; font-weight: 600; color: var(--text);">Web</div>
-						</div>
-						<div style="margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid rgba(255,255,255,0.08);">
-							<div style="font-size: 12px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; letter-spacing: 0.1em;">Deliverables</div>
-							<div style="font-size: 16px; font-weight: 600; color: var(--text);">Design System, User Research, Prototypes, 3D Visualizations</div>
-						</div>
-						<div style="margin-top: var(--space-4);">
-							<div style="font-size: 12px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; letter-spacing: 0.1em;">Tools</div>
-							<div class="tools-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
-								<div class="tool figma" title="Figma" style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); transition: transform 0.2s ease;">
-									<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" style="width: 24px; height: 24px;" />
-									<span style="font-size: 12px; font-weight: 500; color: var(--text);">Figma</span>
-								</div>
-								<div class="tool ai" title="Adobe Illustrator" style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); transition: transform 0.2s ease;">
-									<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Illustrator" style="width: 24px; height: 24px;" />
-									<span style="font-size: 12px; font-weight: 500; color: var(--text);">Illustrator</span>
-								</div>
-								<div class="tool ps" title="Adobe Photoshop" style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); transition: transform 0.2s ease;">
-									<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Photoshop" style="width: 24px; height: 24px;" />
-									<span style="font-size: 12px; font-weight: 500; color: var(--text);">Photoshop</span>
-								</div>
-								<div class="tool ae" title="Adobe After Effects" style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); transition: transform 0.2s ease;">
-									<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aftereffects/aftereffects-original.svg" alt="After Effects" style="width: 24px; height: 24px;" />
-									<span style="font-size: 12px; font-weight: 500; color: var(--text);">After Effects</span>
-								</div>
-								<div class="tool id" title="Adobe InDesign" style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); transition: transform 0.2s ease;">
-									<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/indesign/indesign-original.svg" alt="InDesign" style="width: 24px; height: 24px;" />
-									<span style="font-size: 12px; font-weight: 500; color: var(--text);">InDesign</span>
-								</div>
-								<div class="tool xd" title="Adobe XD" style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); transition: transform 0.2s ease;">
-									<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg" alt="Adobe XD" style="width: 24px; height: 24px;" />
-									<span style="font-size: 12px; font-weight: 500; color: var(--text);">Adobe XD</span>
-								</div>
-								<div class="tool blender" title="Blender" style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); transition: transform 0.2s ease;">
-									<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg" alt="Blender" style="width: 24px; height: 24px;" />
-									<span style="font-size: 12px; font-weight: 500; color: var(--text);">Blender</span>
-								</div>
-							</div>
-						</div>
+			<div class="line-carousel" aria-label="Product visuals carousel">
+				<div class="carousel-track">
+					<div class="carousel-item">
+						<img src="../../assets/images/Ephoca/brands/Headlines-10.png" alt="EPHOCA product lineup visual 1" loading="lazy" />
 					</div>
-					<div>
-						<p  style="font-size: 18px; line-height: 1.8; margin: 0 0 var(--space-4);">Ephoca is a cutting-edge HVAC systems company, focused on designing sustainable and energy‑efficient air solutions. Known for blending industrial innovation with modern aesthetics, Ephoca is redefining how climate control tech integrates into everyday spaces.</p>
-						<p  style="font-size: 18px; line-height: 1.8; margin: 0;">The project involved comprehensive user research, prototyping, and creating a cohesive design system that reflects the company's commitment to sustainable technology and modern design principles.</p>
-						<div style="width: 100%; margin-top: var(--space-5);">
-							<div style="width: 100%; height: 400px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white;  font-size: 24px; font-weight: 600;">
-								Ephoca Platform Demo
-							</div>
-							<p style="margin-top: var(--space-4); color: var(--muted); font-size: 16px;">Platform walkthrough and feature demonstration</p>
-						</div>
+					<div class="carousel-item">
+						<img src="../../assets/images/Ephoca/brands/Headlines-11.png" alt="EPHOCA product lineup visual 2" loading="lazy" />
+					</div>
+					<div class="carousel-item">
+						<img src="../../assets/images/Ephoca/brands/Headlines-12.png" alt="EPHOCA product lineup visual 3" loading="lazy" />
+					</div>
+					<div class="carousel-item">
+						<img src="../../assets/images/Ephoca/brands/Headlines-13.png" alt="EPHOCA product lineup visual 4" loading="lazy" />
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
+	</section>
 
-		<!-- 3D & 2D Assets -->
-		<section  style="padding: var(--space-8) 0; position: relative; background: rgba(255,255,255,0.04); overflow: hidden;">
-			<div style="max-width: var(--maxw); margin: 0 auto; padding: 0 var(--space-4); position: relative; z-index: 1;">
-				<h2 style="text-align: center;  font-size: clamp(32px, 4.8vw, 56px); margin: 0 0 var(--space-4); line-height: 1; color: var(--text);">3D & 2D Assets</h2>
-				<p style="text-align: center; color: var(--muted); max-width: 900px; margin: 0 auto var(--space-7); font-size: 18px; line-height: 1.7;">
-				Creating immersive 3D visualizations and detailed 2D assets that showcase the sophisticated engineering behind Ephoca's HVAC systems. These assets help communicate complex technical concepts through intuitive visual design.
-				</p>
-
-				<!-- Picture 1: big banner -->
-				<div style="border-radius: 20px; overflow: hidden; border: 2px solid #e9ecef; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #ffffff;">
-					<div style="width: 100%; height: 400px; background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); display: flex; align-items: center; justify-content: center; color: white;  font-size: 24px; font-weight: 600;">
-						HVAC System Visualization
-					</div>
-				</div>
-
-				<!-- Spacer -->
-				<div style="height: var(--space-7);"></div>
-
-				<!-- Picture 2: tilted strip, parallax like bottom rows -->
-				<div class="fullbleed-row" style="margin-top: 0; display: flex; justify-content: flex-end;">
-					<div class="ui-gallery-track" data-direction="right" data-speed="0.45" style="display: flex; align-items: center; gap: var(--space-4); width: max-content; will-change: transform;">
-						<div class="assets-strip" style="width: 300px; height: 200px; background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white;  font-weight: 600; filter: drop-shadow(0 10px 25px rgba(0,0,0,0.15));">
-							Component Design
-						</div>
-					</div>
+	<section class="cta-panel">
+		<div class="cta-inner" style="max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(20px, 4vw, 48px); align-items: center; padding: 0 var(--space-4);">
+			<div style="display: grid; gap: var(--space-3); text-align: left;">
+				<h2 style="margin: 0; font-size: clamp(32px, 4.2vw, 52px); color: #0f172a;">Bring your next product line to life</h2>
+				<p style="margin: 0; color: rgba(15,23,42,0.8); max-width: 620px;">From industrial hardware to launch storytelling, we craft the visuals, UI, and motion to make complex systems feel effortless.</p>
+				<div class="cta-actions" style="display: flex; gap: var(--space-3); flex-wrap: wrap; justify-content: flex-start;">
+					<a class="btn btn-primary btn-pill" href="/#contact">Start a Project</a>
+					<a class="btn btn-secondary btn-pill" href="/work">View More Work</a>
 				</div>
 			</div>
-		</section>
-
-		<!-- Marketing -->
-		<section  style="padding: var(--space-8) 0; position: relative; overflow: hidden; background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); color: white;">
-			<div style="max-width: var(--maxw); margin: 0 auto; padding: 0 var(--space-4); display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-7); align-items: center;">
-				<div>
-					<h2 style=" font-size: clamp(36px, 5vw, 60px); margin: 0 0 var(--space-4);">Marketing</h2>
-					<p style="font-size: clamp(16px, 2vw, 20px); color: rgba(255,255,255,0.9); line-height: 1.7;">Creating compelling marketing materials that communicate Ephoca's innovative approach to sustainable HVAC solutions. The visual strategy emphasizes clean, modern design that reflects the company's commitment to efficiency and environmental responsibility.</p>
-				</div>
-				<div style="display: grid; gap: var(--space-4);">
-					<div style="max-width: 560px; margin-left: auto; border-radius: 18px; overflow: hidden; border: 1.5px solid rgba(255,255,255,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.3); backdrop-filter: blur(2px);">
-						<div style="width: 100%; height: 300px; background: linear-gradient(135deg, #00b894 0%, #00a085 100%); display: flex; align-items: center; justify-content: center; color: white;  font-size: 20px; font-weight: 600;">
-							Ephoca Marketing Video
-						</div>
-					</div>
-				</div>
+			<div style="display:flex; justify-content:center; align-items:center;">
+				<video src="../../assets/images/Ephoca/modesl%20display%20and%20explosion%20/aio%20air%20explosion%20view%20.webm" autoplay muted loop playsinline style="width: 100%; max-width: 520px; object-fit: cover; display: block;"></video>
 			</div>
-			<div style="max-width: var(--maxw); margin: var(--space-7) auto 0; padding: 0 var(--space-4);">
-				<div style="border-radius: 18px; overflow: hidden; border: 1.5px solid rgba(255,255,255,0.3); box-shadow: 0 30px 90px rgba(0,0,0,0.4);">
-					<div style="width: 100%; height: 400px; background: linear-gradient(135deg, #e17055 0%, #d63031 100%); display: flex; align-items: center; justify-content: center; color: white;  font-size: 24px; font-weight: 600;">
-						Ephoca Main Marketing Video
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Brand Identity -->
-		<section  style="padding: var(--space-7) var(--space-4); background: rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.08);">
-			<div style="max-width: var(--maxw); margin: 0 auto;">
-				<h2 style=" font-size: clamp(32px, 4vw, 48px); text-align: center; margin: 0 0 var(--space-3); color: var(--text);">Brand Identity & Design System</h2>
-				<p style="text-align: center; color: var(--muted); font-size: 18px; margin: 0 auto var(--space-6); max-width: 600px;">A clean, professional visual language built around sustainable technology and modern industrial design.</p>
-				<div style="display: grid; gap: var(--space-6);">
-					<div style="width: 60%; height: 200px; background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white;  font-size: 28px; font-weight: 700; margin: 0 auto;">
-						EPHOCA
-					</div>
-					<div style="width: 100%; height: 150px; background: linear-gradient(90deg, #74b9ff 0%, #0984e3 50%, #00b894 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white;  font-size: 18px; font-weight: 600;">
-						Brand Colors & Palette
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Components -->
-		<section style="padding: 0; min-height: 100vh; display: flex; align-items: center; position: relative; background: rgba(255,255,255,0.04); overflow: hidden;">
-			<div style="width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--space-4); display: grid; grid-template-columns: 45% 55%; align-items: stretch; gap: var(--space-6); min-height: 100vh; position: relative; z-index: 1;">
-				<div style="padding: var(--space-7) 0; display: flex; flex-direction: column; justify-content: center; max-width: 560px;">
-					<h2 style=" font-size: clamp(36px, 5vw, 60px); margin: 0 0 var(--space-4); color: var(--text); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em;">Components</h2>
-					<p style="font-size: clamp(16px, 2vw, 20px); color: var(--muted); max-width: none; line-height: 1.7;">Ephoca's design system includes a comprehensive set of components designed for industrial applications. The system emphasizes clarity, accessibility, and technical precision while maintaining a modern aesthetic.</p>
-				</div>
-				<div class="components-wrap">
-					<div class="components-tilt components-hero" style="width: 400px; height: 500px; background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white;  font-size: 24px; font-weight: 600;">
-						Component Library
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Website Section -->
-		<section style="padding: var(--space-8) 0; position: relative; min-height: 90vh; display: flex; align-items: center; overflow: hidden; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-			<div style="max-width: var(--maxw); margin: 0 auto; padding: 0 var(--space-4); display: grid; grid-template-columns: 1fr 1.45fr; gap: var(--space-7); align-items: center; position: relative; z-index: 1; width: 100%;">
-				<h2 style="grid-column: 1 / -1; text-align: center;  font-size: clamp(40px, 6vw, 64px); margin: 0 0 var(--space-5); line-height: 1;">Ephoca Platform</h2>
-				<div>
-					<p style="font-size: clamp(16px, 2vw, 20px); color: rgba(255,255,255,0.9); margin: 0 0 var(--space-4);">Experience the Ephoca platform through an interactive demonstration of the design system and user interface.</p>
-					<ul style="list-style: none; padding: 0; margin: 0 0 var(--space-4);">
-						<li style="position: relative; padding-left: 28px; margin-bottom: 12px; font-size: clamp(15px, 1.8vw, 18px); color: rgba(255,255,255,0.85);"><span style="position: absolute; left: 0; font-size: 24px; color: #74b9ff;">•</span>Explore the design system and components.</li>
-						<li style="position: relative; padding-left: 28px; margin-bottom: 12px; font-size: clamp(15px, 1.8vw, 18px); color: rgba(255,255,255,0.85);"><span style="position: absolute; left: 0; font-size: 24px; color: #74b9ff;">•</span>See HVAC system controls and monitoring interfaces.</li>
-						<li style="position: relative; padding-left: 28px; margin-bottom: 12px; font-size: clamp(15px, 1.8vw, 18px); color: rgba(255,255,255,0.85);"><span style="position: absolute; left: 0; font-size: 24px; color: #74b9ff;">•</span>Experience the platform in action.</li>
-					</ul>
-					<p style="font-size: clamp(15px, 1.8vw, 18px); color: rgba(255,255,255,0.8); margin: 0 0 var(--space-5);">Discover how sustainable HVAC technology meets modern user experience design.</p>
-					<a href="404.html" style="display: inline-flex; align-items: center; gap: 12px; padding: 14px 28px; border-radius: 9999px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); color: #fff; font-weight: 600; font-size: 14px; letter-spacing: 0.05em; margin-bottom: var(--space-4); transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.transform='translateY(-2px)'; this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(255,255,255,0.2)'">
-						<span>EXPLORE PLATFORM</span>
-						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-						</svg>
-					</a>
-					<p style="font-size: 13px; color: #ffd93d; font-weight: 600; margin: 0;">NOTE: Platform demo coming soon</p>
-				</div>
-				<div>
-					<div style="border-radius: 16px; overflow: hidden; border: 2px solid rgba(255, 255, 255, 0.3); box-shadow: 0 0 40px rgba(255, 255, 255, 0.2), 0 20px 60px rgba(0,0,0,0.3); transition: transform 0.3s ease; transform: scale(1.06); transform-origin: right center;" onmouseover="this.style.transform='scale(1.09)'" onmouseout="this.style.transform='scale(1.06)'">
-						<div style="width: 100%; height: 400px; background: linear-gradient(135deg, #00b894 0%, #00a085 100%); display: flex; align-items: center; justify-content: center; color: white;  font-size: 20px; font-weight: 600;">
-							Ephoca Platform Demo
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- UI Gallery Parallax -->
-		<section style="padding: var(--space-7) 0; overflow: hidden; background: #ffffff;">
-			<div style="display: flex; flex-direction: column; gap: var(--space-4);">
-				<div style="overflow: hidden; display: flex; justify-content: flex-start;"><div class="ui-gallery-track" data-direction="left" data-speed="0.35" style="display: flex; align-items: center; gap: var(--space-4); width: max-content; will-change: transform;">
-					<div style="width: 500px; height: 320px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); display: flex; align-items: center; justify-content: center; color: white;  font-weight: 600; font-size: 18px;">HVAC Dashboard</div>
-					<div style="width: 500px; height: 320px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: linear-gradient(135deg, #00b894 0%, #00a085 100%); display: flex; align-items: center; justify-content: center; color: white;  font-weight: 600; font-size: 18px;">Control Panel</div>
-					<div style="width: 500px; height: 320px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: linear-gradient(135deg, #e17055 0%, #d63031 100%); display: flex; align-items: center; justify-content: center; color: white;  font-weight: 600; font-size: 18px;">Monitoring Interface</div>
-				</div></div>
-				<div style="overflow: hidden; display: flex; justify-content: flex-end;"><div class="ui-gallery-track" data-direction="right" data-speed="0.5" style="display: flex; align-items: center; gap: var(--space-4); width: max-content; will-change: transform;">
-					<div style="width: 500px; height: 320px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%); display: flex; align-items: center; justify-content: center; color: white;  font-weight: 600; font-size: 18px;">Analytics View</div>
-					<div style="width: 500px; height: 320px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); display: flex; align-items: center; justify-content: center; color: white;  font-weight: 600; font-size: 18px;">HVAC Dashboard</div>
-					<div style="width: 500px; height: 320px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: linear-gradient(135deg, #00b894 0%, #00a085 100%); display: flex; align-items: center; justify-content: center; color: white;  font-weight: 600; font-size: 18px;">Control Panel</div>
-				</div></div>
-				<div style="overflow: hidden; display: flex; justify-content: flex-start;"><div class="ui-gallery-track" data-direction="left" data-speed="0.65" style="display: flex; align-items: center; gap: var(--space-4); width: max-content; will-change: transform;">
-					<div style="width: 500px; height: 320px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: linear-gradient(135deg, #e17055 0%, #d63031 100%); display: flex; align-items: center; justify-content: center; color: white;  font-weight: 600; font-size: 18px;">Monitoring Interface</div>
-					<div style="width: 500px; height: 320px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%); display: flex; align-items: center; justify-content: center; color: white;  font-weight: 600; font-size: 18px;">Analytics View</div>
-					<div style="width: 500px; height: 320px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); display: flex; align-items: center; justify-content: center; color: white;  font-weight: 600; font-size: 18px;">HVAC Dashboard</div>
-				</div></div>
-			</div>
-		</section>
-
-		<!-- CTA -->
-		<section  style="text-align: center; padding: var(--space-7) var(--space-4); border-top: 1px solid rgba(255,255,255,0.08);">
-			<div style="max-width: 600px; margin: 0 auto;">
-				<h2 style=" font-size: clamp(32px, 4vw, 48px); margin: 0 0 var(--space-4); color: var(--text);">Let's Work Together</h2>
-				<p style="color: var(--muted); font-size: 18px; margin: 0 0 var(--space-5);">Interested in creating sustainable technology solutions with exceptional user experience? Let's discuss your project.</p>
-				<div style="display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap;">
-					<a href="/#contact" class="btn btn-primary">Start a Project</a>
-					<a href="/work" class="btn btn-secondary">View More Work</a>
-				</div>
-			</div>
-		</section>
-	</main>
+		</div>
+	</section>
+</main>
 
 	<!-- Footer Component -->
 	<!-- Footer -->
@@ -678,6 +1275,42 @@
     );
     
     } // End desktop animations
+  </script>
+  <script>
+    (() => {
+      const slider = document.getElementById('baSlider');
+      const range = document.getElementById('baRange');
+      const handle = document.getElementById('baHandle');
+      if (!slider || !range || !handle) return;
+      
+      const update = (val) => {
+        const pct = Math.min(100, Math.max(0, val));
+        slider.style.setProperty('--split', `${pct}%`);
+        handle.setAttribute('aria-valuenow', `${Math.round(pct)}`);
+      };
+      
+      range.addEventListener('input', (e) => update(e.target.value));
+      
+      let dragging = false;
+      const onMove = (clientX) => {
+        const rect = slider.getBoundingClientRect();
+        const pct = ((clientX - rect.left) / rect.width) * 100;
+        update(pct);
+        range.value = Math.round(pct);
+      };
+      
+      handle.addEventListener('pointerdown', (e) => {
+        dragging = true;
+        handle.setPointerCapture(e.pointerId);
+        onMove(e.clientX);
+      });
+      handle.addEventListener('pointermove', (e) => { if (dragging) onMove(e.clientX); });
+      handle.addEventListener('pointerup', (e) => {
+        dragging = false;
+        handle.releasePointerCapture(e.pointerId);
+      });
+      slider.addEventListener('click', (e) => onMove(e.clientX));
+    })();
   </script>
 </body>
 </html>

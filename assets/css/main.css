@@ -66,10 +66,10 @@
     --tag-prototyping: #10b981;
     --tag-research: #f59e0b;
     --tag-3d: #8b5cf6;
-    --tag-uiux: #0a0a0a;
+    --tag-uiux: #0ea5e9;
     --tag-mentoring: #404040;
     --tag-creative: #ec4899;
-    --tag-graphic: #262626;
+    --tag-graphic: #f97316;
     --tag-systems: #c2410c;
     --tag-dev: #2563eb;
     --tag-aicoding: #06b6d4;
@@ -751,6 +751,7 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
         0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
+
 .btn-pill.no-arrow::after {
     display: none;
 }
@@ -1284,10 +1285,10 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 .tag-prototyping { background: rgba(16, 185, 129, 0.1); color: var(--tag-prototyping); border-color: rgba(16, 185, 129, 0.3); }
 .tag-research { background: rgba(245, 158, 11, 0.1); color: var(--tag-research); border-color: rgba(245, 158, 11, 0.3); }
 .tag-3d { background: rgba(139, 92, 246, 0.1); color: var(--tag-3d); border-color: rgba(139, 92, 246, 0.3); }
-.tag-uiux { background: rgba(0, 0, 0, 0.1); color: var(--tag-uiux); border-color: rgba(0, 0, 0, 0.3); }
+.tag-uiux { background: rgba(14, 165, 233, 0.1); color: var(--tag-uiux); border-color: rgba(14, 165, 233, 0.3); }
 .tag-mentoring { background: rgba(0, 0, 0, 0.1); color: var(--tag-mentoring); border-color: rgba(0, 0, 0, 0.3); }
 .tag-creative { background: rgba(236, 72, 153, 0.1); color: var(--tag-creative); border-color: rgba(236, 72, 153, 0.3); }
-.tag-graphic { background: rgba(0, 0, 0, 0.1); color: var(--tag-graphic); border-color: rgba(0, 0, 0, 0.3); }
+.tag-graphic { background: rgba(249, 115, 22, 0.1); color: var(--tag-graphic); border-color: rgba(249, 115, 22, 0.3); }
 .tag-systems { background: rgba(234, 88, 12, 0.1); color: var(--tag-systems); border-color: rgba(234, 88, 12, 0.3); }
 .tag-dev { background: rgba(37, 99, 235, 0.1); color: var(--tag-dev); border-color: rgba(37, 99, 235, 0.3); }
 .tag-aicoding { background: rgba(6, 182, 212, 0.12); color: var(--tag-aicoding); border-color: rgba(6, 182, 212, 0.32); }
@@ -1319,14 +1320,31 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 }
 
 .project-check {
-    position: absolute;
-    left: var(--space-3);
-    bottom: var(--space-3);
+    position: relative;
     background: #ffffff;
     border-color: #ffffff;
     color: var(--text);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    display: inline-flex;
+    padding: 16px 32px;
     padding-right: 60px;
+}
+
+/* Home project cards: anchor bottom-left of media */
+.project-row .project-check {
+    position: absolute;
+    left: var(--space-3);
+    bottom: var(--space-3);
+}
+
+/* Work page: use base pill styles, just stack below content */
+.work-page .project-check {
+    position: static;
+    left: auto;
+    bottom: auto;
+    margin-top: var(--space-3);
+    align-self: flex-start;
+    display: inline-flex;
 }
 
 .project-check:hover {
@@ -2187,49 +2205,41 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
     margin-bottom: var(--space-3);
 }
 
-.work-page .project-tags .tag {
-    background: rgba(255,255,255,0.2);
-    border-color: rgba(255,255,255,0.3);
-    color: white;
-}
-
-.work-page .project-check {
-    position: static;
-    width: auto;
-    text-align: inherit;
-    background: #ffffff;
-    color: #0a0a0a;
-    border-color: var(--border-strong);
-    padding-right: 60px;
-}
-
-.work-page .project-check:hover {
-    background: #0a0a0a;
-    color: #ffffff;
-    border-color: #0a0a0a;
-}
-
-[data-theme="dark"] .work-page .project-check {
-    background: #ffffff;
-    color: #0a0a0a;
-    border-color: #ffffff;
-}
-
-[data-theme="dark"] .work-page .project-check:hover {
-    background: #0a0a0a;
-    color: #ffffff;
-    border-color: #0a0a0a;
-}
-
-/* Disabled project button */
-.project-check.disabled {
+/* Disabled state for generic buttons */
+.btn.disabled,
+.btn[aria-disabled="true"] {
     opacity: 0.6;
     cursor: not-allowed;
     pointer-events: none;
 }
 
-.project-check.disabled::after {
-    display: none;
+.work-page .project-check {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    margin-top: var(--space-3);
+    align-self: flex-start;
+    display: inline-flex;
+    width: auto;
+}
+
+/* Prevent home mobile overrides from affecting work page pills */
+.work-page .project-media .project-check {
+    margin: 0;
+    max-width: none;
+    width: auto;
+}
+
+.work-page .project-btn {
+    position: static;
+    left: auto;
+    bottom: auto;
+    margin-top: var(--space-3);
+    align-self: flex-start;
+    background: #ffffff;
+    border-color: #ffffff;
+    color: var(--text);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* ---------- About Page Styles ---------- */
@@ -2655,10 +2665,10 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
         font-size: 16px;
     }
 
-    .project-media .project-check {
-        margin: 0 var(--space-5) var(--space-3) var(--space-3);
+    .project-row .project-media .project-check {
+        margin: 0 var(--space-3) var(--space-3);
         width: auto;
-        max-width: calc(100% - (var(--space-3) + var(--space-5)));
+        max-width: calc(100% - 2 * var(--space-3));
         padding: 12px 24px;
         padding-right: 48px;
         justify-content: center;

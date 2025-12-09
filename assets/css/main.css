@@ -201,7 +201,8 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
-    padding: var(--space-2) var(--space-4);
+    padding: var(--space-2) var(--space-4) var(--space-2) var(--space-4);
+    padding-right: var(--space-3);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     width: calc(100% - var(--space-6));
     max-width: var(--maxw);
@@ -346,7 +347,7 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 
 /* Nav CTA Button */
 .nav-menu .btn {
-    padding: 12px 22px;
+    padding: 10px 10px;
     font-size: 13px;
     margin-left: var(--space-2);
 }
@@ -512,6 +513,12 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-decoration: none;
     position: relative;
+}
+
+/* Navbar CTA sizing override (keep primary style, trim padding) */
+.site-header .nav-menu .btn,
+.site-header .nav-cta .btn {
+    padding: 10px 16px;
 }
 
 /* Primary Button - Solid for contrast */
@@ -838,10 +845,10 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 
 .hero-video-bg h1,
 .hero-video-bg h1 .hero-lead,
-.hero-video-bg h1 .hero-role,
+.hero-video-bg h1 .hero-role:not([class*="role-"]),
 [data-theme="dark"] .hero-video-bg h1,
 [data-theme="dark"] .hero-video-bg h1 .hero-lead,
-[data-theme="dark"] .hero-video-bg h1 .hero-role {
+[data-theme="dark"] .hero-video-bg h1 .hero-role:not([class*="role-"]) {
     color: #ffffff !important;
 }
 
@@ -922,6 +929,7 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 .hero h1 .hero-role {
     color: var(--text);
 }
+
 
 @keyframes roleEnter {
     0% {
@@ -2538,7 +2546,7 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
     .nav-menu .btn {
         width: 100%;
         margin-left: 0;
-        padding: 14px 24px;
+        padding: 12px 18px;
         font-size: 14px;
     }
     

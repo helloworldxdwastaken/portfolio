@@ -155,18 +155,19 @@ const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 	if (!el) return;
 	
 	const roles = [
-		'Digital Experiences',
-		'Brand Identities',
-		'Web Applications',
-		'Mobile Interfaces',
-		'Motion Graphics',
-		'Design Systems'
+		{ text: 'Digital Experiences' },
+		{ text: 'Brand Identities' },
+		{ text: 'Web Applications' },
+		{ text: 'Mobile Interfaces' },
+		{ text: 'Motion Graphics' },
+		{ text: 'Design Systems' }
 	];
 	
-	el.textContent = roles[0];
+	const colorClasses = [];
+	el.textContent = roles[0].text;
 	
 	// Measure longest role for consistent width
-	const longest = roles.reduce((a, b) => a.length >= b.length ? a : b, '');
+	const longest = roles.reduce((a, b) => a.text.length >= b.text.length ? a : b, { text: '' }).text;
 	const meas = document.createElement('span');
 	meas.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;font:inherit';
 	meas.style.fontSize = getComputedStyle(el).fontSize;
@@ -180,17 +181,18 @@ const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 	
 	let i = 0;
 	const rotate = () => {
-		// Exit animation
-		el.classList.add('exiting');
-		
-		setTimeout(() => {
-			i = (i + 1) % roles.length;
-			el.textContent = roles[i];
-			el.classList.remove('exiting');
+			// Exit animation
+			el.classList.add('exiting');
 			
-			// Trigger enter animation
-			el.style.animation = 'none';
-			el.offsetHeight;
+			setTimeout(() => {
+				i = (i + 1) % roles.length;
+				if (colorClasses.length) el.classList.remove(...colorClasses);
+				el.textContent = roles[i].text;
+				el.classList.remove('exiting');
+				
+				// Trigger enter animation
+				el.style.animation = 'none';
+				el.offsetHeight;
 			el.style.animation = '';
 		}, 400);
 	};

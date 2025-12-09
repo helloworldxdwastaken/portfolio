@@ -660,6 +660,28 @@
 	    justify-content: center;
 	  }
 
+	  /* Mobile refinements */
+	  @media (max-width: 768px) {
+	    .lines-section { padding: var(--space-6) var(--space-3); }
+	    .lines-section .inner { padding: 0 var(--space-2); }
+	    .line-carousel { gap: 8px; }
+	    .carousel-track { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+	    .carousel-item { aspect-ratio: 4 / 3; }
+
+	    .brochure-section { padding: var(--space-6) var(--space-3); }
+	    .brochure-inner { padding: 0; grid-template-columns: 1fr; gap: var(--space-3); }
+	    .brochure-video video { width: 100%; height: auto; display: block; }
+	    .brochure-buttons { grid-template-columns: 1fr; }
+	    .brochure-btn { min-height: 130px; padding: 10px 0; }
+
+	    .cta-panel { padding: var(--space-7) var(--space-3); }
+	    .cta-inner { grid-template-columns: 1fr; padding: 0; gap: var(--space-4); }
+	    .cta-inner > :nth-child(2) { order: -1; }
+	    .cta-inner h2 { text-align: left; }
+	    .cta-inner p { text-align: left; }
+	    .cta-inner video { max-width: 100%; border-radius: 12px; }
+	  }
+
 	  .cta-inner {
 	    max-width: 840px;
 	    margin: 0 auto;

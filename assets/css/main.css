@@ -1578,6 +1578,13 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
 }
 
+@media (min-width: 901px) {
+    .contact-container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 .contact-bg {
     position: absolute;
     inset: 0;

@@ -346,31 +346,9 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 
 /* Nav CTA Button */
 .nav-menu .btn {
-    padding: 10px 20px;
+    padding: 12px 22px;
     font-size: 13px;
     margin-left: var(--space-2);
-}
-
-.nav-menu .btn-primary {
-    background: #0DFA7B;
-    color: #0a0a0a;
-    border: none;
-    box-shadow: 0 2px 8px rgba(13, 250, 123, 0.25);
-}
-
-.nav-menu .btn-primary:hover {
-    background: #0BD96B;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(13, 250, 123, 0.35);
-}
-
-[data-theme="dark"] .nav-menu .btn-primary {
-    background: #0DFA7B;
-    color: #0a0a0a;
-}
-
-[data-theme="dark"] .nav-menu .btn-primary:hover {
-    background: #0BD96B;
 }
 
 .nav-toggle {
@@ -538,16 +516,37 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 
 /* Primary Button - Solid for contrast */
 .btn-primary {
-    background: #0DFA7B;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #12ff8a, #0bdc6d);
     color: #0a0a0a;
-    border: none;
-    box-shadow: 0 2px 12px rgba(13, 250, 123, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow:
+        0 8px 24px rgba(13, 250, 123, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 120%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.35) 30%, transparent 60%);
+    transform: skewX(-15deg);
+    transition: left 0.4s ease;
+    pointer-events: none;
 }
 
 .btn-primary:hover {
-    background: #0BD96B;
+    background: linear-gradient(135deg, #16ff93, #0fce64);
     transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(13, 250, 123, 0.4);
+    box-shadow:
+        0 12px 30px rgba(13, 250, 123, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.24);
 }
 
 .btn-primary:active {
@@ -555,15 +554,19 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+.btn-primary:hover::after {
+    left: 130%;
+}
+
 [data-theme="dark"] .btn-primary {
-    background: #0DFA7B;
+    background: linear-gradient(135deg, #12ff8a, #0bdc6d);
     color: #0a0a0a;
-    box-shadow: 0 2px 12px rgba(13, 250, 123, 0.3);
+    box-shadow: 0 8px 24px rgba(13, 250, 123, 0.4);
 }
 
 [data-theme="dark"] .btn-primary:hover {
-    background: #0BD96B;
-    box-shadow: 0 6px 25px rgba(13, 250, 123, 0.5);
+    background: linear-gradient(135deg, #16ff93, #0fce64);
+    box-shadow: 0 12px 30px rgba(13, 250, 123, 0.52);
 }
 
 /* Secondary Button - Outlined */
@@ -592,26 +595,72 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 
 /* Secondary Light - Subtle filled */
 .btn-secondary-light {
-    background: var(--bg-secondary);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.12));
     color: var(--text);
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow:
+        0 10px 26px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px) saturate(115%);
+    -webkit-backdrop-filter: blur(12px) saturate(115%);
+}
+
+.btn-secondary-light::before {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    background: radial-gradient(120% 80% at 20% 20%, rgba(255, 255, 255, 0.4), transparent 45%);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.btn-secondary-light::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 120%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.35) 30%, transparent 60%);
+    transform: skewX(-15deg);
+    transition: left 0.4s ease;
+    pointer-events: none;
 }
 
 .btn-secondary-light:hover {
-    background: var(--bg-tertiary);
-    border-color: var(--border-strong);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.16));
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.18);
     transform: translateY(-1px);
 }
 
+.btn-secondary-light:hover::after {
+    left: 130%;
+}
+
 [data-theme="dark"] .btn-secondary-light {
-    background: rgba(255, 255, 255, 0.06);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
     color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+        0 10px 26px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 [data-theme="dark"] .btn-secondary-light:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.18);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
+    border-color: rgba(255, 255, 255, 0.28);
+    box-shadow:
+        0 14px 32px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.14);
 }
 
 /* Pill Button Variant */
@@ -669,6 +718,11 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
     padding-right: 60px;
 }
 
+.btn-pill.no-arrow {
+    padding-right: 24px;
+    padding-left: 24px;
+}
+
 .btn-pill::after {
     content: '→';
     position: absolute;
@@ -688,6 +742,10 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
         0 1px 2px rgba(255, 255, 255, 0.2) inset,
         0 4px 12px rgba(0, 0, 0, 0.3),
         0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.btn-pill.no-arrow::after {
+    display: none;
 }
 
 .btn-pill:hover::after {
@@ -1260,6 +1318,7 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
     border-color: #ffffff;
     color: var(--text);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    padding-right: 60px;
 }
 
 .project-check:hover {
@@ -1675,6 +1734,17 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
     cursor: pointer;
     transition: all 0.2s ease;
     text-decoration: none;
+}
+
+/* Use glass secondary-light styling in dark contact background */
+.contact-section .btn-secondary-light {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.32);
+}
+
+.contact-section .btn-secondary-light:hover {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.45);
 }
 
 .contact-form .btn-secondary svg {
@@ -2117,37 +2187,18 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 
 .work-page .project-check {
     position: static;
-    width: 100%;
-    text-align: center;
+    width: auto;
+    text-align: inherit;
     background: #ffffff;
     color: #0a0a0a;
     border-color: var(--border-strong);
-    padding-right: 20px; /* Override btn-pill padding */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-2);
-}
-
-.work-page .project-check::after {
-    position: static;
-    transform: none;
-    width: 28px;
-    height: 28px;
-    font-size: 14px;
-    flex-shrink: 0;
+    padding-right: 60px;
 }
 
 .work-page .project-check:hover {
     background: #0a0a0a;
     color: #ffffff;
     border-color: #0a0a0a;
-}
-
-.work-page .project-check:hover::after {
-    transform: none;
-    background: #ffffff;
-    color: #0a0a0a;
 }
 
 [data-theme="dark"] .work-page .project-check {
@@ -2160,11 +2211,6 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
     background: #0a0a0a;
     color: #ffffff;
     border-color: #0a0a0a;
-}
-
-[data-theme="dark"] .work-page .project-check:hover::after {
-    background: #ffffff;
-    color: #0a0a0a;
 }
 
 /* Disabled project button */
@@ -2605,7 +2651,8 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
         margin: 0 var(--space-5) var(--space-3) var(--space-3);
         width: auto;
         max-width: calc(100% - (var(--space-3) + var(--space-5)));
-        padding: 12px 20px;
+        padding: 12px 24px;
+        padding-right: 48px;
         justify-content: center;
         text-align: center;
         align-self: flex-start;

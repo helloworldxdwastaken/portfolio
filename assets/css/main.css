@@ -185,11 +185,11 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 .container {
     max-width: var(--maxw);
     margin: 0 auto;
-    padding: 0 var(--space-4);
+    padding: 0 var(--space-3);
 }
 
 .section {
-    padding: var(--space-7) var(--space-4);
+    padding: var(--space-7) var(--space-3);
     position: relative;
 }
 
@@ -779,7 +779,7 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: calc(80px + var(--space-6)) var(--space-4) var(--space-6);
+    padding: calc(80px + var(--space-6)) var(--space-3) var(--space-6);
     overflow: hidden;
 }
 
@@ -1171,7 +1171,7 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 .section-head {
     max-width: var(--maxw);
     margin: 0 auto var(--space-6);
-    padding: 0 var(--space-4);
+    padding: 0 var(--space-3);
 }
 
 .section-head h2 {
@@ -1383,7 +1383,7 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 .services-grid {
     max-width: var(--maxw);
     margin: 0 auto;
-    padding: 0 var(--space-4);
+    padding: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-4);
@@ -1479,7 +1479,7 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 .testi-carousel {
     max-width: calc(var(--maxw) + 200px);
     margin: 0 auto;
-    padding: 0 var(--space-4);
+    padding: 0 var(--space-3);
     overflow: hidden;
 }
 
@@ -1564,13 +1564,14 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 
 /* ---------- Contact Section ---------- */
 .contact-section {
-    padding: var(--space-8) var(--space-5);
+    padding: 0 !important;
     background: var(--bg);
 }
 
 .contact-container {
     max-width: var(--maxw);
-    margin: 0 auto;
+    margin: var(--space-6) auto;
+    padding: 0;
     border-radius: 32px;
     position: relative;
     overflow: hidden;
@@ -1593,14 +1594,14 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 }
 
 .contact-wrap {
-    padding: var(--space-8) var(--space-6);
+    padding: var(--space-6) var(--space-6);
     position: relative;
     z-index: 1;
 }
 
 .contact-header {
-    text-align: center;
-    margin-bottom: var(--space-7);
+    text-align: left;
+    margin-bottom: var(--space-6);
 }
 
 .contact-title {
@@ -1621,10 +1622,17 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
     grid-template-columns: 1fr 1.2fr;
     gap: var(--space-7);
     align-items: start;
+    width: 100%;
+}
+
+.contact-left {
+    display: grid;
+    gap: var(--space-6);
+    align-content: start;
 }
 
 .contact-copy {
-    padding-top: var(--space-4);
+    padding-top: 0;
 }
 
 .contact-copy p {
@@ -1672,6 +1680,8 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
     box-shadow: 
         0 8px 32px rgba(0, 0, 0, 0.2),
         inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    align-self: start;
+    width: 100%;
 }
 
 /* Contact Form Fields */
@@ -1799,14 +1809,45 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 }
 
 @media (max-width: 900px) {
+    .contact-container {
+        margin: var(--space-5) var(--space-3);
+    }
+    
+    .contact-wrap {
+        padding: var(--space-5) var(--space-3);
+    }
+    
     .contact-grid {
         grid-template-columns: 1fr;
-        gap: var(--space-5);
+        gap: var(--space-6);
+    }
+    
+    .contact-left {
+        gap: var(--space-4);
+    }
+    
+    .contact-header {
+        text-align: left;
+        margin-bottom: var(--space-4);
+    }
+    
+    .contact-title {
+        font-size: clamp(32px, 8vw, 56px);
+        margin-bottom: var(--space-2);
+    }
+    
+    .contact-subtitle {
+        font-size: 16px;
     }
     
     .contact-copy {
-        text-align: center;
+        text-align: left;
         padding-top: 0;
+    }
+    
+    .contact-copy p {
+        font-size: 16px;
+        margin-bottom: var(--space-4);
     }
     
     .contact-highlights {
@@ -1907,7 +1948,7 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 /* ---------- Footer ---------- */
 .site-footer {
     background: var(--bg-secondary);
-    padding: var(--space-7) var(--space-4) var(--space-5);
+    padding: var(--space-7) var(--space-3) var(--space-5);
     position: relative;
     overflow: hidden;
 }
@@ -1915,6 +1956,7 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 .footer-grid {
     max-width: var(--maxw);
     margin: 0 auto var(--space-6);
+    padding: 0 var(--space-3);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-6);
@@ -1993,7 +2035,7 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 .footer-bottom {
     max-width: var(--maxw);
     margin: 0 auto;
-    padding-top: var(--space-5);
+    padding: var(--space-5) var(--space-3) 0;
     border-top: 1px solid var(--border);
         display: flex;
     justify-content: space-between;
@@ -2119,7 +2161,7 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 .work-page .projects-grid {
     max-width: var(--maxw); 
     margin: 0 auto;
-    padding: 0 var(--space-4);
+    padding: 0 var(--space-3);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-5);
@@ -2637,7 +2679,7 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
     }
     
     .section {
-        padding: var(--space-6) 0;
+        padding: var(--space-6) var(--space-3);
     }
     
     .btn {
@@ -2686,7 +2728,7 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 .about-team-content {
     max-width: var(--maxw);
     margin: 0 auto;
-    padding: 0 var(--space-4);
+    padding: 0 var(--space-3);
 }
 
 .about-team h2 {
@@ -2841,7 +2883,7 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 .about-skills-content {
     max-width: var(--maxw);
     margin: 0 auto;
-    padding: 0 var(--space-4);
+    padding: 0 var(--space-3);
 }
 
 .about-skills h2 {
@@ -2934,15 +2976,28 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
 
 @media (max-width: 640px) {
     .section {
-        padding: var(--space-6) var(--space-4);
-    }
-
-    .contact-section {
-        padding: var(--space-6) var(--space-5);
+        padding: var(--space-6) var(--space-3);
     }
 
     .contact-container {
-        max-width: calc(100% - 2 * var(--space-4));
+        margin: var(--space-5) var(--space-3);
+        max-width: calc(100% - 2 * var(--space-3));
+    }
+    
+    .contact-wrap {
+        padding: var(--space-5) var(--space-3);
+    }
+    
+    .contact-title {
+        font-size: clamp(28px, 8vw, 48px);
+    }
+    
+    .contact-subtitle {
+        font-size: 15px;
+    }
+    
+    .contact-copy p {
+        font-size: 15px;
     }
 }
 

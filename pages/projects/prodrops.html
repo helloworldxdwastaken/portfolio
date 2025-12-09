@@ -40,19 +40,87 @@
 	    color: var(--text);
 	  }
 	  
-	  /* Navbar dark */
-	  .site-nav {
-	    background: rgba(5, 5, 7, 0.9);
-	    backdrop-filter: blur(10px);
+	  /* Navbar - ensure it uses original styles without any interference */
+	  .site-header {
+	    /* Prevent filters */
+	    filter: none !important;
+	    -webkit-filter: none !important;
+	    
+	    /* Ensure visibility */
+	    opacity: 1 !important;
+	    visibility: visible !important;
+	    display: block !important;
+	    
+	    /* Backdrop blur only */
+	    backdrop-filter: blur(12px) !important;
+	    -webkit-backdrop-filter: blur(12px) !important;
+	    
+	    /* Prevent transforms from GSAP or other scripts */
+	    transform: translateX(-50%) !important;
+	    will-change: auto !important;
+	    
+	    /* Ensure z-index */
+	    z-index: 1000 !important;
+	    
+	    /* Original light theme background and border - override dark theme */
+	    background: rgba(255, 255, 255, 0.85) !important;
+	    border: 1px solid rgba(0, 0, 0, 0.06) !important;
+	    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
 	  }
 	  
-	  .site-nav .logo,
-	  .nav-links a {
-	    color: #ffffff;
+	  /* Prevent any filters from affecting navbar children */
+	  .site-header *,
+	  .site-header *::before,
+	  .site-header *::after {
+	    filter: none !important;
+	    -webkit-filter: none !important;
 	  }
 	  
-	  .nav-links a:hover {
-	    color: #0DFA7B;
+	  /* Ensure navbar children don't inherit transforms */
+	  .site-header .nav-shell,
+	  .site-header .nav,
+	  .site-header .logo,
+	  .site-header .nav-menu,
+	  .site-header .nav-cta {
+	    transform: none !important;
+	    filter: none !important;
+	  }
+	  
+	  
+	  /* Prevent GSAP from modifying navbar */
+	  .site-header.scrolled {
+	    transform: translateX(-50%) !important;
+	    filter: none !important;
+	    background: rgba(255, 255, 255, 0.95) !important;
+	    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08) !important;
+	  }
+	  
+	  /* Ensure navbar text is dark for light background - override CSS variables */
+	  .site-header .logo span:first-child {
+	    color: #0a0a0a !important;
+	  }
+	  
+	  .site-header .logo span:last-child {
+	    color: #666666 !important;
+	  }
+	  
+	  .site-header .nav-menu a:not(.btn) {
+	    color: #666666 !important;
+	  }
+	  
+	  .site-header .nav-menu a:not(.btn):hover,
+	  .site-header .nav-menu a:not(.btn).is-active {
+	    color: #0a0a0a !important;
+	  }
+	  
+	  /* Ensure button text is correct */
+	  .site-header .btn-primary {
+	    color: #0a0a0a !important;
+	  }
+	  
+	  /* Nav toggle button (hamburger menu) */
+	  .site-header .nav-toggle span {
+	    background-color: #0a0a0a !important;
 	  }
 	  
 	  /* Footer dark */
@@ -193,11 +261,6 @@
 	    transform-origin: center center;
 	  }
 	  
-	  /* Ensure navbar is always visible - prevent GSAP from hiding */
-	  .site-header {
-	    opacity: 1 !important;
-	    visibility: visible !important;
-	  }
 	  
 	  /* Mobile responsiveness */
 	  @media (max-width: 768px) {
@@ -780,7 +843,7 @@
 				<p style="color: var(--muted); font-size: 18px; margin: 0 0 var(--space-5);">Interested in creating a bold digital experience for your product? Let's talk about your project.</p>
 				<div style="display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap;">
 				<a href="/#contact" class="btn btn-primary">Start a Project</a>
-					<a href="/work" class="btn btn-secondary">View More Work</a>
+					<a href="/work" class="btn btn-secondary btn-pill">View More Work</a>
 				</div>
 			</div>
 		</section>
@@ -958,6 +1021,26 @@
     
     console.log('✅ Parallax optimized and ready!');
   })();
+  </script>
+  
+  <script>
+    // Prevent GSAP from animating navbar on Prodrops page
+    (function() {
+      if (typeof gsap !== 'undefined') {
+        // Kill any existing animations on navbar
+        gsap.killTweensOf('.site-header');
+        
+        // Prevent future animations by setting explicit styles
+        const header = document.querySelector('.site-header');
+        if (header) {
+          gsap.set(header, { clearProps: 'all' });
+          header.style.setProperty('transform', 'translateX(-50%)', 'important');
+          header.style.setProperty('filter', 'none', 'important');
+          header.style.setProperty('opacity', '1', 'important');
+          header.style.setProperty('visibility', 'visible', 'important');
+        }
+      }
+    })();
   </script>
   
   <script>

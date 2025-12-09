@@ -2182,6 +2182,13 @@ h3 { font-size: clamp(24px, 3vw, 40px); }
     aspect-ratio: 4/3;
     position: relative;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    cursor: pointer;
+}
+
+.work-page a.project-card {
+    text-decoration: none;
+    color: inherit;
 }
 
 .work-page .project-card:hover {

@@ -87,6 +87,7 @@
 					<li><a href="/work">Work</a></li>
 					<li><a href="/#services">Services</a></li>
 					<li><a href="/about">About</a></li>
+					<li><a href="/blog">Blog</a></li>
 					<li><a href="/#testimonials">Clients</a></li>
 					<li class="nav-menu-cta"><a href="/#contact" class="btn btn-primary">Start a Project</a></li>
 				</ul>
@@ -529,14 +530,31 @@
 							<label for="name">Name</label>
 							<input type="text" id="name" name="name" placeholder="Your name" required />
 						</div>
+						
 						<div class="form-row">
 							<label for="email">Email</label>
 							<input type="email" id="email" name="email" placeholder="your@email.com" required />
 						</div>
+						
+						<div class="form-row">
+							<label for="project-type">Project Type</label>
+							<select id="project-type" name="project_type" required>
+								<option value="">Select project type</option>
+								<option value="web-design">Web Design</option>
+								<option value="mobile-app">Mobile App Design</option>
+								<option value="ui-ux">UI/UX Design</option>
+								<option value="branding">Branding & Identity</option>
+								<option value="motion-graphics">Motion Graphics</option>
+								<option value="design-system">Design System</option>
+								<option value="other">Other</option>
+							</select>
+						</div>
+						
 						<div class="form-row">
 							<label for="message">Project details</label>
-							<textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
+							<textarea id="message" name="message" placeholder="Tell me about your project, timeline, goals, and any constraints..." required></textarea>
 						</div>
+						
 						<div class="form-actions">
 							<a href="https://cal.com/enmanuel-yasell-fwxuce/30min" target="_blank" class="btn btn-secondary-light">
 								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
@@ -565,6 +583,7 @@
 					<li><a href="/work">Work</a></li>
 					<li><a href="/#services">Services</a></li>
 					<li><a href="/about">About</a></li>
+					<li><a href="/blog">Blog</a></li>
 				</ul>
 			</div>
 			<div class="footer-col">

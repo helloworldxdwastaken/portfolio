@@ -1,70 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://verox.studio/</loc>
+    <loc>https://my4rt.com/</loc>
     <lastmod>2024-12-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://verox.studio/about</loc>
+    <loc>https://my4rt.com/about</loc>
     <lastmod>2024-12-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://verox.studio/work</loc>
+    <loc>https://my4rt.com/blog</loc>
+    <lastmod>2025-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://my4rt.com/work</loc>
     <lastmod>2024-12-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://verox.studio/projects/prodrops</loc>
+    <loc>https://my4rt.com/projects/prodrops</loc>
     <lastmod>2024-12-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://verox.studio/projects/ephoca</loc>
+    <loc>https://my4rt.com/projects/ephoca</loc>
     <lastmod>2024-12-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://verox.studio/projects/betterhomepage</loc>
+    <loc>https://my4rt.com/projects/betterhomepage</loc>
     <lastmod>2024-12-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://verox.studio/projects/noxa-music</loc>
+    <loc>https://my4rt.com/projects/noxa-music</loc>
     <lastmod>2024-12-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://verox.studio/projects/rootwise</loc>
+    <loc>https://my4rt.com/projects/rootwise</loc>
     <lastmod>2024-12-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://verox.studio/projects/stolen-bikes</loc>
+    <loc>https://my4rt.com/projects/stolen-bikes</loc>
     <lastmod>2024-12-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://verox.studio/terms-of-service</loc>
+    <loc>https://my4rt.com/terms-of-service</loc>
     <lastmod>2024-12-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://verox.studio/legal-notice</loc>
+    <loc>https://my4rt.com/legal-notice</loc>
     <lastmod>2024-12-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 </urlset>
-
